@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Nimiq Wallet</title>
+    <!-- PWA Configs -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="shortcut icon" href="pwa/icons/favicon.ico">
+    <!-- Android -->
+    <meta name="theme-color" content="#536DFE">
+    <link rel="manifest" href="pwa/manifest.json">
+    <!-- iOS ( See: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html ) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="pwa/icons/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="pwa/icons/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="pwa/icons/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="pwa/icons/touch-icon-ipad-retina.png">
+    <link rel="apple-touch-startup-image" href="/pwa/icons/icon-512x512.png">
+    <!-- Windows 10 -->
+</head>
+
+<body class="state-loading">
+    <header>
+        <nimiq-logo></nimiq-logo>
+    </header>
+    <x-app>
+        <main>
+            <view-home id="home">
+                <x-identicon></x-identicon>
+                <x-amount>
+                    <x-currency-1></x-currency-1>
+                    <x-currency-2></x-currency-2>
+                </x-amount>
+            </view-home>
+            <view-receive id="receive">
+                <x-header>
+                    <x-share-button></x-share-button>
+                </x-header>
+                <x-nimiqode></x-nimiqode>
+                <x-address></x-address>
+            </view-receive>
+            <view-send id="send">
+                <x-qr-scanner>
+                    <x-header>
+                        <a href="#transaction" icon-back></a>
+                    </x-header>
+                    <x-camera>
+                        <video muted autoplay playsinline></video>
+                        <canvas width="320" height="320" id="qr-canvas"></canvas>
+                    </x-camera>
+                </x-qr-scanner>
+            </view-send>
+            <view-permission id="permission">
+                <h1>Scan Identicons</h1>
+                <h2>Grant access to your camera to continue.</h2>
+                <x-permisson-bg></x-permisson-bg>
+            </view-permission>
+            <view-transaction id="transaction">
+                <x-header>
+                    <a href="#send" icon-back></a>
+                </x-header>
+                <x-container>
+                    <x-receiver>
+                        <x-identicon></x-identicon>
+                        <x-address></x-address>
+                    </x-receiver>
+                    <x-amount-input>
+                        <x-currency-1>
+                            <input placeholder="00.00" type="number">
+                        </x-currency-1>
+                        <x-currency-2></x-currency-2>
+                    </x-amount-input>
+                    <x-numpad>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                        <button>.</button>
+                        <button>0</button>
+                        <button>&lt;</button>
+                    </x-numpad>
+                    <a href="#confirm" button>Next</a>
+                </x-container>
+            </view-transaction>
+            <view-confirm id="confirm">
+                <x-header>
+                    <a href="#transaction" icon-back></a>
+                </x-header>
+                <x-text>
+                    <p>Transaction Fee:<b> 0.01 NIM <a href="#fees">Adjust</a></b></p>
+                    <x-time-estimate>20 Seconds</x-time-estimate>
+                </x-text>
+                <a href="#loading" button>Confirm</a>
+            </view-confirm>
+            <view-fees id="fees">
+                <x-amount>
+                    <x-currency-1></x-currency-1>
+                    <x-currency-2></x-currency-2>
+                </x-amount>
+                <input type="range">
+                <x-time-estimate>20 Seconds</x-time-estimate>
+                <a href="#confirm" button>Done</a>
+            </view-fees>
+            <view-success id="success">
+                <h1>Your Nimiq has been successfully sent</h1>
+                <x-time-estimate>20 Seconds</x-time-estimate>
+            </view-success>
+            <view-loading></view-loading>
+            <noscript></noscript>
+        </main>
+        <nav>
+            <x-nav-box>
+                <a href="#receive" tabindex="1">Receive</a>
+                <a href="#home">Home</a>
+                <a href="#send">Send</a>
+            </x-nav-box>
+        </nav>
+    </x-app>
+    <imports>
+        <!-- Elements -->
+        <link rel="stylesheet" type="text/css" href="elements/app/app.css">
+        <link rel="stylesheet" type="text/css" href="elements/typography/typography.css">
+        <link rel="stylesheet" type="text/css" href="/identicon/src/identicon.css">
+        <link rel="stylesheet" type="text/css" href="elements/navigation/navigation.css">
+        <link rel="stylesheet" type="text/css" href="elements/inputs/inputs.css">
+        <link rel="stylesheet" type="text/css" href="elements/amount/amount.css">
+        <link rel="stylesheet" type="text/css" href="elements/camera/camera.css">
+        <link rel="stylesheet" type="text/css" href="elements/numpad/numpad.css">
+        <link rel="stylesheet" type="text/css" href="elements/share-button/share-button.css">
+        <link rel="stylesheet" type="text/css" href="elements/nimiqode/nimiqode.css">
+        <link rel="stylesheet" type="text/css" href="elements/time-estimate/time-estimate.css">
+        <link rel="stylesheet" type="text/css" href="elements/icons/icons.css">
+        <link rel="stylesheet" type="text/css" href="elements/noscript/noscript.css">
+        <!-- Views -->
+        <link rel="stylesheet" type="text/css" href="elements/view-home/home.css">
+        <link rel="stylesheet" type="text/css" href="elements/view-send/send.css">
+        <link rel="stylesheet" type="text/css" href="elements/view-receive/receive.css">
+        <link rel="stylesheet" type="text/css" href="elements/view-permission/permission.css">
+        <link rel="stylesheet" type="text/css" href="elements/view-transaction/transaction.css">
+        <link rel="stylesheet" type="text/css" href="elements/view-fees/fees.css">
+        <link rel="stylesheet" type="text/css" href="elements/view-confirm/confirm.css">
+        <link rel="stylesheet" type="text/css" href="elements/view-success/success.css">
+        <link rel="stylesheet" type="text/css" href="elements/view-loading/loading.css">
+        <!-- Libs -->
+        <script src="/x-element/x-element.js"></script>
+        <script src="/x-element/x-router.js"></script>
+
+        <script src="/robohash/dist/robohash.min.js"></script>
+        <script src="/identicon/src/identicon-factory.js"></script>
+        <script src="/identicon/src/identicon.js"></script>
+
+        <script src="/qr-code/qr-code.js"></script>
+        <script src="/qr-scanner/jsqrcode.min.js"></script>
+        <script src="/qr-scanner/qr-scanner.js"></script>
+        <script src="/web-share-shim/dist/web-share-shim.min.js"></script>
+
+        <!-- Views -->
+        <script src="elements/amount/amount.js"></script>
+        <script src="elements/nimiqode/nimiqode.js"></script>
+        <script src="elements/numpad/numpad.js"></script>
+        <script src="elements/view-home/home.js"></script>
+        <script src="elements/view-send/send.js"></script>
+        <script src="elements/view-receive/receive.js"></script>
+        <script src="elements/view-transaction/transaction.js"></script>
+        <script src="elements/view-fees/fees.js"></script>
+        <script src="elements/view-confirm/confirm.js"></script>
+        <script src="elements/app/app.js" async></script>
+        <!-- <script src="pwa/service-worker/service-worker-register.js" async></script> -->
+    </imports>
+</body>
+
+</html>

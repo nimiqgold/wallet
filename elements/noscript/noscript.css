@@ -1,0 +1,9 @@
+noscript {
+    background-color: var(--primary-color);
+    z-index: 2;
+    opacity: 1 !important;
+}
+
+noscript:before {
+	content: 'Enable Javascript';
+}

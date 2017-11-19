@@ -1,0 +1,123 @@
+nav {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    background: white;
+}
+
+x-nav-box {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 20px 0 16px;
+    box-sizing: border-box;
+}
+
+nav a {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    color: var(--primary-color);
+    letter-spacing: 0.12em;
+    /* font-weight: bold; */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    content: 'Receive';
+}
+
+/* Icons */
+
+nav a:after {
+    content: '';
+    height: 56px;
+    width: 56px;
+    display: block;
+    margin-bottom: 8px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1.2px solid var(--primary-color);
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+nav a[href="#receive"]:after {
+    background-image: url('data:image/svg+xml,<svg fill="#5563ED" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+}
+
+nav a[href="#home"]:after {
+    background-image: url('data:image/svg+xml,<svg fill="#536DFE" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+}
+
+nav a[href="#send"]:after {
+    background-image: url('data:image/svg+xml,<svg fill="#536DFE" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>');
+}
+
+
+
+
+/* Animate Selected */
+
+nav a:after {
+    transform-origin: center bottom;
+    transition: transform 500ms;
+}
+
+.state-home nav a[href="#home"]:after,
+.state-send nav a[href="#send"]:after,
+.state-receive nav a[href="#receive"]:after {
+    transform: scale(1.3);
+}
+
+
+/* Bumps */
+
+nav a:before {
+    content: '';
+    width: 304px;
+    height: 34px;
+    position: absolute;
+    top: -54px;
+    left: 50%;
+    margin-left: -152px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><path d="M338 15.5V34H-37V15.5 34H0C66.6 34 90.5 0 150.5 0s85.8 34 154 34H338V15.5z" fill="#fff"/></svg>');
+    transform: scaleY(0);
+    transition: transform 500ms;
+    transform-origin: center bottom;
+    will-change: transform;
+    border-bottom: 1px solid white;
+}
+
+.state-home nav a[href="#home"]:before,
+.state-send nav a[href="#send"]:before,
+.state-receive nav a[href="#receive"]:before {
+    transform: scaleY(1);
+}
+
+
+/* Hide Navigation if not (home|send|receive) */
+
+nav {
+    transition: transform 300ms;
+    will-change: transform;
+    transform-origin: center bottom;
+}
+
+body:not(.state-home):not(.state-send):not(.state-receive) nav {
+    transform: translate(0, 200px);
+}
+
+/* Focused */
+
+nav a:focus {
+    outline: none;
+}
+
+nav a:focus:after {
+    transform: scale(1.1);
+}

@@ -1,0 +1,5 @@
+.state-home view-home {
+    /*background: var(--primary-background);*/
+}
+
+body:not(.state-home) #home {}

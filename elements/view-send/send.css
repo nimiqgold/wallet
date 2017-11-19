@@ -1,0 +1,17 @@
+view-send {
+    transition: opacity 300ms;
+}
+
+view-send>x-qr-scanner {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+body:not(.state-send) view-send x-camera {
+    transform: scale(0.9);
+}
+
+.state-send view-send {
+    opacity: 1;
+}

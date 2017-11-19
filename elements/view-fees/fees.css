@@ -1,0 +1,39 @@
+view-fees{
+     padding-top: 160px;
+}
+
+view-fees input {
+    position: relative;
+    padding-bottom: 48px;
+    margin-bottom: 8px;
+}
+
+view-fees input:before,
+view-fees input:after {
+    position: absolute;
+    color: white;
+    bottom: 0px;
+}
+
+view-fees input:before {
+    content: 'Cheaper';
+}
+
+view-fees input:after {
+    content: 'Faster';
+    right: 0;
+}
+
+view-fees x-time-estimate {
+    flex-grow: 1;
+}
+
+view-fees {
+    background: var(--primary-background);
+}
+
+/* Animations */
+
+body:not(.state-fees) view-fees{
+    transform: translate(0, -32px);
+}

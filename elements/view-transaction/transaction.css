@@ -1,0 +1,131 @@
+view-transaction x-header {
+}
+
+view-transaction x-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+x-receiver {
+    display: block;
+    height: 96px;
+    text-align: center;
+}
+
+x-receiver x-identicon {
+    display: inline-block;
+    transform-origin: center bottom;
+    margin-bottom: 8px;
+    transform: scale(0.39);
+    margin-top: -103px;
+}
+
+
+view-transaction x-amount-input {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+view-transaction x-address {
+    display: block;
+    font-size: 12px;
+}
+
+
+
+/* Animations */
+
+.state-transaction x-container {
+    animation: slideup 2s;
+    will-change: transform;
+}
+
+@keyframes slideup {
+    0% {
+        transform: translateY(calc(50% - 85px));
+    }
+
+    50% {
+        transform: translateY(calc(50% - 85px));
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.state-transaction x-receiver x-identicon {
+    animation: identicon 1.3s;
+    will-change: transform;
+}
+
+@keyframes identicon {
+    0% {
+        transform: scale(0.1);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    76% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.39);
+    }
+}
+
+.state-transaction view-transaction x-amount-input,
+.state-transaction view-transaction x-numpad,
+.state-transaction view-transaction a {
+    animation: transactionFadeIn 2s;
+    will-change: opacity;
+}
+
+@keyframes transactionFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+/* Responsiveness */
+
+view-transaction x-container,
+view-confirm,
+view-fees,
+view-success {
+    padding: 24px 0 16px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 420px) {
+
+    view-transaction x-container,
+    view-confirm,
+    view-fees,
+    view-success {
+        padding: 88px;
+    }
+
+    view-transaction x-amount-input {
+        /* justify-content: flex-start; */
+        padding-top: 0;
+    }
+}

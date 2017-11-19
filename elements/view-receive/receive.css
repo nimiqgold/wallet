@@ -1,0 +1,38 @@
+.state-receive view-home {
+    opacity: 1 !important;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.state-receive view-home x-amount {
+    transform: scale(0.6);
+    opacity: 0;
+}
+
+.state-receive view-home x-identicon {
+    transform: scale(0.5);
+}
+
+view-receive {
+    background-position: center calc(50% - 88px);
+    background-repeat: no-repeat;
+    background-size: 800px 800px;
+    transition: transform 500ms,
+    opacity 300ms ;
+}
+
+view-receive x-address {
+    position: absolute;
+    bottom: 180px;
+}
+
+view-receive x-nimiqode {
+    transition: transform 500ms, opacity 500ms;
+    transform: scale(0.8);
+    will-change: transform, opacity;
+}
+
+body:not(.state-receive) view-receive x-nimiqode {
+    transform: scale(0.3) rotate(45deg);
+}
+
