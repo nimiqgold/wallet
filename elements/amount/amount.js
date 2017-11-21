@@ -34,5 +34,6 @@ class AmountInput extends Amount {
 
     set _currency1(value) {
         this.$input.value = value || '';
+        this.fire('x-change', value);
     }
 }

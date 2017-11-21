@@ -6,17 +6,13 @@ class ViewSend extends XElement {
             app.recipient = decoded;
             location = '#transaction';
         });
+    }
 
-        // const video = this.$('video');
-        // navigator.mediaDevices.enumerateDevices()
-        //     .then(function(devices) {
-        //         devices.forEach(function(device) {
-        //             console.log(device.kind + ": " + device.label +
-        //                 " id = " + device.deviceId);
-        //         });
-        //     })
-        // navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-        //     .then(stream => video.srcObject = stream)
-        //     .catch(console.error);
+    onShow(){
+        this.$qrScanner.active = true;
+    }
+
+    onHide(){
+        this.$qrScanner.active = false;
     }
 }

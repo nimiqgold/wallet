@@ -36,6 +36,7 @@ x-currency-2:after {
 
 x-currency-1:after {
     content: 'NIM';
+    margin-right: -24px;
 }
 
 x-currency-2:after {

@@ -5,10 +5,26 @@ class ViewTransaction extends XElement {
         this.$numpad.$el.addEventListener('x-change', (e) => {
             this.$amountInput.value = e.detail;
         });
+        this.$amountInput.$el.addEventListener('x-change', (e) => {
+            if (e.detail) {
+                this.$('[button]').removeAttribute('disabled');
+            } else {
+                this.$('[button]').setAttribute('disabled', 1);
+            }
+        })
+    }
+
+    set value(value) {
+        this.$amountInput.value = value;
+        this.$numpad.value = value;
     }
 
     set recipient(address) {
         this.$identicon.address = address;
         this.$('x-address').textContent = address;
+    }
+
+    onShow() {
+        this.value = 0;
     }
 }

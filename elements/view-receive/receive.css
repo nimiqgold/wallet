@@ -27,12 +27,12 @@ view-receive x-address {
 }
 
 view-receive x-nimiqode {
-    transition: transform 500ms, opacity 500ms;
-    transform: scale(0.8);
+    transition: transform 500ms, opacity 300ms;
+    transform: scale(0.8) rotate(45deg);
     will-change: transform, opacity;
 }
 
 body:not(.state-receive) view-receive x-nimiqode {
-    transform: scale(0.3) rotate(45deg);
+    transform: scale(0.3);
 }
 

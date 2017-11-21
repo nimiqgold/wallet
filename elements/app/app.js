@@ -1,4 +1,4 @@
-class App extends XElement {
+class App extends XApp {
 
     children() { return [ViewHome, ViewSend, ViewReceive, ViewTransaction, ViewFees, ViewConfirm] }
 
