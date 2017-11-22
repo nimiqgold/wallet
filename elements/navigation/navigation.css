@@ -109,7 +109,7 @@ nav {
 }
 
 body:not(.state-home):not(.state-send):not(.state-receive) nav {
-    transform: translate(0, 200px);
+    transform: translate(0, 270px);
 }
 
 /* Focused */

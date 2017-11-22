@@ -12,6 +12,9 @@ class ViewTransaction extends XElement {
                 this.$('[button]').setAttribute('disabled', 1);
             }
         })
+        this.$amountInput.$el.addEventListener('x-enter', (e) => {
+            location = '#confirm';
+        })
     }
 
     set value(value) {
@@ -26,5 +29,6 @@ class ViewTransaction extends XElement {
 
     onShow() {
         this.value = 0;
+        this.$amountInput.focus();
     }
 }

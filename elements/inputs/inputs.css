@@ -1,34 +1,39 @@
 /* suttons */
-button, [button]{
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  height: 56px;
-  width: 320px;
-  border-radius: 28px;
-  padding: 0 24px;
-  vertical-align: middle;
-  display: table-cell;
-  text-align: center;
-  background: white;
-  color: var(--primary-color);
-  cursor: pointer;
-  user-select: none;
-  box-shadow: rgba(0, 0, 0, 0.5) 0 2px 4px;
-  box-sizing: border-box;
-  outline: none;
-  border:none;
-  line-height: 53px;
+
+button,
+[button] {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    height: 56px;
+    max-width: 320px;
+    border-radius: 28px;
+    padding: 0 24px;
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+    background: white;
+    color: var(--primary-color);
+    cursor: pointer;
+    user-select: none;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 2px 4px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    line-height: 53px;
+    width: calc(100% - 32px);
 }
 
-button[disabled], [button][disabled]{
-  background: transparent;
-  box-shadow: none;
-  color: white;
-  border: 1px solid rgba(255,255,255,0.31);
-  pointer-events: none;
+button[disabled],
+[button][disabled] {
+    background: transparent;
+    box-shadow: none;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.31);
+    pointer-events: none;
 }
+
 
 /* Text Inputs */
 
@@ -87,8 +92,9 @@ input[type="number"]::placeholder {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0; 
+    margin: 0;
 }
+
 
 /* Range Slider */
 
@@ -115,7 +121,7 @@ input[type=range]::-webkit-slider-runnable-track {
     border: none;
 }
 
-input[type=range]::-moz-range-thumb{
+input[type=range]::-moz-range-thumb {
     box-shadow: rgba(0, 0, 0, 0.5) 0 2px 4px;
     border: none;
     height: 24px;
@@ -129,8 +135,8 @@ input[type=range]::-moz-range-thumb{
 }
 
 
-input[type=range]::-webkit-slider-thumb, ::-ms-thumb{
-      box-shadow: rgba(0, 0, 0, 0.5) 0 2px 4px;
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: rgba(0, 0, 0, 0.5) 0 2px 4px;
     border: none;
     height: 24px;
     width: 24px;
@@ -140,13 +146,25 @@ input[type=range]::-webkit-slider-thumb, ::-ms-thumb{
     -webkit-appearance: none;
     margin-top: -11px;
     box-sizing: border-box;
-} 
+}
+
+input[type=range]::-ms-thumb {
+    box-shadow: rgba(0, 0, 0, 0.5) 0 2px 4px;
+    border: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    margin-top: -11px;
+    box-sizing: border-box;
+}
 
 input[type=range]::-moz-range-progress {
     background: white;
-
 }
 
 input[type=range]:focus {
-  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+    outline: none;
+    /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }

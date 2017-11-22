@@ -22,7 +22,7 @@ addEventListener('load', () => {
 });
 
 function dummyUsage(app) {
-    app.address = ((Math.random() + '')[5]) + '2BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2';
+    app.address =  'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQ' +((Math.random() + '')[5]);
     app.balance = 3.14;
-    app.recipient = '2AvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2';
+    app.recipient = 'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQT';
 }

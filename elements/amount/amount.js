@@ -25,15 +25,23 @@ class AmountInput extends Amount {
     onCreate() {
         this.$input = this.$('input');
         this.$input.addEventListener('change', (e) => this._valueChanged());
-        this.$input.addEventListener('keyup', (e) => this._valueChanged());
+        this.$input.addEventListener('keyup', (e) => this._valueChanged(e));
     }
 
-    _valueChanged() {
+    _valueChanged(e) {
+        if (e && e.keyCode === 13)
+            return this.fire('x-enter');
         this.value = this.$input.value;
     }
 
     set _currency1(value) {
         this.$input.value = value || '';
         this.fire('x-change', value);
+    }
+
+    focus() {
+        if (window.innerWidth > 420) {
+            requestAnimationFrame(_ => this.$input.focus())
+        }
     }
 }

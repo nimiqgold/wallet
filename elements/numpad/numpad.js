@@ -1,4 +1,3 @@
-
 class Numpad extends XElement {
     onCreate() {
         this.$el.addEventListener('click', (e) => {
@@ -8,6 +7,7 @@ class Numpad extends XElement {
     }
 
     _handleKey(key) {
+        console.log(key);
         switch (key) {
             case '<':
                 this._remove();
@@ -15,20 +15,38 @@ class Numpad extends XElement {
             case '.':
                 this._dot();
                 return;
+            default:
+                this._add(Number(key));
         }
-        this._add(Number(key));
+
     }
 
     _add(digit) {
-        this.value = this.value * 10 + digit;
+        if (this._decimalIndex) {
+            this.value = this.value + digit / this._decimalIndex;
+            this._decimalIndex *= 10;
+        } else {
+            this.value = this.value * 10 + digit;
+        }
     }
 
     _remove() {
-        this.value = Math.floor(this.value / 10);
+        if (this._decimalIndex) {
+            if (this._decimalIndex == 100) return this._removeDot();
+            this.value = Math.floor(this.value * (this._decimalIndex / 100)) / (this._decimalIndex / 100);
+            this._decimalIndex /= 10;
+        } else {
+            this.value = Math.floor(this.value / 10);
+        }
     }
 
     _dot() {
+        this._decimalIndex = 10;
+    }
 
+    _removeDot() {
+        this._decimalIndex = 0;
+        this.value = Math.round(this.value);
     }
 
     get value() {

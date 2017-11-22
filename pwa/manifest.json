@@ -3,7 +3,7 @@
   "theme_color": "#536DFE",
   "background_color": "#536DFE",
   "display": "standalone",
-  "orientation": "portrait",
+  "orientation": "portrait-primary",
   "start_url": "/",
   "icons": [
     {

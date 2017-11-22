@@ -1,5 +1,4 @@
-view-transaction x-header {
-}
+view-transaction x-header {}
 
 view-transaction x-container {
     display: flex;
@@ -20,7 +19,7 @@ x-receiver x-identicon {
     transform-origin: center bottom;
     margin-bottom: 8px;
     transform: scale(0.39);
-    margin-top: -103px;
+    margin-top: -112px;
 }
 
 
@@ -34,7 +33,11 @@ view-transaction x-amount-input {
 view-transaction x-address {
     display: block;
     font-size: 12px;
+    margin-top: -12px;
 }
+
+
+
 
 
 
@@ -47,11 +50,11 @@ view-transaction x-address {
 
 @keyframes slideup {
     0% {
-        transform: translateY(calc(50% - 85px));
+        transform: translateY(calc(50% - 40px));
     }
 
     50% {
-        transform: translateY(calc(50% - 85px));
+        transform: translateY(calc(50% - 40px));
     }
 
     100% {
@@ -104,6 +107,11 @@ view-transaction x-address {
 }
 
 
+:not(.state-transaction) view-transaction {
+    transform: translateY(0);
+}
+
+
 
 /* Responsiveness */
 
@@ -115,6 +123,11 @@ view-success {
     box-sizing: border-box;
 }
 
+view-transaction input {
+    pointer-events: none;
+}
+
+
 @media (min-width: 420px) {
 
     view-transaction x-container,
@@ -122,10 +135,35 @@ view-success {
     view-fees,
     view-success {
         padding: 88px;
+        width: 100%;
     }
 
     view-transaction x-amount-input {
-        /* justify-content: flex-start; */
         padding-top: 0;
+    }
+
+    view-transaction input {
+        pointer-events: auto;
+    }
+
+
+    @keyframes slideup {
+        0% {
+            transform: translateY(calc(50% - 88px));
+        }
+
+        50% {
+            transform: translateY(calc(50% - 88px));
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    view-transaction x-address {
+        display: block;
+        font-size: 12px;
+        margin-top: -4px;
     }
 }
