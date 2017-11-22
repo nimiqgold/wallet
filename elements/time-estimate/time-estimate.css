@@ -1,11 +1,11 @@
 x-time-estimate {
     display: block;
     font-weight: 500;
-    padding-bottom: 24px;
+    /* padding-bottom: 24px; */
 }
 
 x-time-estimate:before {
     content: 'Estimated Processing Time:';
-    display: block;
     font-weight: normal;
+    padding-right: 4px;
 }

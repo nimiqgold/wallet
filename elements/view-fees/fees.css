@@ -1,5 +1,6 @@
-view-fees{
-     padding-top: 160px;
+view-fees {
+    padding-top: 160px;
+    background: var(--primary-background);
 }
 
 view-fees input {
@@ -26,14 +27,11 @@ view-fees input:after {
 
 view-fees x-time-estimate {
     flex-grow: 1;
-}
-
-view-fees {
-    background: var(--primary-background);
+    margin-top: 24px;
 }
 
 /* Animations */
 
-body:not(.state-fees) view-fees{
-    transform: translate(0, -32px);
+body:not(.state-fees) view-fees {
+    transform: translateX(-32px);
 }

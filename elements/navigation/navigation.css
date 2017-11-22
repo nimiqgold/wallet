@@ -47,15 +47,15 @@ nav a:after {
 }
 
 nav a[href="#receive"]:after {
-    background-image: url('data:image/svg+xml,<svg fill="#5563ED" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNTU2M0VEIiBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE5IDloLTRWM0g5djZINWw3IDcgNy03ek01IDE4djJoMTR2LTJINXoiLz48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PC9zdmc+');
 }
 
 nav a[href="#home"]:after {
-    background-image: url('data:image/svg+xml,<svg fill="#536DFE" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNTM2REZFIiBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDIwdi02aDR2Nmg1di04aDNMMTIgMyAyIDEyaDN2OHoiLz48cGF0aCBkPSJNMCAwaDI0djI0SDB6IiBmaWxsPSJub25lIi8+PC9zdmc+');
 }
 
 nav a[href="#send"]:after {
-    background-image: url('data:image/svg+xml,<svg fill="#536DFE" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNTM2REZFIiBoZWlnaHQ9IjI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik05IDE2aDZ2LTZoNGwtNy03LTcgN2g0em0tNCAyaDE0djJINXoiLz48L3N2Zz4');
 }
 
 
@@ -85,7 +85,7 @@ nav a:before {
     top: -54px;
     left: 50%;
     margin-left: -152px;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><path d="M338 15.5V34H-37V15.5 34H0C66.6 34 90.5 0 150.5 0s85.8 34 154 34H338V15.5z" fill="#fff"/></svg>');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0zMzggMTUuNVYzNEgtMzdWMTUuNSAzNEgwQzY2LjYgMzQgOTAuNSAwIDE1MC41IDBzODUuOCAzNCAxNTQgMzRIMzM4VjE1LjV6IiBmaWxsPSIjZmZmIi8+PC9zdmc+');
     transform: scaleY(0);
     transition: transform 500ms;
     transform-origin: center bottom;
@@ -100,7 +100,7 @@ nav a:before {
 }
 
 
-/* Hide Navigation if not (home|send|receive) */
+/* Hide Navigation if not state = (home|send|receive) */
 
 nav {
     transition: transform 300ms;

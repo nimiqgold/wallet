@@ -9,7 +9,23 @@ view-confirm x-text {
     justify-content: flex-end;
 }
 
+x-fees {
+    display: block;
+    padding-bottom: 8px;
+    font-weight: bold;
+}
 
+x-fees:before {
+    content: 'Processing Fees:';
+    /* display: block; */
+    font-weight: normal;
+    padding-right: 4px;
+}
+
+view-confirm x-text a{
+    padding: 16px 0 32px;
+    text-decoration: underline;
+}
 /* Animations */
 
 body:not(.state-confirm) view-confirm {
@@ -21,7 +37,7 @@ body:not(.state-confirm) view-confirm {
 }
 
 view-transaction x-numpad,
-view-transaction a{
+view-transaction a {
     transition: transform 500ms, opacity 300ms;
 }
 
@@ -31,7 +47,26 @@ view-transaction a{
     transform: translateX(-120px);
 }
 
-.state-confirm view-transaction x-amount-input{
-	/*transform: translateY(-40px);*/
-	transform-origin: center top;
+.state-confirm view-transaction x-amount-input {
+    /*transform: translateY(-40px);*/
+    transform-origin: center top;
+}
+
+
+@media (max-width: 420px) {
+
+    .state-confirm view-transaction {
+        transform: translateY(100px);
+    }
+
+    view-confirm x-text {
+        padding-bottom: 48px;
+    }
+}
+
+@media (min-width: 420px) {
+
+    .state-confirm x-amount-input {
+        transform: translateY(-48px);
+    }
 }
