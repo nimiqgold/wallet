@@ -10,7 +10,16 @@
 }
 
 .state-receive view-home x-identicon {
-    transform: scale(0.5);
+    transform: scale(0.6);
+    animation-delay: 1s;
+    animation: identicon-wobber 400ms infinite alternate ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes identicon-wobber {
+    0% {
+        transform: scale(0.5);
+    }
 }
 
 view-receive {
@@ -28,11 +37,11 @@ view-receive x-address {
 
 view-receive x-nimiqode {
     transition: transform 500ms, opacity 300ms;
-    transform: rotate(45deg);
+    /* transform: rotate(45deg); */
     will-change: transform, opacity;
 }
 
 body:not(.state-receive) view-receive x-nimiqode {
-    transform: scale(0.3);
+    transform: rotate(-90deg) scale(0.3);
 }
 

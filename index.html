@@ -6,15 +6,17 @@
     <title>Nimiq Wallet</title>
     <!-- PWA Configs -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="shortcut icon" href="/nano-client-ui/pwa/icons/favicon.ico">
+    <link rel="shortcut icon" href="pwa/icons/favicon.ico">
     <!-- Android -->
-    <meta name="theme-color" content="#536DFE">
-    <link rel="manifest" href="/nano-client-ui/pwa/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#536dfe">
+    <link rel="manifest" href="pwa/manifest.json">
+    <link rel="icon" sizes="192x192" href="pwa/icons/icon-192x192.png">
     <!-- iOS ( See: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html ) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
-    <link rel="apple-touch-icon" href="/nano-client-ui/pwa/icons/apple-touch-icon.png">
-    <link rel="apple-touch-startup-image" href="/nano-client-ui/pwa/icons/icon-512x512.png">
+    <link rel="apple-touch-icon" href="pwa/icons/apple-touch-icon.png">
+    <link rel="apple-touch-startup-image" href="pwa/icons/icon-512x512.png">
     <!-- Windows 10 -->
 </head>
 
@@ -125,7 +127,6 @@
         <!-- Elements -->
         <link rel="stylesheet" href="elements/app/app.css">
         <link rel="stylesheet" href="elements/typography/typography.css">
-        <link rel="stylesheet" href="/x-identicon/src/identicon.css">
         <link rel="stylesheet" href="elements/navigation/navigation.css">
         <link rel="stylesheet" href="elements/inputs/inputs.css">
         <link rel="stylesheet" href="elements/amount/amount.css">
@@ -149,17 +150,14 @@
         <!-- Libs -->
         <script src="/x-element/src/x-element.js"></script>
         <script src="/x-element/src/x-app.js"></script>
-
         <script src="/robohash/dist/robohash.min.js"></script>
         <script src="/x-identicon/src/identicon-factory.js"></script>
         <script src="/x-identicon/src/identicon.js"></script>
-
         <script src="/qr-code/qr-code.js"></script>
         <script src="/qr-scanner/jsqrcode.min.js"></script>
         <script src="/qr-scanner/qr-scanner.js"></script>
         <script src="/web-share-shim/dist/web-share-shim.min.js"></script>
-
-        <!-- Views -->
+        <!-- View scripts -->
         <script src="elements/amount/amount.js"></script>
         <script src="elements/nimiqode/nimiqode.js"></script>
         <script src="elements/numpad/numpad.js"></script>

@@ -32,9 +32,9 @@ class Numpad extends XElement {
 
     _remove() {
         if (this._decimalIndex) {
-            if (this._decimalIndex == 100) return this._removeDot();
-            this.value = Math.floor(this.value * (this._decimalIndex / 100)) / (this._decimalIndex / 100);
             this._decimalIndex /= 10;
+            if (this._decimalIndex == 10) this._removeDot();
+            else this.value = Math.floor(this.value * (this._decimalIndex / 10)) / (this._decimalIndex / 10);
         } else {
             this.value = Math.floor(this.value / 10);
         }

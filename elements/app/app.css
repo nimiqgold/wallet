@@ -2,7 +2,7 @@
 
 :root {
     --primary-color: #536DFE;
-    --primary-background: linear-gradient(#536DFE,#7d53fe);
+    --primary-background: linear-gradient(#536DFE, #7d53fe);
 }
 
 html,
@@ -36,7 +36,7 @@ header {
 nimiq-logo {
     width: 104px;
     height: 30px;
-    background-image: url('data:image/svg+xml,<svg fill="#F6AE2D" xmlns="http://www.w3.org/2000/svg" width="34" height="30"><path d="M25.2 1H8.8l-8 14 8 14h16.4l8-14-8-14zm-6.7 22v3H16v-2.6c-1.5 0-3.3-.8-4.5-2l1.7-2.4c1.3 1 2.4 1.5 3.6 1.5 1.4 0 2-.6 2-1.7 0-2.6-6.7-2.6-6.7-7 0-2.6 2-4.3 4-4.8V4.2h3v2.6c1.8.2 3 1 4 2L21 11c-1-1-1.7-1.3-2.8-1.3-1.2 0-2 .5-2 1.6 0 2.4 7 2.2 7 7 0 2.4-1.5 4.3-4 4.8z"/></svg>');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRjZBRTJEIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNCIgaGVpZ2h0PSIzMCI+PHBhdGggZD0iTTI1LjIgMUg4LjhsLTggMTQgOCAxNGgxNi40bDgtMTQtOC0xNHptLTYuNyAyMnYzSDE2di0yLjZjLTEuNSAwLTMuMy0uOC00LjUtMmwxLjctMi40YzEuMyAxIDIuNCAxLjUgMy42IDEuNSAxLjQgMCAyLS42IDItMS43IDAtMi42LTYuNy0yLjYtNi43LTcgMC0yLjYgMi00LjMgNC00LjhWNC4yaDN2Mi42YzEuOC4yIDMgMSA0IDJMMjEgMTFjLTEtMS0xLjctMS4zLTIuOC0xLjMtMS4yIDAtMiAuNS0yIDEuNiAwIDIuNCA3IDIuMiA3IDcgMCAyLjQtMS41IDQuMy00IDQuOHoiLz48L3N2Zz4=');
     background-repeat: no-repeat;
     display: block;
 }
@@ -84,6 +84,9 @@ a {
 p a {
     text-decoration: underline;
 }
+
+
+
 
 
 
@@ -150,6 +153,13 @@ x-header {
     z-index: 1;
 }
 
+x-address {
+    font-size: 14px;
+    -webkit-user-select: text;
+    user-select: all;
+}
+
+
 
 
 
@@ -185,7 +195,7 @@ x-header {
         margin-top: 128px;
     }
 
-    header{
+    header {
         height: 256px;
     }
 }

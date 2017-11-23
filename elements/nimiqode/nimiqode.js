@@ -6,7 +6,7 @@ class Nimiqode extends XElement {
             ecLevel: 'H',
             fill: '#536DFE',
             background: 'transparent',
-            size: Math.min(200, (window.innerWidth - 64) / Math.sqrt(2))
+            size: Math.min(240, (window.innerWidth - 64) )
         }, this.$el);
     }
 }
