@@ -97,6 +97,7 @@ p a {
 
 
 
+
 /*  Views Layout */
 
 main {
@@ -153,15 +154,24 @@ x-header {
     z-index: 1;
 }
 
+x-header h1 {
+    font-size: 15px;
+    text-align: center;
+    width: calc(100% - 80px);
+    font-weight: 500;
+}
+
+x-header [right]:before{
+    content: '';
+    flex-grow: 1;
+    display: block;
+}
+
 x-address {
     font-size: 14px;
     -webkit-user-select: text;
     user-select: all;
 }
-
-
-
-
 
 
 
@@ -185,6 +195,10 @@ x-address {
 @media (min-width: 420px) {
     x-numpad {
         display: none;
+    }
+
+    x-header {
+        padding: 0 16px;
     }
 }
 

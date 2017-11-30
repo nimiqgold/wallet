@@ -1,6 +1,6 @@
 html {
     /* To prevent the performance hit from custom fonts we choose the system's nicest font (see: https://css-tricks.com/preventing-the-performance-hit-from-custom-fonts/ ) */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
     font-size: 13px;
     -webkit-font-smoothing: antialiased;

@@ -27,6 +27,9 @@
     <x-app>
         <main>
             <view-home id="home">
+                <x-header>
+                    <a href="#export" icon-export right></a>
+                </x-header>
                 <x-identicon></x-identicon>
                 <x-amount>
                     <x-currency-1></x-currency-1>
@@ -43,7 +46,7 @@
             <view-send id="send">
                 <x-qr-scanner>
                     <x-header>
-                        <a href="#transaction" icon-back></a>
+                        <a href="#transaction" icon-back right></a>
                     </x-header>
                     <x-camera>
                         <video width="640" height="640" muted autoplay playsinline></video>
@@ -112,6 +115,25 @@
                 <h1>Sent successfully!</h1>
                 <x-time-estimate>20 Seconds</x-time-estimate>
             </view-success>
+            <view-export id="export">
+                <x-header>
+                    <a href="#home" icon-back></a>
+                    <h1>Export Private Key</h1>
+                </x-header>
+                <x-nimiqode></x-nimiqode>
+            </view-export>
+           <!--  <view-history id="history">
+                <x-header>
+                    <a href="#home" icon-back></a>
+                    <h1>Transaction History</h1>
+                </x-header>
+                <x-transaction>
+                    <x-identicon></x-identicon>
+                    <h1>Sent</h1>
+                    <x-value></x-value>
+                    <x-address></x-address>
+                </x-transaction>
+            </view-history> -->
             <view-loading></view-loading>
             <noscript></noscript>
         </main>
@@ -137,16 +159,19 @@
         <link rel="stylesheet" href="elements/time-estimate/time-estimate.css">
         <link rel="stylesheet" href="elements/icons/icons.css">
         <link rel="stylesheet" href="elements/noscript/noscript.css">
+<!--         <link rel="stylesheet" href="elements/transaction/transaction.css"> -->
         <!-- Views -->
-        <link rel="stylesheet" href="elements/view-home/home.css">
-        <link rel="stylesheet" href="elements/view-send/send.css">
-        <link rel="stylesheet" href="elements/view-receive/receive.css">
-        <link rel="stylesheet" href="elements/view-permission/permission.css">
-        <link rel="stylesheet" href="elements/view-transaction/transaction.css">
-        <link rel="stylesheet" href="elements/view-fees/fees.css">
-        <link rel="stylesheet" href="elements/view-confirm/confirm.css">
-        <link rel="stylesheet" href="elements/view-success/success.css">
-        <link rel="stylesheet" href="elements/view-loading/loading.css">
+        <link rel="stylesheet" href="elements/view-home/view-home.css">
+        <link rel="stylesheet" href="elements/view-send/view-send.css">
+        <link rel="stylesheet" href="elements/view-receive/view-receive.css">
+        <link rel="stylesheet" href="elements/view-permission/view-permission.css">
+        <link rel="stylesheet" href="elements/view-transaction/view-transaction.css">
+        <link rel="stylesheet" href="elements/view-fees/view-fees.css">
+        <link rel="stylesheet" href="elements/view-confirm/view-confirm.css">
+        <link rel="stylesheet" href="elements/view-success/view-success.css">
+        <link rel="stylesheet" href="elements/view-loading/view-loading.css">
+        <link rel="stylesheet" href="elements/view-export/view-export.css">
+        <link rel="stylesheet" href="elements/view-history/view-history.css">
         <!-- Libs -->
         <script src="/x-element/src/x-element.js"></script>
         <script src="/x-element/src/x-app.js"></script>
@@ -161,12 +186,15 @@
         <script src="elements/amount/amount.js"></script>
         <script src="elements/nimiqode/nimiqode.js"></script>
         <script src="elements/numpad/numpad.js"></script>
-        <script src="elements/view-home/home.js"></script>
-        <script src="elements/view-send/send.js"></script>
-        <script src="elements/view-receive/receive.js"></script>
-        <script src="elements/view-transaction/transaction.js"></script>
-        <script src="elements/view-fees/fees.js"></script>
-        <script src="elements/view-confirm/confirm.js"></script>
+        <script src="elements/view-home/view-home.js"></script>
+        <script src="elements/view-send/view-send.js"></script>
+        <script src="elements/view-receive/view-receive.js"></script>
+        <script src="elements/view-transaction/view-transaction.js"></script>
+        <script src="elements/view-fees/view-fees.js"></script>
+        <script src="elements/view-confirm/view-confirm.js"></script>
+        <script src="elements/view-export/view-export.js"></script>
+        <script src="elements/transaction/transaction.js"></script>
+<!--         <script src="elements/view-history/view-history.js"></script> -->
         <script src="elements/app/app.js" async></script>
         <!-- <script src="/nano-client-ui/pwa/service-worker/service-worker-register.js" async></script> -->
     </imports>

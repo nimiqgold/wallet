@@ -27,8 +27,8 @@ class AmountInput extends Amount {
         this.$input.addEventListener('change', (e) => this._valueChanged());
         this.$input.addEventListener('keyup', (e) => this._valueChanged(e));
         if (window.innerWidth <= 420) {
-            this.$input.setAttribute('disabled','1');
-        } 
+            this.$input.setAttribute('disabled', '1');
+        }
     }
 
     _valueChanged(e) {
@@ -45,7 +45,7 @@ class AmountInput extends Amount {
     focus() {
         if (window.innerWidth > 420) {
             requestAnimationFrame(_ => this.$input.focus())
-        } 
+        }
     }
     focus() {
         requestAnimationFrame(_ => this.$input.focus())

@@ -16,6 +16,7 @@ x-receiver {
 
 x-receiver x-identicon {
     display: inline-block;
+    width: 160px;
     transform-origin: center bottom;
     margin-bottom: 8px;
     transform: scale(0.39);

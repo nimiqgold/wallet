@@ -1,0 +1,3 @@
+body:not(.state-export) view-export {
+    transform: translateX(40px);
+}
