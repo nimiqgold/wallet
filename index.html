@@ -11,7 +11,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#536dfe">
     <link rel="manifest" href="pwa/manifest.json">
-    <link rel="icon" sizes="192x192" href="pwa/icons/icon-192x192.png">
+    <!-- <link rel="icon" sizes="192x192" href="pwa/icons/icon-192x192.png"> -->
     <!-- iOS ( See: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html ) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
@@ -147,8 +147,8 @@
     </x-app>
     <imports>
         <!-- Elements -->
+        <link rel="stylesheet" href="/fast-font/fast-font.css">
         <link rel="stylesheet" href="elements/app/app.css">
-        <link rel="stylesheet" href="elements/typography/typography.css">
         <link rel="stylesheet" href="elements/navigation/navigation.css">
         <link rel="stylesheet" href="elements/inputs/inputs.css">
         <link rel="stylesheet" href="elements/amount/amount.css">
@@ -159,7 +159,6 @@
         <link rel="stylesheet" href="elements/time-estimate/time-estimate.css">
         <link rel="stylesheet" href="elements/icons/icons.css">
         <link rel="stylesheet" href="elements/noscript/noscript.css">
-<!--         <link rel="stylesheet" href="elements/transaction/transaction.css"> -->
         <!-- Views -->
         <link rel="stylesheet" href="elements/view-home/view-home.css">
         <link rel="stylesheet" href="elements/view-send/view-send.css">
@@ -178,7 +177,7 @@
         <script src="/robohash/dist/robohash.min.js"></script>
         <script src="/x-identicon/src/identicon-factory.js"></script>
         <script src="/x-identicon/src/identicon.js"></script>
-        <script src="/qr-code/qr-code.js"></script>
+        <script src="/qr-code/qr-code.min.js"></script>
         <script src="/qr-scanner/jsqrcode.min.js"></script>
         <script src="/qr-scanner/qr-scanner.js"></script>
         <script src="/web-share-shim/dist/web-share-shim.min.js"></script>
@@ -194,7 +193,6 @@
         <script src="elements/view-confirm/view-confirm.js"></script>
         <script src="elements/view-export/view-export.js"></script>
         <script src="elements/transaction/transaction.js"></script>
-<!--         <script src="elements/view-history/view-history.js"></script> -->
         <script src="elements/app/app.js" async></script>
         <!-- <script src="/nano-client-ui/pwa/service-worker/service-worker-register.js" async></script> -->
     </imports>

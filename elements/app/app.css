@@ -71,6 +71,34 @@ x-app {
     text-align: center;
 }
 
+
+
+h1,
+.h1 {
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 300;
+}
+
+h1+h2 {
+    font-size: 13px;
+    padding-bottom: 24px;
+    font-weight: 500;
+}
+
+h2,
+.h2 {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+
 p {
     text-align: center;
     line-height: 19px;
@@ -84,16 +112,6 @@ a {
 p a {
     text-decoration: underline;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

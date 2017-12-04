@@ -1,4 +1,4 @@
-class App extends XApp {
+class NanoClientUi extends XApp {
 
     children() { return [ViewHome, ViewSend, ViewReceive, ViewTransaction, ViewFees, ViewConfirm, ViewExport] }
 
@@ -21,7 +21,7 @@ class App extends XApp {
 }
 
 addEventListener('load', () => {
-    window.app = new App();
+    window.app = new NanoClientUi();
     dummyUsage(app);
 });
 
