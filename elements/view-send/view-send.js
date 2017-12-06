@@ -6,6 +6,7 @@ class ViewSend extends XElement {
             app.recipient = decoded;
             location = '#transaction';
         });
+        this.$qrScanner.setGrayscaleWeights(145, 91, 20);
     }
 
     onShow(){
