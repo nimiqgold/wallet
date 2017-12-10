@@ -3,7 +3,7 @@ class Amount extends XElement {
     set value(value) {
         value = Number(value);
         this._currency1 = Amount.format(value, 3);
-        this._currency2 = Amount.format(value * 8.2, 2);
+        this._currency2 = Amount.format(value * 16.5, 2);
     }
 
     set _currency1(value) {
@@ -47,7 +47,12 @@ class AmountInput extends Amount {
             requestAnimationFrame(_ => this.$input.focus())
         }
     }
-    focus() {
-        requestAnimationFrame(_ => this.$input.focus())
+
+    set value(value) {
+        super.value = value;
+    }
+
+    get value() {
+        return this.$input.value;
     }
 }

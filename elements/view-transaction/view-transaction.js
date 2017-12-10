@@ -18,13 +18,22 @@ class ViewTransaction extends XElement {
     }
 
     set value(value) {
-        this.$amountInput.value = value;
+        // this.$amountInput.value = value;
         this.$numpad.value = value;
     }
 
+    get value() {
+        return this.$amountInput.value;
+    }
+
     set recipient(address) {
+        this._recipient = address;
         this.$identicon.address = address;
         this.$('x-address').textContent = address;
+    }
+
+    get recipient() {
+        return this._recipient;
     }
 
     onShow() {

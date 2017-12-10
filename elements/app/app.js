@@ -18,16 +18,32 @@ class NanoClientUi extends XApp {
     set privateKey(privateKey) {
         this.$viewExport.privateKey = privateKey;
     }
+
+    get transactionData() {
+        const data = {};
+        data.recipient = this.$viewTransaction.recipient;
+        data.value = this.$viewTransaction.value;
+        return data;
+    }
+
+    setApi(api) {
+        this._api = api;
+    }
+
+    sendTx() {
+        const tx = this.transactionData;
+        this._api.sendTransaction(tx.recipient, tx.value, 10);
+    }
 }
 
 addEventListener('load', () => {
     window.app = new NanoClientUi();
-    dummyUsage(app);
+    // dummyUsage(app);
 });
 
-function dummyUsage(app) {
-    app.address = 'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQ' + ((Math.random() + '')[5]);
-    app.balance = 3.14;
-    app.recipient = 'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQT';
-    app.privateKey = 'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQT';
-}
+// function dummyUsage(app) {
+//     app.address = 'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQ' + ((Math.random() + '')[5]);
+//     app.balance = 3.14;
+//     app.recipient = 'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQT';
+//     app.privateKey = 'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQT';
+// }
