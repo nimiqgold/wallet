@@ -11,7 +11,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#536dfe">
     <link rel="manifest" href="pwa/manifest.json">
-    <!-- <link rel="icon" sizes="192x192" href="pwa/icons/icon-192x192.png"> -->
+    <meta name="google" content="notranslate">
     <!-- iOS ( See: https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html ) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="translucent">
@@ -49,7 +49,7 @@
                         <a href="#transaction" icon-back right></a>
                     </x-header>
                     <x-camera>
-                        <video width="640" height="640" muted autoplay playsinline></video>
+                        <video width="640" height="640" muted autoplay playsinline ></video>
                         <canvas width="320" height="320" id="qr-canvas"></canvas>
                     </x-camera>
                 </x-qr-scanner>
@@ -97,7 +97,7 @@
                 </x-header>
                 <x-text>
                     <x-fees>0.01 NIM</x-fees>
-                    <x-time-estimate>20 Seconds</x-time-estimate>
+                    <x-time-estimate>~60 Seconds</x-time-estimate>
                     <a href="#fees">Adjust</a>
                 </x-text>
                 <a href="#loading" button>Confirm</a>
@@ -108,12 +108,12 @@
                     <x-currency-2></x-currency-2>
                 </x-amount>
                 <input type="range">
-                <x-time-estimate>20 Seconds</x-time-estimate>
+                <x-time-estimate>~60 Seconds</x-time-estimate>
                 <a href="#confirm" button>Done</a>
             </view-fees>
             <view-success id="success">
                 <h1>Sent successfully!</h1>
-                <x-time-estimate>20 Seconds</x-time-estimate>
+                <x-time-estimate>~60 Seconds</x-time-estimate>
             </view-success>
             <view-export id="export">
                 <x-header>
@@ -122,6 +122,14 @@
                 </x-header>
                 <x-nimiqode></x-nimiqode>
             </view-export>
+            <view-received id="received">
+                <img src="receive-animation.svg">
+                <x-amount>
+                    <x-currency-1>21.351</x-currency-1>
+                    <x-currency-2>123.23</x-currency-2>
+                </x-amount>
+                <new-balance>75.351</new-balance>
+            </view-received>
             <!--  <view-history id="history">
                 <x-header>
                     <a href="#home" icon-back></a>
@@ -168,6 +176,7 @@
         <link rel="stylesheet" href="elements/view-fees/view-fees.css">
         <link rel="stylesheet" href="elements/view-confirm/view-confirm.css">
         <link rel="stylesheet" href="elements/view-success/view-success.css">
+        <link rel="stylesheet" href="elements/view-received/view-received.css">
         <link rel="stylesheet" href="elements/view-loading/view-loading.css">
         <link rel="stylesheet" href="elements/view-export/view-export.css">
         <link rel="stylesheet" href="elements/view-history/view-history.css">
@@ -178,7 +187,7 @@
         <script src="/x-identicon/src/identicon-factory.js"></script>
         <script src="/x-identicon/src/identicon.js"></script>
         <script src="/qr-encoder/qr-encoder.min.js"></script>
-        <script src="/qr-scanner/qr-scanner.js"></script>
+        <script src="/qr-scanner/qr-scanner.min.js"></script>
         <script src="/web-share-shim/dist/web-share-shim.min.js"></script>
         <!-- View scripts -->
         <script src="elements/amount/amount.js"></script>
@@ -191,6 +200,7 @@
         <script src="elements/view-fees/view-fees.js"></script>
         <script src="elements/view-confirm/view-confirm.js"></script>
         <script src="elements/view-export/view-export.js"></script>
+        <script src="elements/view-received/view-received.js"></script>
         <script src="elements/transaction/transaction.js"></script>
         <script src="elements/app/app.js" async></script>
         <!-- <script src="/nano-client-ui/pwa/service-worker/service-worker-register.js" async></script> -->

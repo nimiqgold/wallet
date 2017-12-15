@@ -48,6 +48,6 @@ x-camera:before {
 /* hack to flip the camera on desktop; less confusion for the user to position the phone */
 @media (min-width: 800px) {
     video {
-        /* transform: scale(-1.1, 1.1); */
+         transform: scale(-1, 1); 
     }
 }

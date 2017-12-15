@@ -18,7 +18,7 @@ x-nav-box {
 
 nav a {
     width: 80px;
-    height: 80px;
+    height: 82px;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
@@ -35,7 +35,7 @@ nav a {
 
 nav a:after {
     content: '';
-    height: 56px;
+    height: 55px;
     width: 56px;
     display: block;
     margin-bottom: 8px;
@@ -94,6 +94,7 @@ nav a:before {
 }
 
 .state-home nav a[href="#home"]:before,
+.state-received nav a[href="#home"]:before,
 .state-send nav a[href="#send"]:before,
 .state-receive nav a[href="#receive"]:before {
     transform: scaleY(1);
@@ -108,7 +109,7 @@ nav {
     transform-origin: center bottom;
 }
 
-body:not(.state-home):not(.state-send):not(.state-receive) nav {
+body:not(.state-home):not(.state-send):not(.state-receive):not(.state-received) nav {
     transform: translate(0, 270px);
 }
 

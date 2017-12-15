@@ -13,18 +13,9 @@
     opacity: 0;
 }
 
-.state-receive view-home x-identicon {
+.state-receive view-home x-identicon:not(:empty) {
     transform: scale(0.6);
-    animation-delay: 1s;
-    /*animation: identicon-wobber 400ms infinite alternate ease-in-out;*/
-    animation-fill-mode: forwards;
-}
-
-@keyframes identicon-wobber {
-    0% {
-        transform: scale(0.5);
-    }
-}
+ }
 
 view-receive {
     background-position: center calc(50% - 88px);
@@ -45,6 +36,11 @@ view-receive x-nimiqode {
     will-change: transform, opacity;
     margin-top: -88px;
 }
+
+view-receive x-nimiqode:empty{
+    opacity: 0;
+    transform: scale(0);
+} 
 
 body:not(.state-receive) view-receive x-nimiqode {
     transform: rotate(-90deg) scale(0.3);

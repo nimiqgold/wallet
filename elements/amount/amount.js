@@ -3,7 +3,7 @@ class Amount extends XElement {
     set value(value) {
         value = Number(value);
         this._currency1 = Amount.format(value, 3);
-        this._currency2 = Amount.format(value * 16.5, 2);
+        this._currency2 = Amount.format(value * 17.1, 2);
     }
 
     set _currency1(value) {
@@ -14,7 +14,7 @@ class Amount extends XElement {
         this.$('x-currency-2').textContent = value;
     }
 
-    static format(number, decimals) {
+    static format(number, decimals = 3) {
         decimals = Math.pow(10, decimals);
         return Math.round(number * decimals) / decimals;
     }

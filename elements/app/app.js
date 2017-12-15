@@ -1,6 +1,6 @@
 class NanoClientUi extends XApp {
 
-    children() { return [ViewHome, ViewSend, ViewReceive, ViewTransaction, ViewFees, ViewConfirm, ViewExport] }
+    children() { return [ViewHome, ViewSend, ViewReceive, ViewTransaction, ViewFees, ViewConfirm, ViewExport, ViewReceived] }
 
     set address(address) {
         this.$viewHome.address = address;
@@ -33,6 +33,12 @@ class NanoClientUi extends XApp {
     sendTx() {
         const tx = this.transactionData;
         this._api.sendTransaction(tx.recipient, tx.value, 10);
+    }
+
+    onTransactionReceived(sender, value, fee) {
+        this.$viewReceived.value = value;
+        this.$viewReceived.balance = value + this._api.balance;
+        location = '#received';
     }
 }
 

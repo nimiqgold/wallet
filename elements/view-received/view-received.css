@@ -1,0 +1,49 @@
+view-received {
+    padding: 64px 16px 0 16px;
+}
+
+view-received:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+view-received x-amount:before {
+    content: 'You received';
+    line-height: 64px;
+    font-weight: 700;
+}
+
+new-balance {
+    opacity: 0.8;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+new-balance:before {
+    content: 'Your balance is now ';
+}
+
+new-balance:after {
+    content: ' NIM';
+}
+
+
+body:not(.state-received) view-received {
+    transform: translateY(40px);
+}
+
+.state-received view-home,
+.state-received nav {
+    filter: blur(10px);
+    opacity: 1;
+    z-index: 0;
+}
+
+blur-bg{
+}

@@ -8,7 +8,7 @@ x-amount-input {
 
 x-currency-1 {
     font-size: 56px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 27px;
     display: block;
     position: relative;
@@ -17,6 +17,13 @@ x-currency-1 {
 x-currency-2 {
     padding-bottom: 0;
     font-size: 15px;
+    font-weight: 700;
+    opacity: 0.6;
+}
+
+
+x-amount-input input {
+    font-weight: 300;
 }
 
 
@@ -31,6 +38,9 @@ x-currency-2:before {
 
 
 
+
+
+
 /* Currency Symbols */
 
 x-currency-1:after,
@@ -39,6 +49,7 @@ x-currency-2:after {
     letter-spacing: 0.08em;
     margin-right: -24px;
     font-size: 15px;
+    font-weight: 700;
 }
 
 x-currency-1:after {
@@ -59,6 +70,7 @@ x-amount-input x-currency-1:after {
 
 
 
+
 /* Empty State */
 
 x-currency-1:empty:before,
@@ -68,6 +80,7 @@ x-currency-2:empty:before {
 
 
 /* Disabled State */
+
 x-amount-input input[disabled] {
     opacity: 1;
 }

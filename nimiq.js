@@ -11,6 +11,7 @@ class NanoWallet extends NanoApi {
 
     onTransactionReceived(sender, value, fee) {
         console.log(sender, this.address, value, fee);
+        app.onTransactionReceived(sender, value, fee);
     }
 
 }

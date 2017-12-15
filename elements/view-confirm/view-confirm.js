@@ -1,4 +1,3 @@
-
 class ViewConfirm extends XElement {
     onCreate() {
         this.$('[button]').addEventListener('click', e => {
