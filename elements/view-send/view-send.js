@@ -5,6 +5,7 @@ class ViewSend extends XElement {
             const decoded = e.detail;
             app.recipient = decoded;
             location = '#transaction';
+            navigator.vibrate([100,100,100]);
         });
         this.$qrScanner.setGrayscaleWeights(145, 91, 20);
     }
