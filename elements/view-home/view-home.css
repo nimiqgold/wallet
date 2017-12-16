@@ -29,6 +29,7 @@ view-home x-identicon:empty {
 x-currency-1:empty:before{
 	content: 'Syncing...';
 	font-size: 24px;
+	letter-spacing: 0.05em;
 }
 
 x-currency-1:empty:after,

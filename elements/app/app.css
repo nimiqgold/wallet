@@ -7,29 +7,35 @@
 
 html,
 body {
+    overflow-x: hidden;
+}
+
+html,
+body,
+x-blur-container {
     min-height: 100%;
     display: flex;
     display: -webkit-flex;
     flex-grow: 1;
-    overflow-x: hidden;
     margin: 0;
     background: #EEEEEE;
 }
 
-body {
+x-blur-container {
     align-items: flex-start;
     justify-content: center;
 }
 
 header {
     background-color: #3F51B5;
-    width: 100%;
+    width: calc(100% + 32px);
     height: 196px;
-    position: absolute;
+    position: fixed;
     z-index: 0;
-    padding: 16px 24px;
+    padding: 16px 40px;
     box-sizing: border-box;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    left: -16px;
 }
 
 nimiq-logo {
@@ -52,10 +58,10 @@ nimiq-logo:before {
     font-weight: 500;
 }
 
-x-app {
+x-app-container {
     width: 100%;
     max-width: 760px;
-    min-height: 584px;
+    height: 584px;
     background: white;
     margin-top: 96px;
     /* z-index: 1; */
@@ -112,6 +118,9 @@ a {
 p a {
     text-decoration: underline;
 }
+
+
+
 
 
 
@@ -179,7 +188,7 @@ x-header h1 {
     font-weight: 500;
 }
 
-x-header [right]:before{
+x-header [right]:before {
     content: '';
     flex-grow: 1;
     display: block;
@@ -195,15 +204,19 @@ x-address {
 
 
 
+
+
+
 /* Responsiveness */
 
 @media (max-width: 420px) {
 
-    x-app {
-        min-height: 100%;
+    x-app-container {
+        height: 100%;
         margin-top: 0;
         border-radius: 0;
         box-shadow: none;
+        flex-grow: 1;
     }
     header {
         display: none;
@@ -221,7 +234,7 @@ x-address {
 }
 
 @media (min-width: 1280px) and (min-height: 800px) {
-    x-app {
+    x-app-container {
         max-width: 1028px;
         min-height: 640px;
         margin-top: 128px;

@@ -21,138 +21,152 @@
 </head>
 
 <body class="state-loading">
-    <header>
-        <nimiq-logo></nimiq-logo>
-    </header>
-    <x-app>
-        <main>
-            <view-home id="home">
-                <x-header>
-                    <a href="#export" icon-export right></a>
-                </x-header>
-                <x-identicon></x-identicon>
-                <x-amount>
-                    <x-currency-1></x-currency-1>
-                    <x-currency-2></x-currency-2>
-                </x-amount>
-            </view-home>
-            <view-receive id="receive">
-                <x-header>
-                    <x-share-button></x-share-button>
-                </x-header>
-                <x-nimiqode></x-nimiqode>
-                <x-address></x-address>
-            </view-receive>
-            <view-send id="send">
-                <x-qr-scanner>
+    <x-blur-container>
+        <header>
+            <nimiq-logo></nimiq-logo>
+        </header>
+        <x-app-container>
+            <main>
+                <view-home id="home">
                     <x-header>
-                        <a href="#transaction" icon-back right></a>
+                        <a href="#export" icon-export right></a>
                     </x-header>
-                    <x-camera>
-                        <video width="640" height="640" muted autoplay playsinline ></video>
-                        <canvas width="320" height="320" id="qr-canvas"></canvas>
-                    </x-camera>
-                </x-qr-scanner>
-            </view-send>
-            <view-permission id="permission">
-                <h1>Identicon Scanner</h1>
-                <h2>Grant access to your camera to continue.</h2>
-                <x-permisson-bg></x-permisson-bg>
-            </view-permission>
-            <view-transaction id="transaction">
-                <x-header>
-                    <a href="#send" icon-back></a>
-                </x-header>
-                <x-container>
-                    <x-receiver>
-                        <x-identicon></x-identicon>
-                        <x-address></x-address>
-                    </x-receiver>
-                    <x-amount-input>
-                        <x-currency-1>
-                            <input placeholder="00.00" type="number">
-                        </x-currency-1>
-                        <x-currency-2></x-currency-2>
-                    </x-amount-input>
-                    <x-numpad>
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
-                        <button>4</button>
-                        <button>5</button>
-                        <button>6</button>
-                        <button>7</button>
-                        <button>8</button>
-                        <button>9</button>
-                        <button>.</button>
-                        <button>0</button>
-                        <button>&lt;</button>
-                    </x-numpad>
-                    <a href="#confirm" button disabled>Next</a>
-                </x-container>
-            </view-transaction>
-            <view-confirm id="confirm">
-                <x-header>
-                    <a href="#transaction" icon-back></a>
-                </x-header>
-                <x-text>
-                    <x-fees>0.01 NIM</x-fees>
-                    <x-time-estimate>~60 Seconds</x-time-estimate>
-                    <a href="#fees">Adjust</a>
-                </x-text>
-                <a href="#loading" button>Confirm</a>
-            </view-confirm>
-            <view-fees id="fees">
-                <x-amount>
-                    <x-currency-1></x-currency-1>
-                    <x-currency-2></x-currency-2>
-                </x-amount>
-                <input type="range">
-                <x-time-estimate>~60 Seconds</x-time-estimate>
-                <a href="#confirm" button>Done</a>
-            </view-fees>
-            <view-success id="success">
-                <h1>Sent successfully!</h1>
-                <x-time-estimate>~60 Seconds</x-time-estimate>
-            </view-success>
-            <view-export id="export">
-                <x-header>
-                    <a href="#home" icon-back></a>
-                    <h1>Export Private Key</h1>
-                </x-header>
-                <x-nimiqode></x-nimiqode>
-            </view-export>
-            <view-received id="received">
-                <img src="receive-animation.svg">
-                <x-amount>
-                    <x-currency-1>21.351</x-currency-1>
-                    <x-currency-2>123.23</x-currency-2>
-                </x-amount>
-                <new-balance>75.351</new-balance>
-            </view-received>
-            <!--  <view-history id="history">
-                <x-header>
-                    <a href="#home" icon-back></a>
-                    <h1>Transaction History</h1>
-                </x-header>
-                <x-transaction>
                     <x-identicon></x-identicon>
-                    <h1>Sent</h1>
-                    <x-value></x-value>
+                    <x-amount>
+                        <x-currency-1></x-currency-1>
+                        <x-currency-2></x-currency-2>
+                    </x-amount>
+                </view-home>
+                <view-receive id="receive">
+                    <x-header>
+                        <x-share-button></x-share-button>
+                    </x-header>
+                    <x-nimiqode></x-nimiqode>
                     <x-address></x-address>
-                </x-transaction>
-            </view-history> -->
-            <view-loading></view-loading>
-            <noscript></noscript>
-        </main>
-        <nav>
-            <x-nav-box>
-                <a href="#receive" tabindex="1">Receive</a>
-                <a href="#home">Home</a>
-                <a href="#send">Send</a>
-            </x-nav-box>
-        </nav>
-    </x-app>
+                </view-receive>
+                <view-send id="send">
+                    <x-qr-scanner>
+                        <x-header>
+                            <a href="#transaction" icon-back right></a>
+                        </x-header>
+                        <x-camera>
+                            <video width="640" height="640" muted autoplay playsinline></video>
+                            <canvas width="320" height="320" id="qr-canvas"></canvas>
+                        </x-camera>
+                    </x-qr-scanner>
+                </view-send>
+                <view-permission id="permission">
+                    <h1>Identicon Scanner</h1>
+                    <h2>Grant access to your camera to continue.</h2>
+                    <x-permisson-bg></x-permisson-bg>
+                </view-permission>
+                <view-transaction id="transaction">
+                    <x-header>
+                        <a href="#send" icon-back></a>
+                    </x-header>
+                    <x-container>
+                        <x-receiver>
+                            <x-identicon></x-identicon>
+                            <x-address></x-address>
+                        </x-receiver>
+                        <x-amount-input>
+                            <x-currency-1>
+                                <input placeholder="00.00" type="number">
+                            </x-currency-1>
+                            <x-currency-2></x-currency-2>
+                        </x-amount-input>
+                        <x-numpad>
+                            <button>1</button>
+                            <button>2</button>
+                            <button>3</button>
+                            <button>4</button>
+                            <button>5</button>
+                            <button>6</button>
+                            <button>7</button>
+                            <button>8</button>
+                            <button>9</button>
+                            <button>.</button>
+                            <button>0</button>
+                            <button>&lt;</button>
+                        </x-numpad>
+                        <a href="#confirm" button disabled>Next</a>
+                    </x-container>
+                </view-transaction>
+                <view-confirm id="confirm">
+                    <x-header>
+                        <a href="#transaction" icon-back></a>
+                    </x-header>
+                    <x-text>
+                        <x-fees>0.01 NIM</x-fees>
+                        <x-time-estimate>~60 Seconds</x-time-estimate>
+                        <a href="#fees">Adjust</a>
+                    </x-text>
+                    <a href="#loading" button>Confirm</a>
+                </view-confirm>
+                <view-fees id="fees">
+                    <x-amount>
+                        <x-currency-1></x-currency-1>
+                        <x-currency-2></x-currency-2>
+                    </x-amount>
+                    <input type="range">
+                    <x-time-estimate>~60 Seconds</x-time-estimate>
+                    <a href="#confirm" button>Done</a>
+                </view-fees>
+                <view-success id="success">
+                    <h1>Sent successfully!</h1>
+                    <x-time-estimate>~60 Seconds</x-time-estimate>
+                </view-success>
+                <view-export id="export">
+                    <x-header>
+                        <a href="#home" icon-back></a>
+                        <h1>Export Private Key</h1>
+                    </x-header>
+                    <x-nimiqode></x-nimiqode>
+                </view-export>
+                <view-loading id="loading"></view-loading>
+                <view-error id="error"></view-error>
+                <noscript></noscript>
+            </main>
+            <nav>
+                <x-nav-box>
+                    <a href="#receive" tabindex="1">Receive</a>
+                    <a href="#home">Home</a>
+                    <a href="#send">Send</a>
+                </x-nav-box>
+            </nav>
+        </x-app-container>
+    </x-blur-container>
+    <view-received id="received">
+        <nimiq-logo></nimiq-logo>
+        <x-amount>
+            <x-currency-1>21.351</x-currency-1>
+            <x-currency-2>123.23</x-currency-2>
+        </x-amount>
+        <new-balance>75.351</new-balance>
+    </view-received>
+    <view-locked id="locked">
+        <x-pin>
+            <x-dot></x-dot>
+            <x-dot></x-dot>
+            <x-dot></x-dot>
+            <x-dot></x-dot>
+            <x-dot></x-dot>
+            <x-dot></x-dot>
+        </x-pin>
+        <x-pinpad>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>0</button>
+        </x-pinpad>
+        <x-delete></x-delete>
+    </view-locked>
     <imports>
         <!-- Elements -->
         <link rel="stylesheet" href="/fast-font/fast-font.css">
@@ -179,6 +193,8 @@
         <link rel="stylesheet" href="elements/view-received/view-received.css">
         <link rel="stylesheet" href="elements/view-loading/view-loading.css">
         <link rel="stylesheet" href="elements/view-export/view-export.css">
+        <link rel="stylesheet" href="elements/view-error/view-error.css">
+        <link rel="stylesheet" href="elements/view-locked/view-locked.css">
         <link rel="stylesheet" href="elements/view-history/view-history.css">
         <!-- Libs -->
         <script src="/x-element/src/x-element.js"></script>
@@ -201,6 +217,7 @@
         <script src="elements/view-confirm/view-confirm.js"></script>
         <script src="elements/view-export/view-export.js"></script>
         <script src="elements/view-received/view-received.js"></script>
+        <script src="elements/view-locked/view-locked.js"></script>
         <script src="elements/transaction/transaction.js"></script>
         <script src="elements/app/app.js" async></script>
         <!-- <script src="/nano-client-ui/pwa/service-worker/service-worker-register.js" async></script> -->

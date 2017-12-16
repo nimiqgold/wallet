@@ -1,0 +1,128 @@
+view-locked {
+    /*padding: 64px 16px 0 16px;*/
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 500ms, opacity 500ms;
+    counter-reset: pinpad;
+    touch-action: manipulation;
+    z-index: 2;
+}
+
+view-locked:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -48px;
+    bottom: 0;
+    background: rgba(15, 1, 47, 0.70);
+    z-index: -1;
+}
+
+body:not(.state-locked) view-locked {
+    transform: translateY(-100vh);
+    /*opacity: 0;*/
+    pointer-events: none;
+}
+
+.state-locked x-blur-container {
+    filter: blur(10px);
+}
+
+.state-locked view-home {
+    opacity: 1;
+}
+
+x-pinpad {
+    width: 300px;
+}
+
+x-pinpad button {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: none;
+    border: none;
+    margin: 12px;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.);
+    -webkit-user-select: none;
+    font-size: 32px;
+    color: white;
+    letter-spacing: 0;
+    font-weight: 300;
+}
+
+x-pin {
+    display: flex;
+    width: 300px;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0 46px 36px;
+}
+
+x-pin:before {
+    content: 'Enter Passcode';
+    position: absolute;
+    margin-top: -36px;
+    width: 100%;
+    font-size: 18px;
+}
+
+x-pin x-dot {
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+x-pin x-dot[on] {
+    background: white;
+}
+
+x-delete {
+    cursor: pointer;
+    /* margin-top: 24px; */
+    background: url('data:image/svg+xml,<svg width="63" height="42" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs> <path d="M.36 1.45h28.92" id="a"/> <path d="M.36 15.26h28.92" id="b"/> </defs> <g fill="none" fill-rule="evenodd"> <path d="M20.57 0H57a6 6 0 0 1 6 6v30a6 6 0 0 1-6 6H20.57a6 6 0 0 1-4.36-1.87l-14.2-15a6 6 0 0 1 0-8.26l14.2-15A6 6 0 0 1 20.57 0z" fill-opacity=".2" fill="#FFF"/> <g stroke-linecap="square" stroke="#FFF"> <g transform="rotate(135 21.84 15.93)"> <use stroke-width="2" xlink:href="#a"/> <use xlink:href="#a"/> </g> <g transform="rotate(45 18.76 45.06)"> <use stroke-width="2" xlink:href="#b"/> <use xlink:href="#b"/> </g> </g> </g> </svg>');
+    height: 26px;
+    width: 40px;
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 170px;
+    background-size: cover;
+}
+
+.shake {
+    animation: shake 500ms;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(16px);
+    }
+    40% {
+        transform: translateX(-16px);
+    }
+    60% {
+        transform: translateX(12px);
+    }
+    80% {
+        transform: translateX(-12px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

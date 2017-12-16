@@ -1,6 +1,6 @@
 class NanoClientUi extends XApp {
 
-    children() { return [ViewHome, ViewSend, ViewReceive, ViewTransaction, ViewFees, ViewConfirm, ViewExport, ViewReceived] }
+    children() { return [ViewHome, ViewSend, ViewReceive, ViewTransaction, ViewFees, ViewConfirm, ViewExport, ViewReceived, ViewLocked] }
 
     set address(address) {
         this.$viewHome.address = address;
