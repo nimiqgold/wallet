@@ -2,7 +2,7 @@ class NanoWallet extends NanoApi {
 
     onInitialized() {
         app.address = this.address;
-        app.setApi(this);
+        app.onApiReady(this);
     }
 
     onBalanceChanged(balance) {

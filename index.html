@@ -47,17 +47,18 @@
                 <view-send id="send">
                     <x-qr-scanner>
                         <x-header>
-                            <a href="#transaction" icon-back right></a>
+                            <a icon-paste></a>
+                            <input type="text" placeholder="Enter Recipient Address">
                         </x-header>
                         <x-camera>
-                            <video width="640" height="640" muted autoplay playsinline></video>
-                            <canvas width="320" height="320" id="qr-canvas"></canvas>
+                            <video muted autoplay playsinline></video>
+                            <canvas id="qr-canvas"></canvas>
                         </x-camera>
                     </x-qr-scanner>
                 </view-send>
                 <view-permission id="permission">
-                    <h1>Identicon Scanner</h1>
-                    <h2>Grant access to your camera to continue.</h2>
+                    <h1></h1>
+                    <h2></h2>
                     <x-permisson-bg></x-permisson-bg>
                 </view-permission>
                 <view-transaction id="transaction">
@@ -97,8 +98,8 @@
                         <a href="#transaction" icon-back></a>
                     </x-header>
                     <x-text>
-                        <x-fees>0.01 NIM</x-fees>
-                        <x-time-estimate>~60 Seconds</x-time-estimate>
+                        <x-fees></x-fees>
+                        <x-time-estimate></x-time-estimate>
                         <a href="#fees">Adjust</a>
                     </x-text>
                     <a href="#loading" button>Confirm</a>
@@ -109,23 +110,32 @@
                         <x-currency-2></x-currency-2>
                     </x-amount>
                     <input type="range">
-                    <x-time-estimate>~60 Seconds</x-time-estimate>
+                    <x-time-estimate></x-time-estimate>
                     <a href="#confirm" button>Done</a>
                 </view-fees>
                 <view-success id="success">
-                    <h1>Sent successfully!</h1>
+                    <h1></h1>
                     <x-time-estimate>~60 Seconds</x-time-estimate>
                 </view-success>
                 <view-export id="export">
                     <x-header>
                         <a href="#home" icon-back></a>
-                        <h1>Export Private Key</h1>
+                        <h1></h1>
                     </x-header>
                     <x-nimiqode></x-nimiqode>
                 </view-export>
                 <view-loading id="loading"></view-loading>
                 <view-error id="error"></view-error>
                 <noscript></noscript>
+                <view-identicons id="identicons">
+                </view-identicons>
+                <view-history>
+                    <template id="x-transaction">
+                        <x-identicon></x-identicon>
+                        <x-address></x-address>
+                        <x-value></x-value>
+                    </template>
+                </view-history>
             </main>
             <nav>
                 <x-nav-box>
@@ -139,10 +149,10 @@
     <view-received id="received">
         <nimiq-logo></nimiq-logo>
         <x-amount>
-            <x-currency-1>21.351</x-currency-1>
-            <x-currency-2>123.23</x-currency-2>
+            <x-currency-1></x-currency-1>
+            <x-currency-2></x-currency-2>
         </x-amount>
-        <new-balance>75.351</new-balance>
+        <new-balance></new-balance>
     </view-received>
     <view-locked id="locked">
         <x-pin>
@@ -167,6 +177,7 @@
         </x-pinpad>
         <x-delete></x-delete>
     </view-locked>
+    <x-inactivity-sensor></x-inactivity-sensor>
     <imports>
         <!-- Elements -->
         <link rel="stylesheet" href="/fast-font/fast-font.css">
@@ -195,6 +206,7 @@
         <link rel="stylesheet" href="elements/view-export/view-export.css">
         <link rel="stylesheet" href="elements/view-error/view-error.css">
         <link rel="stylesheet" href="elements/view-locked/view-locked.css">
+        <link rel="stylesheet" href="elements/view-identicons/view-identicons.css">
         <link rel="stylesheet" href="elements/view-history/view-history.css">
         <!-- Libs -->
         <script src="/x-element/src/x-element.js"></script>
@@ -209,6 +221,7 @@
         <script src="elements/amount/amount.js"></script>
         <script src="elements/nimiqode/nimiqode.js"></script>
         <script src="elements/numpad/numpad.js"></script>
+        <script src="elements/inactivity-sensor/inactivity-sensor.js"></script>
         <script src="elements/view-home/view-home.js"></script>
         <script src="elements/view-send/view-send.js"></script>
         <script src="elements/view-receive/view-receive.js"></script>
@@ -218,9 +231,11 @@
         <script src="elements/view-export/view-export.js"></script>
         <script src="elements/view-received/view-received.js"></script>
         <script src="elements/view-locked/view-locked.js"></script>
+        <script src="elements/view-identicons/view-identicons.js"></script>
         <script src="elements/transaction/transaction.js"></script>
-        <script src="elements/app/app.js" async></script>
+        <script src="elements/app/app.js"></script>
         <!-- <script src="/nano-client-ui/pwa/service-worker/service-worker-register.js" async></script> -->
+        <!-- <script src="https://cdn.nimiq-network.com/branches/master/nimiq.js"></script> -->
         <script src="https://cdn.nimiq.com/core/nimiq.js"></script>
         <script src="/nano-api/nano-api.js"></script>
         <script src="nimiq.js"></script>

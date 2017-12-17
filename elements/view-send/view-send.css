@@ -15,3 +15,31 @@ body:not(.state-send) view-send x-camera {
 .state-send view-send {
     opacity: 1;
 }
+
+view-send input[type="text"] {
+    font-size: 13px;
+    width: 100%;
+    line-height: 32px;
+    text-align: left;
+    padding-left: 40px;
+    transition: opacity 300ms;
+    font-weight: 500;
+}
+
+view-send input[type="text"]:focus {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+view-send input:not(:focus) {
+    opacity: 0;
+}
+
+view-send x-header a {
+    position: absolute;
+}
+
+view-send input[type="text"]::placeholder,
+view-send input[type="text"]::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: left;
+}

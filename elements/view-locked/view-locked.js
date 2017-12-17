@@ -1,4 +1,5 @@
 class ViewLocked extends XElement {
+
     onCreate() {
         this.$el.addEventListener('click', e => {
             if (e.target.localName !== 'button') return;
@@ -16,20 +17,27 @@ class ViewLocked extends XElement {
         this._reset();
     }
 
+    onApiReady(api) {
+        this._api = api;
+        if (this._unlocking) {
+            this._submit();
+        }
+    }
+
     _handleKey(key) {
-        if (this._pin.length === 6) return;
+        if (this._unlocking) return;
         this._pin += key;
         this._setMaskedPin();
         if (this._pin.length === 6) this._submit();
     }
 
     _submit() {
-        console.log(this._pin);
-        if (this._pin === '123456') {
-            location = '#home';
-        } else {
-            this._wrongAttempt();
-        }
+        this._unlocking = true;
+        this.$pin.className = 'unlocking';
+        if (!this._api) return;
+        this._api.decryptWallet(this._pin)
+            .then(success => this._unlock())
+            .catch(error => this._wrongAttempt());
     }
 
     _wrongAttempt() {
@@ -37,7 +45,13 @@ class ViewLocked extends XElement {
         setTimeout(() => this._reset(), 500);
     }
 
+    _unlock() {
+        this.fire('x-unlock');
+        this._reset();
+    }
+
     _delete() {
+        if (this._unlocking) return;
         this._pin = this._pin.substr(0, this._pin.length - 1);
         this._setMaskedPin();
     }
@@ -46,6 +60,7 @@ class ViewLocked extends XElement {
         this._pin = '';
         this._setMaskedPin();
         this.$pin.className = '';
+        this._unlocking = false;
     }
 
     _setMaskedPin() {
@@ -58,5 +73,6 @@ class ViewLocked extends XElement {
             }
         })
     }
-
 }
+
+// Todo: allow keyboard input on desktop

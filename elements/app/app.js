@@ -1,6 +1,27 @@
 class NanoClientUi extends XApp {
 
-    children() { return [ViewHome, ViewSend, ViewReceive, ViewTransaction, ViewFees, ViewConfirm, ViewExport, ViewReceived, ViewLocked] }
+    children() {
+        return [
+            ViewHome,
+            ViewSend,
+            ViewReceive,
+            ViewTransaction,
+            ViewFees,
+            ViewConfirm,
+            ViewExport,
+            ViewReceived,
+            ViewLocked,
+            ViewIdenticons,
+            InactivitySensor
+        ]
+    }
+
+    onCreate() {
+        super.onCreate();
+        this.$viewLocked.addEventListener('x-unlock', e => this._unlock());
+        this.$inactivitySensor.addEventListener('x-inactive', e => this._lock());
+        this.$viewSend.addEventListener('x-address', e => this._recipientSelected(e.detail));
+    }
 
     set address(address) {
         this.$viewHome.address = address;
@@ -11,23 +32,17 @@ class NanoClientUi extends XApp {
         this.$viewHome.balance = balance;
     }
 
-    set recipient(address) {
-        this.$viewTransaction.recipient = address;
-    }
-
-    set privateKey(privateKey) {
-        this.$viewExport.privateKey = privateKey;
-    }
-
     get transactionData() {
         const data = {};
         data.recipient = this.$viewTransaction.recipient;
         data.value = this.$viewTransaction.value;
+        data.fee = this.$viewFees.value;
         return data;
     }
 
-    setApi(api) {
+    onApiReady(api) {
         this._api = api;
+        this.$viewLocked.onApiReady(api);
     }
 
     sendTx() {
@@ -40,16 +55,30 @@ class NanoClientUi extends XApp {
         this.$viewReceived.balance = value + this._api.balance;
         location = '#received';
     }
+
+    _stateChanged(state, path) {
+        if (this._isLocked) return;
+        this.$inactivitySensor.reset();
+        super._stateChanged(state, path);
+    }
+
+    _lock() {
+        location = '#locked';
+        this._isLocked = true;
+        this._api.encryptWallet();
+    }
+
+    _unlock() {
+        this._isLocked = false;
+        location = '#home';
+        this.$inactivitySensor.reset();
+        //Todo: decrypt key
+    }
+
+    _recipientSelected(address) {
+        navigator.vibrate([100, 100, 100]);
+        this.$viewTransaction.recipient = address;
+        location = '#transaction';
+    }
 }
-
-addEventListener('load', () => {
-    window.app = new NanoClientUi();
-    // dummyUsage(app);
-});
-
-// function dummyUsage(app) {
-//     app.address = 'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQ' + ((Math.random() + '')[5]);
-//     app.balance = 3.14;
-//     app.recipient = 'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQT';
-//     app.privateKey = 'NQ95 I32O SA47 1KHL R1FV MP0O SVNI 73BS IJQT';
-// }
+window.addEventListener('load', () => window.app = new NanoClientUi());

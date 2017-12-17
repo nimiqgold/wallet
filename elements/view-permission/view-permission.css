@@ -1,7 +1,10 @@
-/* Camera Permissions */
+view-permission h1:before{
+	content:'Identicon Scanner';
+}
 
-#permissions {}
-
+view-permission h2:before{
+	content:'Grant camera access to continue';
+}
 
 x-permisson-bg {
 	margin-bottom: -168px;

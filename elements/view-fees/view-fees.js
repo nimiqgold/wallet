@@ -6,4 +6,8 @@ class ViewFees extends XElement {
         const slider = this.$('input');
         slider.addEventListener('input', () => this.$amount.value = slider.value);
     }
+
+    get value() {
+        return this.$amount.value;
+    }
 }

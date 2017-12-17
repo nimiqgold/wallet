@@ -1,1 +1,1 @@
-# nano-wallet-ui
+# nimiq wallet

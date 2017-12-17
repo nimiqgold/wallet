@@ -51,7 +51,7 @@ nimiq-logo {
 nimiq-logo:before {
     content: 'NIMIQ';
     letter-spacing: 0.12em;
-    line-height: 30px;
+    line-height: 28px;
     margin-left: 42px;
     color: white;
     font-size: 17px;
