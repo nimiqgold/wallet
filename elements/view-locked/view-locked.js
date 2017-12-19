@@ -1,78 +1,33 @@
 class ViewLocked extends XElement {
 
-    onCreate() {
-        this.$el.addEventListener('click', e => {
-            if (e.target.localName !== 'button') return;
-            const key = e.target.textContent;
-            this._handleKey(key);
-        });
-        this.$('x-delete').addEventListener('click', e => {
-            this._delete();
-        });
-        this.$pin = this.$('x-pin');
-        this.$dots = this.$pin.querySelectorAll('x-dot');
-    }
-
-    onShow() {
-        this._reset();
-    }
+    children() { return [Pinpad] }
 
     onApiReady(api) {
         this._api = api;
-        if (this._unlocking) {
-            this._submit();
-        }
+        if (!this.$pinpad.unlocking) return;
+        this._submit(); // Submit again because api wasn't ready yet
     }
 
-    _handleKey(key) {
-        if (this._unlocking) return;
-        this._pin += key;
-        this._setMaskedPin();
-        if (this._pin.length === 6) this._submit();
+    onShow() {
+        this.$pinpad.reset();
     }
 
-    _submit() {
-        this._unlocking = true;
-        this.$pin.className = 'unlocking';
+    onCreate() {
+        this.addEventListener('x-pin', e => this._submit(e.detail)); 
+    }
+
+    _submit(pin) {
         if (!this._api) return;
-        this._api.decryptWallet(this._pin)
+        this._api.decryptWallet(pin)
             .then(success => this._unlock())
-            .catch(error => this._wrongAttempt());
-    }
-
-    _wrongAttempt() {
-        this.$pin.className = 'shake';
-        setTimeout(() => this._reset(), 500);
+            .catch(error => this.$pinpad.onIncorrectPin());
     }
 
     _unlock() {
         this.fire('x-unlock');
-        this._reset();
-    }
-
-    _delete() {
-        if (this._unlocking) return;
-        this._pin = this._pin.substr(0, this._pin.length - 1);
-        this._setMaskedPin();
-    }
-
-    _reset() {
-        this._pin = '';
-        this._setMaskedPin();
-        this.$pin.className = '';
-        this._unlocking = false;
-    }
-
-    _setMaskedPin() {
-        const length = this._pin.length;
-        this.$dots.forEach((e, i) => {
-            if (i < length) {
-                e.setAttribute('on', 1);
-            } else {
-                e.removeAttribute('on');
-            }
-        })
+        this.$pinpad.reset();
     }
 }
 
-// Todo: allow keyboard input on desktop
+// Todo: increase waiting time exponentially after three failed attempts
+// Todo: prevent bubble of x-pin for security?

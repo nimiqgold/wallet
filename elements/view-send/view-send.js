@@ -3,7 +3,7 @@ class ViewSend extends XElement {
 
     onCreate() {
         this.$qrScanner.setGrayscaleWeights(145, 91, 20);
-        this.$qrScanner.$el.addEventListener('x-decoded', e => this._validateAddress(e.detail));
+        this.addEventListener('x-decoded', e => this._validateAddress(e.detail));
         this.$input = this.$('input');
         this.$input.addEventListener('input', e => this._validateAddress(e.target.value));
         this.$('x-header a').addEventListener('click', e => this.$input.focus());
@@ -19,10 +19,10 @@ class ViewSend extends XElement {
     }
 
     _validateAddress(address) {
-        const isValid = NanoApi.validateAddress(address);
-        if (!isValid) return;
-        this.fire('x-address', address);
+        if (!NanoApi.validateAddress(address)) return;
+        this.fire('x-recipient', address);
     }
 }
 
+// Todo: don't allow value > balance
 // Todo: add debouncer to input handler

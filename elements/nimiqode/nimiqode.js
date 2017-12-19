@@ -3,9 +3,9 @@ class Nimiqode extends XElement {
         this.$el.innerHTML = '';
         QrCode.render({
             text: address,
-            radius: 0.5,
+            radius: 0.8,
             ecLevel: 'H',
-            fill: '#536DFE',
+            fill: 'rgba(0,0,0,0.7)',
             background: 'transparent',
             size: Math.min(240, (window.innerWidth - 64))
         }, this.$el);

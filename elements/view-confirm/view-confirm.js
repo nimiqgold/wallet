@@ -1,14 +1,7 @@
 class ViewConfirm extends XElement {
     onCreate() {
-        this.$('[button]').addEventListener('click', e => {
-            location = '#loading';
-            try {
-                app.sendTx();
-                setTimeout(() => location = '#success', 1000);
-                setTimeout(() => location = '#home', 3000);
-            } catch (e) {
-                location = '#error';
-            }
-        })
+        this.$('[button]').addEventListener('click', e => this.fire('x-confirm'));
     }
 }
+
+// Todo: confirm should not be triggert accidentially

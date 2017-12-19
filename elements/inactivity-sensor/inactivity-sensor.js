@@ -1,7 +1,7 @@
 class InactivitySensor extends XElement {
 
     static get NO_INPUT_TIME() { return 30000 } // in seconds 
-    static get TAB_INVISIBLE_TIME() { return 10 } // in ms 
+    static get TAB_INVISIBLE_TIME() { return 10 } // in seconds 
 
     onCreate() {
         document.addEventListener('visibilitychange', e => this._visibilityChange());
@@ -25,3 +25,6 @@ class InactivitySensor extends XElement {
         this.fire('x-inactive');
     }
 }
+
+// Todo: reset timer on mousemove/tab etc 
+// Todo: compute time diff on visibility change because timers might stop when tab inactive 

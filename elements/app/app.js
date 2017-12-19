@@ -1,4 +1,4 @@
-class NanoClientUi extends XApp {
+class Wallet extends XApp {
 
     children() {
         return [
@@ -12,73 +12,104 @@ class NanoClientUi extends XApp {
             ViewReceived,
             ViewLocked,
             ViewIdenticons,
+            ViewPinCreate,
             InactivitySensor
         ]
     }
 
-    onCreate() {
-        super.onCreate();
-        this.$viewLocked.addEventListener('x-unlock', e => this._unlock());
-        this.$inactivitySensor.addEventListener('x-inactive', e => this._lock());
-        this.$viewSend.addEventListener('x-address', e => this._recipientSelected(e.detail));
+    listeners() {
+        return {
+            'x-unlock': '_onUnlock',
+            'x-inactive': '_onInactive',
+            'x-recipient': '_onTxRecipientSelected',
+            'x-value': '_onTxValueSelected',
+            'x-fees': '_onTxFeesSelected',
+            'x-confirm': '_sendTx',
+            'x-keypair': '_onKeysSelected',
+            'x-account': '_onAccountChanged',
+            'x-balance': '_onBalanceChanged',
+            'x-transaction': '_onTransactionReceived',
+            'x-api-ready': '_onApiReady'
+        }
     }
 
-    set address(address) {
+    onCreate() {
+        super.onCreate();
+        this._txData = {}
+    }
+
+    _onAccountChanged(address) {
         this.$viewHome.address = address;
         this.$viewReceive.address = address;
     }
 
-    set balance(balance) {
+    _onBalanceChanged(balance) {
         this.$viewHome.balance = balance;
     }
 
-    get transactionData() {
-        const data = {};
-        data.recipient = this.$viewTransaction.recipient;
-        data.value = this.$viewTransaction.value;
-        data.fee = this.$viewFees.value;
-        return data;
-    }
-
-    onApiReady(api) {
+    _onApiReady(api) {
         this._api = api;
         this.$viewLocked.onApiReady(api);
+        this.$viewIdenticons.onApiReady(api);
+        this.$viewExport.onApiReady(api);
     }
 
-    sendTx() {
-        const tx = this.transactionData;
-        this._api.sendTransaction(tx.recipient, tx.value, 10);
+    _sendTx() {
+        location = '#loading';
+        try {
+            const tx = this._txData;
+            this._api.sendTransaction(tx.recipient, tx.value, tx.fees);
+            setTimeout(() => location = '#success', 1000);
+            setTimeout(() => location = '#home', 3000);
+        } catch (e) {
+            location = '#error';
+        }
     }
 
-    onTransactionReceived(sender, value, fee) {
-        this.$viewReceived.value = value;
-        this.$viewReceived.balance = value + this._api.balance;
+    _onTransactionReceived(tx) {
+        this.$viewReceived.value = tx.value;
+        this.$viewReceived.balance = tx.value + this._api.balance;
         location = '#received';
     }
 
-    _stateChanged(state, path) {
+    _onStateChanged(state, path) {
         if (this._isLocked) return;
         this.$inactivitySensor.reset();
-        super._stateChanged(state, path);
+        super._onStateChanged(state, path);
     }
 
-    _lock() {
+    _onInactive() {
         location = '#locked';
         this._isLocked = true;
         this._api.encryptWallet();
     }
 
-    _unlock() {
+    _onUnlock() {
         this._isLocked = false;
         location = '#home';
-        this.$inactivitySensor.reset();
-        //Todo: decrypt key
     }
 
-    _recipientSelected(address) {
-        navigator.vibrate([100, 100, 100]);
+    _onTxRecipientSelected(address) {
+        this._txData.recipient = address;
         this.$viewTransaction.recipient = address;
         location = '#transaction';
+        navigator.vibrate([100, 100, 100]);
+    }
+
+    _onTxValueSelected(value) {
+        this._txData.value = value;
+        location = '#confirm';
+    }
+
+    _onTxFeesSelected(fees) {
+        this.$viewConfirm.fees = fees;
+        this._txData.fees = fees;
+        location = '#confirm';
+    }
+
+    _onKeysSelected(keys) {
+        this._api.importKey(keys.privateKey)
+            .then(e => location = '#home');
     }
 }
-window.addEventListener('load', () => window.app = new NanoClientUi());
+window.addEventListener('load', () => window.app = new Wallet());

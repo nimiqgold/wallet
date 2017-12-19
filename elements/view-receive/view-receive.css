@@ -32,7 +32,6 @@ view-receive x-address {
 
 view-receive x-nimiqode {
     transition: transform 500ms, opacity 300ms;
-    /* transform: rotate(45deg); */
     will-change: transform, opacity;
     margin-top: -88px;
 }
@@ -42,6 +41,10 @@ view-receive x-nimiqode:empty{
     transform: scale(0);
 } 
 
-body:not(.state-receive) view-receive x-nimiqode {
-    transform: rotate(-90deg) scale(0.3);
+view-receive{
+    transform-origin: left top;
+}
+
+body:not(.state-receive) view-receive{
+    transform: translateX(-128px) scale(0.5);
 }

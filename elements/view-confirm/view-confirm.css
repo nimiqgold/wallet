@@ -17,15 +17,24 @@ x-fees {
 
 x-fees:before {
     content: 'Processing Fees:';
-    /* display: block; */
     font-weight: normal;
     padding-right: 4px;
 }
 
-view-confirm x-text a{
+x-fees:empty:after {
+    content: ' NIM';
+}
+
+x-fees:empty:after {
+    content: '0 NIM';
+}
+
+view-confirm x-text a {
     padding: 16px 0 32px;
     text-decoration: underline;
 }
+
+
 /* Animations */
 
 body:not(.state-confirm) view-confirm {

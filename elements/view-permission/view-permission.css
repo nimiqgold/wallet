@@ -2,8 +2,10 @@ view-permission h1:before{
 	content:'Identicon Scanner';
 }
 
-view-permission h2:before{
+view-permission h1:after{
 	content:'Grant camera access to continue';
+	display: block;
+	font-size: 18px;
 }
 
 x-permisson-bg {

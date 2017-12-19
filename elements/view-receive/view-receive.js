@@ -1,9 +1,8 @@
-
 class ViewReceive extends XElement {
     children() { return [Nimiqode] }
 
     onCreate() {
-        this.$('x-share-button').onclick = e => this._share();
+        this.$('x-share-button').addEventListener('click', e => this._share());
     }
 
     set address(address) {
@@ -13,9 +12,10 @@ class ViewReceive extends XElement {
     }
 
     _share() {
+        const url = location.origin + '/#contact' + this._address;
         navigator
-            .share({ title: this._address, text: '', url: '' })
-            .then( _ => console.log('Successful share'))
+            .share({ title: 'My Nimiq Address', text: '', url: url })
+            .then(_ => console.log('Successful share'))
             .catch(error => console.log('Error sharing', error));
     }
 }

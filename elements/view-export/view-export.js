@@ -1,14 +1,22 @@
 class ViewExport extends XElement {
-    children() { return [Nimiqode] }
-    set privateKey(privateKey) {
-        this.$nimiqode.address = privateKey;
+
+    // children() { return [WalletBackup] }
+
+    onApiReady(api) {
+        this._api = api;
+        if (this._generated) return;
+        this._generateIdenticons();
+    }
+
+    _paint(address, privateKey) {
+        this.$walletImage.paint(address, privateKey)
     }
 
     onShow() {
-    	this.privateKey = nimiq.exportKey()
+        // Todo: delete privateKey references        
     }
 
     onHide() {
-        this.privateKey = '';
+        // Todo: delete privateKey references
     }
 }

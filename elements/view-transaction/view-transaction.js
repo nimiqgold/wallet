@@ -2,23 +2,31 @@ class ViewTransaction extends XElement {
     children() { return [Numpad, AmountInput, Identicon] }
 
     onCreate() {
-        this.$numpad.$el.addEventListener('x-change', (e) => {
-            this.$amountInput.value = e.detail;
-        });
-        this.$amountInput.$el.addEventListener('x-change', (e) => {
-            if (e.detail) {
-                this.$('[button]').removeAttribute('disabled');
-            } else {
-                this.$('[button]').setAttribute('disabled', 1);
-            }
-        })
-        this.$amountInput.$el.addEventListener('x-enter', (e) => {
-            location = '#confirm';
-        })
+        this.$button = this.$('[button]');
+        this.$address = this.$('x-address');
+        this.$numpad.addEventListener('x-change', e => this._setAmountInput(e.detail));
+        this.$amountInput.addEventListener('x-change', e => this._valueChanged(e.detail))
+        this.$amountInput.addEventListener('x-enter', e => this._submit());
+        this.$button.addEventListener('click', e => this._submit());
+    }
+
+    _valueChanged(value) {
+        if (value) {
+            this.$button.removeAttribute('disabled');
+        } else {
+            this.$button.setAttribute('disabled', true);
+        }
+    }
+
+    _submit() {
+        this.fire('x-value', this.value);
+    }
+
+    _setAmountInput(value) {
+        this.$amountInput.value = value;
     }
 
     set value(value) {
-        // this.$amountInput.value = value;
         this.$numpad.value = value;
     }
 
@@ -29,7 +37,7 @@ class ViewTransaction extends XElement {
     set recipient(address) {
         this._recipient = address;
         this.$identicon.address = address;
-        this.$('x-address').textContent = address;
+        this.$address.textContent = address;
     }
 
     get recipient() {

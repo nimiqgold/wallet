@@ -2,7 +2,7 @@
 
 :root {
     --primary-color: #536DFE;
-    --primary-background: linear-gradient(#536DFE, #7d53fe);
+    --primary-background: linear-gradient(#536DFE, #a553fe);
 }
 
 html,
@@ -120,7 +120,11 @@ p a {
 }
 
 
-
+a[secondary] {
+    margin-bottom: 48px;
+    font-size: 15px;
+    font-weight: 800;
+}
 
 
 
@@ -185,7 +189,7 @@ x-header h1 {
     font-size: 15px;
     text-align: center;
     width: calc(100% - 80px);
-    font-weight: 500;
+    font-weight: 800;
 }
 
 x-header [right]:before {
@@ -193,16 +197,6 @@ x-header [right]:before {
     flex-grow: 1;
     display: block;
 }
-
-x-address {
-    font-size: 14px;
-    -webkit-user-select: text;
-    user-select: all;
-}
-
-
-
-
 
 
 
@@ -220,6 +214,13 @@ x-address {
     }
     header {
         display: none;
+    }
+}
+
+@media (max-height: 320px) {
+    x-app-container {
+        min-height: 640px;
+        overflow: hidden;
     }
 }
 

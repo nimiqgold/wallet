@@ -20,20 +20,17 @@ class Amount extends XElement {
     }
 }
 
-
 class AmountInput extends Amount {
     onCreate() {
         this.$input = this.$('input');
         this.$input.addEventListener('change', (e) => this._valueChanged());
         this.$input.addEventListener('keyup', (e) => this._valueChanged(e));
-        if (window.innerWidth <= 420) {
-            this.$input.setAttribute('disabled', '1');
-        }
+        if (window.innerWidth > 420) return;
+        this.$input.setAttribute('disabled', '1');
     }
 
     _valueChanged(e) {
-        if (e && e.keyCode === 13)
-            return this.fire('x-enter');
+        if (e && e.keyCode === 13) return this.fire('x-enter');
         this.value = this.$input.value;
     }
 
@@ -43,9 +40,8 @@ class AmountInput extends Amount {
     }
 
     focus() {
-        if (window.innerWidth > 420) {
-            requestAnimationFrame(_ => this.$input.focus())
-        }
+        if (window.innerWidth < 420) return;
+        requestAnimationFrame(_ => this.$input.focus());
     }
 
     set value(value) {

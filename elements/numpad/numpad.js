@@ -1,9 +1,7 @@
 class Numpad extends XElement {
+
     onCreate() {
-        this.$el.addEventListener('click', (e) => {
-            const key = e.target.textContent;
-            this._handleKey(key);
-        });
+        this.addEventListener('click', (e) => this._handleKey(e.target.textContent));
     }
 
     _handleKey(key) {
@@ -58,3 +56,5 @@ class Numpad extends XElement {
         this.fire('x-change', value);
     }
 }
+
+// Todo: Fix bugs when entering 0.123 and deleting
