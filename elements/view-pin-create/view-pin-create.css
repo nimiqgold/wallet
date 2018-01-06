@@ -28,6 +28,7 @@ view-pin-create:before {
 body:not(.state-pin-create) view-pin-create {
     transform: translateY(150vh);
     pointer-events: none;
+    display: none;
 }
 
 .state-pin-create x-blur-container {

@@ -36,6 +36,7 @@ view-send input:not(:focus) {
 
 view-send x-header a {
     position: absolute;
+    z-index: 1;
 }
 
 view-send input[type="text"]::placeholder,
