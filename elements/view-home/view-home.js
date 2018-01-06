@@ -1,5 +1,5 @@
 class ViewHome extends XElement {
-    children() { return [Amount, Identicon] }
+    children() { return [XAmount, XIdenticon] }
 
     set address(address) { this.$identicon.address = address }
 

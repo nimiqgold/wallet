@@ -1,10 +1,10 @@
 class ViewTransaction extends XElement {
-    children() { return [Numpad, AmountInput, Identicon] }
+    children() { return [XNumpad, XAmountInput, XIdenticon] }
 
     onCreate() {
         this.$button = this.$('[button]');
         this.$address = this.$('x-address');
-        this.$numpad.addEventListener('x-change', e => this._setAmountInput(e.detail));
+        this.$numpad.addEventListener('x-change', e => this._setXAmountInput(e.detail));
         this.$amountInput.addEventListener('x-change', e => this._valueChanged(e.detail))
         this.$amountInput.addEventListener('x-enter', e => this._submit());
         this.$button.addEventListener('click', e => this._submit());
@@ -22,7 +22,7 @@ class ViewTransaction extends XElement {
         this.fire('x-value', this.value);
     }
 
-    _setAmountInput(value) {
+    _setXAmountInput(value) {
         this.$amountInput.value = value;
     }
 

@@ -1,5 +1,5 @@
 class ViewReceive extends XElement {
-    children() { return [Nimiqode] }
+    children() { return [XQrEncoder] }
 
     onCreate() {
         this.$('x-share-button').addEventListener('click', e => this._share());
@@ -8,7 +8,7 @@ class ViewReceive extends XElement {
     set address(address) {
         this._address = address;
         this.$('x-address').textContent = address;
-        this.$nimiqode.address = address;
+        this.$qrEncoder.address = address;
     }
 
     _share() {

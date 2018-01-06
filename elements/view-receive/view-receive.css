@@ -30,13 +30,13 @@ view-receive x-address {
     bottom: 188px;
 }
 
-view-receive x-nimiqode {
+view-receive x-qr-encoder {
     transition: transform 500ms, opacity 300ms;
     will-change: transform, opacity;
     margin-top: -88px;
 }
 
-view-receive x-nimiqode:empty{
+view-receive x-qr-encoder:empty{
     opacity: 0;
     transform: scale(0);
 } 

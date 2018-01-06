@@ -13,7 +13,7 @@ class Wallet extends XApp {
             ViewLocked,
             ViewIdenticons,
             ViewPinCreate,
-            InactivitySensor
+            XInactivitySensor
         ]
     }
 

@@ -34,7 +34,7 @@ class ViewIdenticons extends XElement {
     }
 
     _generateIdenticon(keyPair) {
-        const identicon = Identicon.createElement();
+        const identicon = XIdenticon.createElement();
         this.$container.appendChild(identicon.$el);
         identicon.address = keyPair.address;
         identicon.addEventListener('click', e => this._onIdenticonSelected(keyPair, identicon));

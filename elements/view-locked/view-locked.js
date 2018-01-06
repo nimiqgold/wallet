@@ -1,6 +1,6 @@
 class ViewLocked extends XElement {
 
-    children() { return [Pinpad] }
+    children() { return [XPinpad] }
 
     onApiReady(api) {
         this._api = api;

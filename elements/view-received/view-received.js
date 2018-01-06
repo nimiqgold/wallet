@@ -1,5 +1,5 @@
 class ViewReceived extends XElement {
-    children() { return [Amount] }
+    children() { return [XAmount] }
     onCreate() {
         this.$el.addEventListener('click', e => location = '#home')
     }
@@ -9,6 +9,6 @@ class ViewReceived extends XElement {
     }
 
     set balance(balance) {
-        this.$('new-balance').textContent = Amount.format(balance);
+        this.$('new-balance').textContent = XAmount.format(balance);
     }
 }

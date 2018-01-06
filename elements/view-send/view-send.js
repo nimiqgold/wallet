@@ -1,5 +1,5 @@
 class ViewSend extends XElement {
-    children() { return [QrScanner] }
+    children() { return [XQrScanner] }
 
     onCreate() {
         this.$qrScanner.setGrayscaleWeights(145, 91, 20);

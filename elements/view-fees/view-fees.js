@@ -1,6 +1,6 @@
 class ViewFees extends XElement {
 
-    children() { return [Amount] }
+    children() { return [XAmount] }
 
     onCreate() {
         this._initSlider();
