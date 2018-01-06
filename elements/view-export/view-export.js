@@ -5,7 +5,7 @@ class ViewExport extends XElement {
     onApiReady(api) {
         this._api = api;
         if (this._generated) return;
-        this._generateIdenticons();
+        this._paint();
     }
 
     _paint(address, privateKey) {

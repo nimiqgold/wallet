@@ -39,12 +39,12 @@ body:not(.state-pin-create) view-pin-create {
 }
 
 
-view-pin-create x-pin:before,
-view-pin-create x-pin.unlocking:before {
+view-pin-create x-pin-label:before,
+view-pin-create.unlocking x-pin-label:before {
     content: 'Enter your Passcode';
 }
 
-view-pin-create[verify] x-pin:before {
+view-pin-create[verify] x-pin-label:before {
     content: 'Verify your Passcode';
     animation: verify-pin 1000ms;
 }
@@ -58,7 +58,7 @@ view-pin-create h1:after{
     content: 'A passcode protects your funds and is used to unlock your Wallet';
     font-size: 15px;
     display: block;
-    padding-bottom: 72px;
+    padding-bottom: 48px;
     line-height: 18px;
 }
 

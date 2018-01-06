@@ -4,7 +4,7 @@ class ViewIdenticons extends XElement {
         this.$container = this.$('x-container');
         this.$address = this.$('x-address');
         this.$('[secondary]').addEventListener('click', e => this._generateIdenticons());
-        this.$('[button]').addEventListener('click', e => this._confirm(e));
+        this.$('[button]').addEventListener('click', e => this._onConfirm(e));
         this.$('x-backdrop').addEventListener('click', e => this._clearSelection());
     }
 
@@ -37,10 +37,10 @@ class ViewIdenticons extends XElement {
         const identicon = Identicon.createElement();
         this.$container.appendChild(identicon.$el);
         identicon.address = keyPair.address;
-        identicon.addEventListener('click', e => this._identiconSelected(keyPair, identicon));
+        identicon.addEventListener('click', e => this._onIdenticonSelected(keyPair, identicon));
     }
 
-    _identiconSelected(keyPair, identicon) {
+    _onIdenticonSelected(keyPair, identicon) {
         this._clearSelection();
         this._selectedKeyPair = keyPair;
         this._selectedIdenticon = identicon;
@@ -62,7 +62,7 @@ class ViewIdenticons extends XElement {
         this.$el.removeAttribute('active');
     }
 
-    _confirm(e) {
+    _onConfirm(e) {
         this.fire('x-keypair', this._selectedKeyPair)
         e.stopPropagation();
     }

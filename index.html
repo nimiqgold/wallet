@@ -75,20 +75,7 @@
                             </x-currency-1>
                             <x-currency-2></x-currency-2>
                         </x-amount-input>
-                        <x-numpad>
-                            <button>1</button>
-                            <button>2</button>
-                            <button>3</button>
-                            <button>4</button>
-                            <button>5</button>
-                            <button>6</button>
-                            <button>7</button>
-                            <button>8</button>
-                            <button>9</button>
-                            <button>.</button>
-                            <button>0</button>
-                            <button>&lt;</button>
-                        </x-numpad>
+                        <x-numpad></x-numpad>
                         <a button disabled>Next</a>
                     </x-container>
                 </view-transaction>
@@ -153,7 +140,9 @@
                 <!-- Notifications -->
                 <view-loading id="loading"></view-loading>
                 <view-error id="error"></view-error>
-                <noscript></noscript>
+                <noscript>
+                    <link rel="stylesheet" href="/nimiq-elements/noscript/noscript.css">
+                </noscript>
             </main>
             <nav>
                 <x-nav-box>
@@ -172,53 +161,35 @@
         </x-amount>
         <new-balance></new-balance>
     </view-received>
-    <view-locked id="locked"></view-locked>
+    <view-locked id="locked">
+        <x-pinpad></x-pinpad>
+    </view-locked>
     <view-pin-create id="pin-create">
         <h1></h1>
+        <x-pinpad></x-pinpad>
     </view-pin-create>
     <view-pin-change id="pin-change"></view-pin-change>
     <x-inactivity-sensor></x-inactivity-sensor>
     <x-templates>
-        <template id="x-pinpad">
-            <x-pin>
-                <x-dot></x-dot>
-                <x-dot></x-dot>
-                <x-dot></x-dot>
-                <x-dot></x-dot>
-                <x-dot></x-dot>
-                <x-dot></x-dot>
-            </x-pin>
-            <x-pinpad-container>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button>0</button>
-            </x-pinpad-container>
-            <x-delete></x-delete>
-        </template>
+        
     </x-templates>
     <x-imports>
         <!-- Elements -->
-        <link rel="stylesheet" href="/fast-font/fast-font.css">
+        <link rel="stylesheet" href="/nimiq-elements/theme/theme.css">
+        <link rel="stylesheet" href="/nimiq-elements/fast-font/fast-font.css">
+        <link rel="stylesheet" href="/nimiq-elements/inputs/inputs.css">
+        <link rel="stylesheet" href="/nimiq-elements/x-qr-code/x-qr-code.css">
+        <link rel="stylesheet" href="/nimiq-elements/x-amount/x-amount.css">
+        <link rel="stylesheet" href="/nimiq-elements/x-address/x-address.css">
+        <link rel="stylesheet" href="/nimiq-elements/x-camera/x-camera.css">
+        <link rel="stylesheet" href="/nimiq-elements/x-numpad/x-numpad.css">
+        <link rel="stylesheet" href="/nimiq-elements/x-share-button/x-share-button.css">
+        <link rel="stylesheet" href="/nimiq-elements/x-time-estimate/x-time-estimate.css">
+        <link rel="stylesheet" href="/nimiq-elements/x-pinpad/x-pinpad.css">
+        <link rel="stylesheet" href="/nimiq-elements/icons/icons.css">
+
         <link rel="stylesheet" href="elements/app/app.css">
         <link rel="stylesheet" href="elements/navigation/navigation.css">
-        <link rel="stylesheet" href="elements/inputs/inputs.css">
-        <link rel="stylesheet" href="elements/amount/amount.css">
-        <link rel="stylesheet" href="elements/camera/camera.css">
-        <link rel="stylesheet" href="elements/numpad/numpad.css">
-        <link rel="stylesheet" href="elements/share-button/share-button.css">
-        <link rel="stylesheet" href="elements/nimiqode/nimiqode.css">
-        <link rel="stylesheet" href="elements/time-estimate/time-estimate.css">
-        <link rel="stylesheet" href="elements/icons/icons.css">
-        <link rel="stylesheet" href="elements/address/address.css">
-        <link rel="stylesheet" href="elements/noscript/noscript.css">
-        <link rel="stylesheet" href="elements/pinpad/pinpad.css">
         <!-- Views -->
         <link rel="stylesheet" href="elements/view-home/view-home.css">
         <link rel="stylesheet" href="elements/view-send/view-send.css">
@@ -236,15 +207,15 @@
         <link rel="stylesheet" href="elements/view-identicons/view-identicons.css">
         <link rel="stylesheet" href="elements/view-history/view-history.css">
         <link rel="stylesheet" href="elements/view-welcome/view-welcome.css">
-        <link rel="stylesheet" href="elements/view-pin-change/view-pin-change.css">
+        <!-- <link rel="stylesheet" href="elements/view-pin-change/view-pin-change.css"> -->
         <link rel="stylesheet" href="elements/view-pin-create/view-pin-create.css">
         <!-- Preload -->
-<!--         <script src="/nano-api/preloader.js"></script>
+        <!--         <script src="/nano-api/preloader.js"></script>
         <script>
         Preloader.isFirstVisit().then(isFirstVisit => location = isFirstVisit ? '#welcome' : '#locked');
         </script> -->
         <!-- Libs -->
-        <script src="/x-element/src/x-element.js"></script>
+        <script src="/x-element/x-element.js"></script>
         <script src="/x-element/src/x-app.js"></script>
         <script src="/robohash/dist/robohash.min.js"></script>
         <script src="/x-identicon/src/identicon-factory.js"></script>
@@ -252,14 +223,15 @@
         <script src="/x-identicon/src/identicon-img-factory.js"></script>
         <script src="/qr-encoder/qr-encoder.min.js"></script>
         <script src="/qr-scanner/qr-scanner.min.js"></script>
-        <script src="/web-share-shim/dist/web-share-shim.min.js"></script>
-        <script src="/wallet-backup/dist/wallet-backup.js"></script>
+        <script src="/web-share-shim/web-share-shim.min.js"></script>
+        <script src="/wallet-backup/wallet-backup.js"></script>
+        <script src="/nimiq-elements/x-amount/x-amount.js"></script>
+        <script src="/nimiq-elements/x-qr-code/x-qr-code.js"></script>
+        <script src="/nimiq-elements/x-numpad/x-numpad.js"></script>
+        <script src="/nimiq-elements/x-pinpad/x-pinpad.js"></script>
+        <script src="/nimiq-elements/inactivity-sensor/inactivity-sensor.js"></script>
+        <script src="/nimiq-elements/x-transaction/x-transaction.js"></script>
         <!-- View scripts -->
-        <script src="elements/amount/amount.js"></script>
-        <script src="elements/nimiqode/nimiqode.js"></script>
-        <script src="elements/numpad/numpad.js"></script>
-        <script src="elements/pinpad/pinpad.js"></script>
-        <script src="elements/inactivity-sensor/inactivity-sensor.js"></script>
         <script src="elements/view-home/view-home.js"></script>
         <script src="elements/view-send/view-send.js"></script>
         <script src="elements/view-receive/view-receive.js"></script>
@@ -270,9 +242,8 @@
         <script src="elements/view-received/view-received.js"></script>
         <script src="elements/view-locked/view-locked.js"></script>
         <script src="elements/view-identicons/view-identicons.js"></script>
-        <script src="elements/view-pin-change/view-pin-change.js"></script>
+        <!-- <script src="elements/view-pin-change/view-pin-change.js"></script> -->
         <script src="elements/view-pin-create/view-pin-create.js"></script>
-        <script src="elements/transaction/transaction.js"></script>
         <script src="elements/app/app.js"></script>
         <!-- <script src="/nano-client-ui/pwa/service-worker/service-worker-register.js" async></script> -->
         <!-- <script src="https://cdn.nimiq-network.com/branches/master/nimiq.js"></script> -->

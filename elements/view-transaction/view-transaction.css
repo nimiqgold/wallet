@@ -19,7 +19,8 @@ x-receiver x-identicon {
     width: 160px;
     transform-origin: center bottom;
     margin-bottom: 8px;
-    transform: scale(0.39);
+    will-change: transform;
+    transform: scale(0.4);
     margin-top: -112px;
 }
 

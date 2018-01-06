@@ -18,7 +18,6 @@ class ViewPinCreate extends XElement {
     _reset() {
         this.$el.removeAttribue('verify');
         this.$pinpad.reset();
-
     }
 
     _submit(pin) {
@@ -32,7 +31,6 @@ class ViewPinCreate extends XElement {
         setTimeout(e => {
             this.$pinpad.reset();
         }, 500)
-
     }
 
     _verified(pin) {

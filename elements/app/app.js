@@ -81,7 +81,7 @@ class Wallet extends XApp {
     _onInactive() {
         location = '#locked';
         this._isLocked = true;
-        this._api.encryptWallet();
+        this._api.lockWallet();
     }
 
     _onUnlock() {
@@ -93,7 +93,7 @@ class Wallet extends XApp {
         this._txData.recipient = address;
         this.$viewTransaction.recipient = address;
         location = '#transaction';
-        navigator.vibrate([100, 100, 100]);
+        navigator.vibrate && navigator.vibrate([100, 100, 100]);
     }
 
     _onTxValueSelected(value) {

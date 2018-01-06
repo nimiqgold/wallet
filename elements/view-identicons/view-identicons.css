@@ -83,6 +83,7 @@ view-identicons x-backdrop {
 view-identicons [secondary] {
     position: absolute;
     bottom: 40px;
+    margin-bottom:  20px;
 }
 
 

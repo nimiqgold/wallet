@@ -18,7 +18,7 @@ class ViewLocked extends XElement {
 
     _submit(pin) {
         if (!this._api) return;
-        this._api.decryptWallet(pin)
+        this._api.unlockWallet(pin)
             .then(success => this._unlock())
             .catch(error => this.$pinpad.onIncorrectPin());
     }
