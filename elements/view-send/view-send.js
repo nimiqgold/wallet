@@ -1,4 +1,4 @@
-class ViewSend extends XElement {
+class ViewSend extends XView {
     children() { return [XQrScanner] }
 
     onCreate() {
@@ -34,8 +34,19 @@ class ViewSend extends XElement {
         }
         this.$qrScanner.scanImage(file);
     }
+
+    html() {
+        return `
+            <x-header>
+                <a icon-paste></a>
+                <input type="text" placeholder="Enter Recipient Address">
+                <label icon-upload><input type="file"></label>
+            </x-header>
+            <x-qr-scanner></x-qr-scanner>`
+    }
 }
 
 // Todo: don't allow value > balance
 // Todo: add debouncer to input handler
 // Todo: maybe show an error message if in uploaded file no address was found
+// Todo: Debug for iOS
