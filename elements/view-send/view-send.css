@@ -37,10 +37,19 @@ view-send input:not(:focus) {
 view-send x-header a {
     position: absolute;
     z-index: 1;
+    cursor: pointer;
 }
 
 view-send input[type="text"]::placeholder,
 view-send input[type="text"]::-webkit-input-placeholder {
     color: rgba(255, 255, 255, 0.7);
     text-align: left;
+}
+
+view-send x-header [icon-upload] {
+    cursor: pointer;
+}
+
+view-send x-header [icon-upload] input[type="file"] {
+    display: none;
 }
