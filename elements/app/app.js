@@ -13,6 +13,9 @@ class Wallet extends XApp {
             ViewLocked,
             ViewIdenticons,
             ViewPinCreate,
+            ViewWelcome,
+            ViewPermission,
+            ViewSuccess,
             XInactivitySensor
         ]
     }
@@ -110,6 +113,50 @@ class Wallet extends XApp {
     _onKeysSelected(keys) {
         this._api.importKey(keys.privateKey)
             .then(e => location = '#home');
+    }
+
+    html() {
+        return `
+        <x-blur-container>
+        <header>
+            <nimiq-logo></nimiq-logo>
+        </header>
+        <x-app-container>
+            <main>
+                <view-home></view-home>
+                <view-receive></view-receive>
+                <view-send></view-send>
+                <view-permission></view-permission>
+                <view-transaction></view-transaction>
+                <view-confirm></view-confirm>
+                <view-fees></view-fees>
+                <view-success></view-success>
+                <view-export></view-export>
+                <view-history></view-history>
+                <!-- Onboarding -->
+                <view-welcome></view-welcome>
+                <view-identicons></view-identicons>
+                <!-- Notifications -->
+                <view-loading></view-loading>
+                <view-error></view-error>
+                <noscript>
+                    <link href="/nimiq-elements/noscript/noscript.css" rel="stylesheet">
+                </noscript>
+            </main>
+            <nav>
+                <x-nav-box>
+                    <a href="#receive" tabindex="1">Receive</a>
+                    <a href="#home">Home</a>
+                    <a href="#send">Send</a>
+                </x-nav-box>
+            </nav>
+        </x-app-container>
+    </x-blur-container>
+    <view-received></view-received>
+    <view-locked></view-locked>
+    <view-pin-create></view-pin-create>
+    <view-pin-change></view-pin-change>
+    <x-inactivity-sensor></x-inactivity-sensor>`
     }
 }
 window.addEventListener('load', () => window.app = new Wallet());

@@ -1,4 +1,4 @@
-class ViewPinCreate extends XElement {
+class ViewPinCreate extends XView {
     children() { return [XPinpad] }
 
     onApiReady(api) {
@@ -47,5 +47,11 @@ class ViewPinCreate extends XElement {
 
     _success() {
 
+    }
+
+    html(){
+        return `
+        <h1></h1>
+        <x-pinpad></x-pinpad>`
     }
 }

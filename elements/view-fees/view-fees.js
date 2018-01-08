@@ -1,4 +1,4 @@
-class ViewFees extends XElement {
+class ViewFees extends XView {
 
     children() { return [XAmount] }
 
@@ -29,5 +29,13 @@ class ViewFees extends XElement {
 
     _confirm() {
         this.fire('x-fees', this.value);
+    }
+
+    html(){
+        return `
+        <x-amount></x-amount>
+        <input type="range">
+        <x-time-estimate></x-time-estimate>
+        <a href="#confirm" button>Done</a>`
     }
 }

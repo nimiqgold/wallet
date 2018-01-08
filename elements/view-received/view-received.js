@@ -1,4 +1,4 @@
-class ViewReceived extends XElement {
+class ViewReceived extends XView {
     children() { return [XAmount] }
     onCreate() {
         this.$el.addEventListener('click', e => location = '#home')
@@ -10,5 +10,13 @@ class ViewReceived extends XElement {
 
     set balance(balance) {
         this.$('new-balance').textContent = XAmount.format(balance);
+    }
+
+    html(){
+        return `
+        <nimiq-logo></nimiq-logo>
+        <x-amount></x-amount>
+        <new-balance></new-balance>
+        `
     }
 }

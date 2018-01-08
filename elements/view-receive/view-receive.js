@@ -1,4 +1,4 @@
-class ViewReceive extends XElement {
+class ViewReceive extends XView {
     children() { return [XQrEncoder] }
 
     onCreate() {
@@ -17,5 +17,14 @@ class ViewReceive extends XElement {
             .share({ title: 'My Nimiq Address', text: '', url: url })
             .then(_ => console.log('Successful share'))
             .catch(error => console.log('Error sharing', error));
+    }
+
+    html(){
+        return `
+        <x-header>  
+            <x-share-button></x-share-button>
+        </x-header>
+        <x-qr-encoder></x-qr-encoder>
+        <x-address></x-address>`
     }
 }

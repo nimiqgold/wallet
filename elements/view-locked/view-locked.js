@@ -1,4 +1,4 @@
-class ViewLocked extends XElement {
+class ViewLocked extends XView {
 
     children() { return [XPinpad] }
 
@@ -26,6 +26,10 @@ class ViewLocked extends XElement {
     _unlock() {
         this.fire('x-unlock');
         this.$pinpad.reset();
+    }
+
+    html(){
+        return `<x-pinpad></x-pinpad>`
     }
 }
 

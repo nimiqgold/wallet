@@ -1,4 +1,4 @@
-class ViewIdenticons extends XElement {
+class ViewIdenticons extends XView {
 
     onCreate() {
         this.$container = this.$('x-container');
@@ -65,5 +65,18 @@ class ViewIdenticons extends XElement {
     _onConfirm(e) {
         this.fire('x-keypair', this._selectedKeyPair)
         e.stopPropagation();
+    }
+
+    html(){
+        return `
+            <x-header>
+                <a href="#welcome" icon-back></a>
+                <h1>Choose Avatar</h1>
+            </x-header>
+            <x-container></x-container>
+            <x-address></x-address>
+            <x-backdrop></x-backdrop>
+            <a secondary>Generate More</a>
+            <a button>Confirm</a>`
     }
 }

@@ -1,4 +1,4 @@
-class ViewExport extends XElement {
+class ViewExport extends XView {
 
     // children() { return [WalletBackup] }
 
@@ -9,7 +9,7 @@ class ViewExport extends XElement {
     }
 
     _paint(address, privateKey) {
-        this.$walletImage.paint(address, privateKey)
+        // this.$walletImage.paint(address, privateKey)
     }
 
     onShow() {
@@ -18,5 +18,14 @@ class ViewExport extends XElement {
 
     onHide() {
         // Todo: delete privateKey references
+    }
+
+    html(){
+        return `
+        <x-header>
+            <a href="#home" icon-back></a>
+        <h1></h1>
+        </x-header>
+        <x-wallet-backup></x-wallet-backup>`
     }
 }
