@@ -1,4 +1,4 @@
-class ViewTransaction extends XView {
+class ViewTransaction extends XElement {
     children() { return [XNumpad, XAmountInput, XIdenticon] }
 
     onCreate() {

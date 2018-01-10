@@ -1,4 +1,4 @@
-class ViewPermission extends XView {
+class ViewPermission extends XElement {
     html() {
         return `
 			<h1></h1>

@@ -1,4 +1,4 @@
-class ViewExport extends XView {
+class ViewExport extends XElement {
 
     // children() { return [WalletBackup] }
 

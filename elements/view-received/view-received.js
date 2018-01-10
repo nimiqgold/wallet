@@ -1,4 +1,4 @@
-class ViewReceived extends XView {
+class ViewReceived extends XElement {
     children() { return [XAmount] }
     onCreate() {
         this.$el.addEventListener('click', e => location = '#home')

@@ -1,4 +1,4 @@
-class ViewHistory extends XView {
+class ViewHistory extends XElement {
     children() { return [Transaction] }
 
     html(){

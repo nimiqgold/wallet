@@ -1,4 +1,4 @@
-class ViewFees extends XView {
+class ViewFees extends XElement {
 
     children() { return [XAmount] }
 

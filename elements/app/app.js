@@ -139,9 +139,6 @@ class Wallet extends XApp {
                 <!-- Notifications -->
                 <view-loading></view-loading>
                 <view-error></view-error>
-                <noscript>
-                    <link href="/nimiq-elements/noscript/noscript.css" rel="stylesheet">
-                </noscript>
             </main>
             <nav>
                 <x-nav-box>
@@ -151,12 +148,14 @@ class Wallet extends XApp {
                 </x-nav-box>
             </nav>
         </x-app-container>
-    </x-blur-container>
-    <view-received></view-received>
-    <view-locked></view-locked>
-    <view-pin-create></view-pin-create>
-    <view-pin-change></view-pin-change>
-    <x-inactivity-sensor></x-inactivity-sensor>`
+        </x-blur-container>
+        <view-received></view-received>
+        <view-locked></view-locked>
+        <view-pin-create></view-pin-create>
+        <view-pin-change></view-pin-change>
+        <x-inactivity-sensor></x-inactivity-sensor>
+        <noscript><link href="/nimiq-elements/noscript/noscript.css" rel="stylesheet"></noscript>
+        `
     }
 }
 window.addEventListener('load', () => window.app = new Wallet());

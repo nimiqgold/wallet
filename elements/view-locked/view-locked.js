@@ -1,4 +1,4 @@
-class ViewLocked extends XView {
+class ViewLocked extends XElement {
 
     children() { return [XPinpad] }
 

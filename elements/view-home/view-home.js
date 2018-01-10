@@ -1,4 +1,4 @@
-class ViewHome extends XView {
+class ViewHome extends XElement {
     children() { return [XAmount, XIdenticon] }
 
     set address(address) { this.$identicon.address = address }

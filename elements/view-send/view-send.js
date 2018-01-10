@@ -1,4 +1,4 @@
-class ViewSend extends XView {
+class ViewSend extends XElement {
     children() { return [XQrScanner] }
 
     onCreate() {

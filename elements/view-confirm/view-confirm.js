@@ -1,4 +1,4 @@
-class ViewConfirm extends XView {
+class ViewConfirm extends XElement {
     onCreate() {
         this.$('[button]').addEventListener('click', e => this.fire('x-confirm'));
     }

@@ -1,4 +1,4 @@
-class ViewReceive extends XView {
+class ViewReceive extends XElement {
     children() { return [XQrEncoder] }
 
     onCreate() {
