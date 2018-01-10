@@ -8,6 +8,10 @@ view-send>x-qr-scanner {
     position: relative;
 }
 
+view-send > x-qr-scanner > [qr-overlay] {
+    margin-top: -16px;
+}
+
 body:not(.state-send) view-send x-camera {
     transform: scale(0.9);
 }
