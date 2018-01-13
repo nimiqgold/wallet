@@ -8,7 +8,7 @@ class ViewSend extends XElement {
         this.addEventListener('x-image-decoded', e => this._onFileScanned(event));
         this.addEventListener('x-image-error', e => this._onFileScanned(event));
         this.$input = this.$('input[type="text"]');
-        this.$input.addEventListener('input', e => this._validateAddress(e.target.value));
+        this.$input.addEventListener('input', () => this._onTextInput());
         this.$('x-header [icon-paste]').addEventListener('click', e => this.$input.focus());
         this.$fileSelector = this.$('input[type="file"]');
         this.$fileSelector.addEventListener('change', () => this._onFileSelected());
@@ -18,6 +18,7 @@ class ViewSend extends XElement {
     onShow() {
         this.$qrScanner.active = true;
         this.$input.value = '';
+        this.$input.removeAttribute('invalid');
     }
 
     onHide() {
@@ -28,6 +29,14 @@ class ViewSend extends XElement {
         if (!NanoApi.validateAddress(address)) return false;
         this.fire('x-recipient', address);
         return true;
+    }
+
+    _onTextInput() {
+        if (this._validateAddress(this.$input.value) || this.$input.value === '') {
+            this.$input.removeAttribute('invalid');
+        } else {
+            this.$input.setAttribute('invalid', '');
+        }
     }
 
     _onFileSelected() {
@@ -52,7 +61,7 @@ class ViewSend extends XElement {
         return `
             <x-header>
                 <a icon-paste></a>
-                <input type="text" placeholder="Enter Recipient Address">
+                <input type="text" placeholder="Enter Recipient Address" spellcheck="false" autocomplete="off">
                 <label icon-upload><input type="file"></label>
             </x-header>
             <x-qr-scanner></x-qr-scanner>`
@@ -60,6 +69,4 @@ class ViewSend extends XElement {
 }
 
 // Todo: don't allow value > balance
-// Todo: add debouncer to input handler
-// Todo: Debug for iOS
 // Todo: Bug on repeated click onto the 'send' tab (camera activated multiple times)
