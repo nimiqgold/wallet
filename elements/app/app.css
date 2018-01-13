@@ -73,16 +73,17 @@ x-header [right]:before {
 
 /* Target-based Routing */
 
-main>*:target {
-    z-index: 1;
-    opacity: 1;
-}
 
 main>*,
 main>*:target~* {
     opacity: 0;
 }
 
+
+main>*:target {
+    z-index: 1;
+    opacity: 1;
+}
 
 
 /* Responsiveness */

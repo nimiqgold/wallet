@@ -8,7 +8,6 @@ class Wallet extends XApp {
             ViewTransaction,
             ViewFees,
             ViewConfirm,
-            ViewExport,
             ViewReceived,
             ViewLocked,
             ViewIdenticons,
@@ -54,7 +53,6 @@ class Wallet extends XApp {
         this._api = api;
         this.$viewLocked.onApiReady(api);
         this.$viewIdenticons.onApiReady(api);
-        this.$viewExport.onApiReady(api);
     }
 
     _sendTx() {
@@ -131,7 +129,6 @@ class Wallet extends XApp {
                 <view-confirm></view-confirm>
                 <view-fees></view-fees>
                 <view-success></view-success>
-                <view-export></view-export>
                 <view-history></view-history>
                 <!-- Onboarding -->
                 <view-welcome></view-welcome>

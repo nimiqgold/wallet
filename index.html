@@ -18,95 +18,94 @@
     <link rel="apple-touch-icon" href="pwa/icons/apple-touch-icon.png">
     <link rel="apple-touch-startup-image" href="pwa/icons/icon-512x512.png">
     <!-- Windows 10 -->
-
-    
-    <!-- Imports -->
-    <!-- Elements -->
+    <!-- Preload -->
+    <!-- <script src="/nano-api/preloader.js"></script> -->
+    <!-- Service Worker -->
+    <!-- <script src="/nano-client-ui/pwa/service-worker/service-worker-register.js" async></script> -->
+    <!-- General Libs -->
     <link href="/nimiq-elements/theme/theme.css" rel="stylesheet">
     <link href="/nimiq-elements/fast-font/fast-font.css" rel="stylesheet">
     <link href="/nimiq-elements/inputs/inputs.css" rel="stylesheet">
     <link href="/nimiq-elements/app-layout/app-layout.css" rel="stylesheet">
     <link href="/nimiq-elements/nimiq-logo/nimiq-logo.css" rel="stylesheet">
-    <link href="/nimiq-elements/x-qr-encoder/x-qr-encoder.css" rel="stylesheet">
-    <link href="/nimiq-elements/x-amount/x-amount.css" rel="stylesheet">
-    <link href="/nimiq-elements/x-address/x-address.css" rel="stylesheet">
-    <link href="/nimiq-elements/x-qr-scanner/x-qr-scanner.css" rel="stylesheet">
-    <link href="/nimiq-elements/x-numpad/x-numpad.css" rel="stylesheet">
-    <link href="/nimiq-elements/x-share-button/x-share-button.css" rel="stylesheet">
     <link href="/nimiq-elements/x-time-estimate/x-time-estimate.css" rel="stylesheet">
-    <link href="/nimiq-elements/x-pinpad/x-pinpad.css" rel="stylesheet">
     <link href="/nimiq-elements/icons/icons.css" rel="stylesheet">
     <link href="/nimiq-elements/typography/typography.css" rel="stylesheet">
-    <link href="elements/app/app.css" rel="stylesheet">
     <link href="elements/navigation/navigation.css" rel="stylesheet">
-    <!-- Views -->
-    <link href="elements/view-home/view-home.css" rel="stylesheet">
-    <link href="elements/view-send/view-send.css" rel="stylesheet">
-    <link href="elements/view-receive/view-receive.css" rel="stylesheet">
-    <link href="elements/view-permission/view-permission.css" rel="stylesheet">
-    <link href="elements/view-transaction/view-transaction.css" rel="stylesheet">
-    <link href="elements/view-fees/view-fees.css" rel="stylesheet">
-    <link href="elements/view-confirm/view-confirm.css" rel="stylesheet">
-    <link href="elements/view-success/view-success.css" rel="stylesheet">
-    <link href="elements/view-received/view-received.css" rel="stylesheet">
-    <link href="elements/view-loading/view-loading.css" rel="stylesheet">
-    <link href="elements/view-export/view-export.css" rel="stylesheet">
-    <link href="elements/view-error/view-error.css" rel="stylesheet">
-    <link href="elements/view-locked/view-locked.css" rel="stylesheet">
-    <link href="elements/view-identicons/view-identicons.css" rel="stylesheet">
-    <link href="elements/view-history/view-history.css" rel="stylesheet">
-    <link href="elements/view-welcome/view-welcome.css" rel="stylesheet">
-    <link href="elements/view-pin-change/view-pin-change.css" rel="stylesheet">
-    <link href="/nimiq-elements/view-pin-create/view-pin-create.css" rel="stylesheet">
-    <!-- Preload
-        <!--         <script src="/nano-api/preloader.js"></script>
-        <script>
-        Preloader.isFirstVisit().then(isFirstVisit => location = isFirstVisit ? '#welcome' : '#locked');
-        </script> -->
-    <!-- Libs -->
     <script src="/x-element/x-element.js"></script>
-    <script src="/x-element/x-app.js"></script>
+    <script src="/nimiq-elements/x-inactivity-sensor/x-inactivity-sensor.js"></script>
+    <!-- View Welcome -->
+    <link href="elements/view-welcome/view-welcome.css" rel="stylesheet">
+    <script src="elements/view-welcome/view-welcome.js"></script>
+    <!-- View Identicons -->
     <script src="/robohash/dist/robohash.min.js"></script>
     <script src="/identicon/src/identicon.js"></script>
-    <script src="/nimiq-elements/x-identicon/x-identicon.js"></script>
     <script src="/identicon/src/identicon-img.js"></script>
-    <script src="/qr-encoder/qr-encoder.min.js"></script>
-    <script src="/qr-scanner/qr-scanner.min.js"></script>
-    <script src="/web-share-shim/web-share-shim.min.js"></script>
-    <script src="/wallet-backup/wallet-backup.js"></script>
+    <script src="/nimiq-elements/x-identicon/x-identicon.js"></script>
+    <link href="/nimiq-elements/view-identicons/view-identicons.css" rel="stylesheet">
+    <script src="/nimiq-elements/view-identicons/view-identicons.js"></script>
+    <!-- View Home -->
+    <link href="/nimiq-elements/x-amount/x-amount.css" rel="stylesheet">
     <script src="/nimiq-elements/x-amount/x-amount.js"></script>
-    <script src="/nimiq-elements/x-qr-encoder/x-qr-encoder.js"></script>
-    <script src="/nimiq-elements/x-qr-scanner/x-qr-scanner.js"></script>
-    <script src="/nimiq-elements/x-numpad/x-numpad.js"></script>
-    <script src="/nimiq-elements/x-pinpad/x-pinpad.js"></script>
-    <script src="/nimiq-elements/x-inactivity-sensor/x-inactivity-sensor.js"></script>
-    <script src="/nimiq-elements/x-transaction/x-transaction.js"></script>
-    <!-- View scripts -->
+    <link href="elements/view-home/view-home.css" rel="stylesheet">
     <script src="elements/view-home/view-home.js"></script>
-    <script src="elements/view-send/view-send.js"></script>
+    <!-- View Receive -->
+    <link href="/nimiq-elements/x-address/x-address.css" rel="stylesheet">
+    <link href="/nimiq-elements/x-share-button/x-share-button.css" rel="stylesheet">
+    <script src="/web-share-shim/web-share-shim.min.js"></script>
+    <script src="/qr-encoder/qr-encoder.min.js"></script>
+    <link href="/nimiq-elements/x-qr-encoder/x-qr-encoder.css" rel="stylesheet">
+    <script src="/nimiq-elements/x-qr-encoder/x-qr-encoder.js"></script>
+    <link href="elements/view-receive/view-receive.css" rel="stylesheet">
     <script src="elements/view-receive/view-receive.js"></script>
+    <!-- View Send -->
+    <script src="/qr-scanner/qr-scanner.min.js"></script>
+    <link href="/nimiq-elements/x-qr-scanner/x-qr-scanner.css" rel="stylesheet">
+    <script src="/nimiq-elements/x-qr-scanner/x-qr-scanner.js"></script>
+    <link href="elements/view-send/view-send.css" rel="stylesheet">
+    <script src="elements/view-send/view-send.js"></script>
+    <!-- View Transaction -->
+    <link href="/nimiq-elements/x-numpad/x-numpad.css" rel="stylesheet">
+    <script src="/nimiq-elements/x-numpad/x-numpad.js"></script>
+    <link href="elements/view-transaction/view-transaction.css" rel="stylesheet">
     <script src="elements/view-transaction/view-transaction.js"></script>
+    <!-- View Fees -->
+    <link href="elements/view-fees/view-fees.css" rel="stylesheet">
     <script src="elements/view-fees/view-fees.js"></script>
+    <!-- View Confirm -->
+    <link href="elements/view-confirm/view-confirm.css" rel="stylesheet">
     <script src="elements/view-confirm/view-confirm.js"></script>
-    <script src="elements/view-export/view-export.js"></script>
-    <script src="elements/view-received/view-received.js"></script>
-    <script src="elements/view-locked/view-locked.js"></script>
-    <script src="elements/view-identicons/view-identicons.js"></script>
+    <!-- View Success -->
+    <link href="elements/view-success/view-success.css" rel="stylesheet">
     <script src="elements/view-success/view-success.js"></script>
-    <script src="elements/view-welcome/view-welcome.js"></script>
-    <script src="elements/view-permission/view-permission.js"></script>
-    <!-- <script src="elements/view-pin-change/view-pin-change.js"></script> -->
+    <!-- View Received -->
+    <link href="elements/view-received/view-received.css" rel="stylesheet">
+    <script src="elements/view-received/view-received.js"></script>
+    <!-- View Locked -->
+    <link href="/nimiq-elements/x-pinpad/x-pinpad.css" rel="stylesheet">
+    <script src="/nimiq-elements/x-pinpad/x-pinpad.js"></script>
+    <link href="elements/view-locked/view-locked.css" rel="stylesheet">
+    <script src="elements/view-locked/view-locked.js"></script>
+    <!-- View Pin Create  -->
+    <link href="/nimiq-elements/view-pin-create/view-pin-create.css" rel="stylesheet">
     <script src="/nimiq-elements/view-pin-create/view-pin-create.js"></script>
+    <!-- View Loading -->
+    <link href="/nimiq-elements/view-loading/view-loading.css" rel="stylesheet">
+    <!-- View Error -->
+    <link href="/nimiq-elements/view-error/view-error.css" rel="stylesheet">
+    <!-- View Permission -->
+    <link href="/nimiq-elements/view-permission/view-permission.css" rel="stylesheet">
+    <script src="/nimiq-elements/view-permission/view-permission.js"></script>
+    <!-- App -->
+    <link href="elements/app/app.css" rel="stylesheet">
+    <script src="/x-element/x-app.js"></script>
     <script src="elements/app/app.js"></script>
-    <!-- <script src="/nano-client-ui/pwa/service-worker/service-worker-register.js" async></script> -->
-    <!-- <script src="https://cdn.nimiq-network.com/branches/master/nimiq.js"></script> -->
+    <!-- Nimiq API -->
     <script src="https://cdn.nimiq.com/core/nimiq.js" async></script>
     <script src="/nano-api/nano-api.js" async></script>
     <script src="nimiq.js" async></script>
 </head>
 
-<body class="state-loading">
-    
-</body>
+<body class="state-loading"></body>
 
 </html>

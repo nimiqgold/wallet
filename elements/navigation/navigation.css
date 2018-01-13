@@ -13,7 +13,7 @@ x-nav-box {
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
-    padding: 20px 0 16px;
+    padding: 24px 0 24px;
     box-sizing: border-box;
 }
 
@@ -86,7 +86,7 @@ nav a:before {
     width: 304px;
     height: 34px;
     position: absolute;
-    top: -54px;
+    top: -58px;
     left: 50%;
     margin-left: -152px;
     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0zMzggMTUuNVYzNEgtMzdWMTUuNSAzNEgwQzY2LjYgMzQgOTAuNSAwIDE1MC41IDBzODUuOCAzNCAxNTQgMzRIMzM4VjE1LjV6IiBmaWxsPSIjZmZmIi8+PC9zdmc+');
