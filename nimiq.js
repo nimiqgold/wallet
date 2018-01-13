@@ -5,7 +5,11 @@ class NanoWallet extends NanoApi {
     }
 
     onConsensusEstablished() {
-        this.fire('x-account', this.address);
+        // this.fire('x-account', this.address);
+    }
+    
+    onAddressChanged(address) {
+        this.fire('x-account', address);
     }
 
     onBalanceChanged(balance) {
