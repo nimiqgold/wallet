@@ -57,3 +57,26 @@ view-send x-header [icon-upload] {
 view-send x-header [icon-upload] input[type="file"] {
     display: none;
 }
+
+view-send x-header [icon-upload].warning {
+    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+view-send x-header [icon-upload].warning:before {
+    content: 'No address found.';
+    position: absolute;
+    right: 120%;
+    top: 8px;
+    width: 150px;
+    text-align: right;
+    animation: qr-warning-fade 1s 0s forwards, qr-warning-fade 1s 3s reverse forwards;
+}
+
+@keyframes qr-warning-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
