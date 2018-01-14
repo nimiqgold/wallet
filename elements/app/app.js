@@ -126,16 +126,16 @@ class Wallet extends XApp {
                 <view-send></view-send>
                 <view-permission></view-permission>
                 <view-transaction></view-transaction>
-                <view-confirm></view-confirm>
-                <view-fees></view-fees>
-                <view-success></view-success>
+                <view-confirm x-responsive></view-confirm>
+                <view-fees x-responsive></view-fees>
+                <view-success x-responsive></view-success>
                 <view-history></view-history>
                 <!-- Onboarding -->
-                <view-welcome></view-welcome>
+                <view-welcome x-responsive></view-welcome>
                 <view-identicons></view-identicons>
                 <!-- Notifications -->
-                <view-loading></view-loading>
-                <view-error></view-error>
+                <view-loading x-responsive></view-loading>
+                <view-error x-responsive></view-error>
             </main>
             <nav>
                 <x-nav-box>

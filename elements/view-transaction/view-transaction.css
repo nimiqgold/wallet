@@ -130,14 +130,6 @@ view-transaction input {
 
 @media (min-width: 420px) {
 
-    view-transaction x-container,
-    view-confirm,
-    view-fees,
-    view-success {
-        padding: 88px;
-        width: 100%;
-    }
-
     view-transaction x-amount-input {
         padding-top: 0;
     }
@@ -159,8 +151,5 @@ view-transaction input {
         100% {
             transform: translateY(0px);
         }
-    }
-
-    view-transaction x-address {
     }
 }

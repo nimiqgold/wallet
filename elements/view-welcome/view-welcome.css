@@ -13,56 +13,23 @@ view-welcome x-container {
     align-items: center;
 }
 
-view-welcome h1 {
-    font-size: 24px;
-    line-height: 28px;
-    margin-bottom: -41px;
-}
-
-view-welcome h1:before {
-    content: 'Nimiq is a peer to peer digital currency. This wallet will help you store and transfer Nimiqs.';
-}
-
-view-welcome nimiq-logo {
-    background-size: cover;
-    width: 104px;
-    height: 90px;
-    margin-bottom: 64px;
-}
-
-view-welcome nimiq-logo:before {
-    content: ''
-}
-
-view-welcome nimiq-logo:after {
-    content: 'Welcome To Nimiq';
-    text-transform: uppercase;
-    display: block;
-    margin-top: 80px;
-    font-weight: 800;
-    opacity: 0.7;
-    text-align: center;
-    margin-left: -102px;
-    width: 300px;
-}
-
-view-welcome [button] {
-    transition: transform 500ms;
-    transition-delay: 1500ms;
-}
-
-view-welcome [secondary]{
-    transition: opacity 500ms;
-    transition-delay: 800ms;
-}
-
 body:not(.state-welcome) view-welcome {
     transform: translate(-100vw, 0) scale(0.9);
     opacity: 0.8;
 }
 
+view-welcome [button] {
+    transition: transform 500ms;
+    transition-delay: 1000ms;
+}
+
 body:not(.state-welcome) view-welcome [button] {
     transform: translate( 0, 100vw);
+}
+
+view-welcome [secondary]{
+    transition: opacity 500ms cubic-bezier(0.65, 0.05, 0.36, 1);
+    transition-delay: 500ms;
 }
 
 body:not(.state-welcome) view-welcome [secondary] {

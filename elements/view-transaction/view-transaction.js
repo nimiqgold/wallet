@@ -54,7 +54,7 @@ class ViewTransaction extends XElement {
         <x-header>
             <a href="#send" icon-back></a>
         </x-header>
-        <x-container>
+        <x-container x-responsive>
             <x-receiver>
                 <x-identicon></x-identicon>
                 <x-address></x-address>

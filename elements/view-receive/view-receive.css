@@ -33,7 +33,7 @@ view-receive x-address {
 view-receive x-qr-encoder {
     transition: transform 500ms, opacity 300ms;
     will-change: transform, opacity;
-    margin-top: -88px;
+    margin-top: -54px;
 }
 
 view-receive x-qr-encoder:empty{
@@ -42,9 +42,9 @@ view-receive x-qr-encoder:empty{
 } 
 
 view-receive{
-    transform-origin: left top;
+    transform-origin: left center;
 }
 
 body:not(.state-receive) view-receive{
-    transform: translateX(-128px) scale(0.5);
+    /* transform: translateX(-128px) scale(0.5); */
 }

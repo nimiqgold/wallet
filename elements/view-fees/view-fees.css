@@ -1,5 +1,5 @@
 view-fees {
-    padding-top: 160px;
+    padding-top: 160px !important;
     background: var(--primary-background);
 }
 
