@@ -65,3 +65,5 @@ class ViewTransaction extends XElement {
         </x-container>`
     }
 }
+
+// Todo: don't allow value > balance
