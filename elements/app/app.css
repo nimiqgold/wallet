@@ -41,8 +41,7 @@ x-app-container {
 #home,
 #send,
 #receive {
-    padding-bottom: 129px;
-    box-sizing: border-box;
+    padding: 0 0 129px !important;
 }
 
 x-header {
@@ -111,10 +110,6 @@ main>*:target {
 }
 
 @media (min-width: 420px) {
-    x-numpad {
-        display: none;
-    }
-
     x-header {
         padding: 0 16px;
     }

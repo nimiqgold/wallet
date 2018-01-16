@@ -1,8 +1,6 @@
 view-welcome {
-    box-sizing: border-box;
-    padding: 0 16px 32px;
     transform: scale(1);
-    transform-origin: center top;
+    transform-origin: center top !important;
 }
 
 view-welcome x-container {

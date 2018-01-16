@@ -1,4 +1,20 @@
-class ViewTransaction extends XElement {
+class ViewTransaction extends XView {
+    html(){
+        return `
+        <x-header>
+            <a href="#send" icon-back></a>
+        </x-header>
+        <x-container class="center">
+            <x-receiver>
+                <x-identicon></x-identicon>
+                <x-address></x-address>
+            </x-receiver>
+            <x-amount-input></x-amount-input>
+            <x-numpad></x-numpad>
+            <a button disabled>Next</a>
+        </x-container>`
+    }
+    
     children() { return [XNumpad, XAmountInput, XIdenticon] }
 
     onCreate() {
@@ -47,22 +63,6 @@ class ViewTransaction extends XElement {
     onShow() {
         this.value = 0;
         this.$amountInput.focus();
-    }
-
-    html(){
-        return `
-        <x-header>
-            <a href="#send" icon-back></a>
-        </x-header>
-        <x-container x-responsive>
-            <x-receiver>
-                <x-identicon></x-identicon>
-                <x-address></x-address>
-            </x-receiver>
-            <x-amount-input></x-amount-input>
-            <x-numpad></x-numpad>
-            <a button disabled>Next</a>
-        </x-container>`
     }
 }
 

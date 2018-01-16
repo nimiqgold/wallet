@@ -1,10 +1,4 @@
-class ViewHome extends XElement {
-    children() { return [XAmount, XIdenticon] }
-
-    set address(address) { this.$identicon.address = address }
-
-    set balance(balance) { this.$amount.value = balance }
-
+class ViewHome extends XView {
     html(){
     	return `
     	<x-header>
@@ -13,4 +7,10 @@ class ViewHome extends XElement {
         <x-identicon></x-identicon>
         <x-amount></x-amount>`
     }
+
+    children() { return [XAmount, XIdenticon] }
+
+    set address(address) { this.$identicon.address = address }
+
+    set balance(balance) { this.$amount.value = balance }
 }

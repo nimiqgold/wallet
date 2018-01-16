@@ -1,4 +1,9 @@
-class ViewLocked extends XElement {
+class ViewLocked extends XView {  
+    html() {
+        return `<x-pinpad></x-pinpad>`
+    }
+
+    styles() { return ['fit'] }
 
     children() { return [XPinpad] }
 
@@ -13,7 +18,7 @@ class ViewLocked extends XElement {
     }
 
     onCreate() {
-        this.addEventListener('x-pin', e => this._submit(e.detail)); 
+        this.addEventListener('x-pin', e => this._submit(e.detail));
     }
 
     _submit(pin) {
@@ -26,10 +31,6 @@ class ViewLocked extends XElement {
     _unlock() {
         this.fire('x-unlock');
         this.$pinpad.reset();
-    }
-
-    html(){
-        return `<x-pinpad></x-pinpad>`
     }
 }
 

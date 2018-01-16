@@ -1,4 +1,4 @@
-class ViewWelcome extends XElement{
+class ViewWelcome extends XView{
 	html(){
 		return `
 			<x-container>

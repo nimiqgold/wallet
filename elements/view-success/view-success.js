@@ -1,4 +1,4 @@
-class ViewSuccess extends XElement{
+class ViewSuccess extends XView{
 	html(){
 		return `
 			<h1></h1>

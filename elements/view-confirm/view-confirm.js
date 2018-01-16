@@ -1,8 +1,4 @@
-class ViewConfirm extends XElement {
-    onCreate() {
-        this.$('[button]').addEventListener('click', e => this.fire('x-confirm'));
-    }
-
+class ViewConfirm extends XView {
     html(){
     	return `
     	<x-header>
@@ -14,6 +10,10 @@ class ViewConfirm extends XElement {
             <a href="#fees">Adjust</a>
         </x-text>
         <a href="#loading" button>Confirm</a>`
+    }
+
+    onCreate() {
+        this.$('[button]').addEventListener('click', e => this.fire('x-confirm'));
     }
 }
 

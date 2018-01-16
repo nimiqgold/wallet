@@ -1,17 +1,9 @@
-view-transaction x-header {}
-
-view-transaction x-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-}
 
 x-receiver {
     display: block;
     height: 96px;
     text-align: center;
+    margin-top: 48px;
 }
 
 x-receiver x-identicon {
@@ -115,20 +107,15 @@ view-transaction x-address {
 
 /* Responsiveness */
 
-view-transaction x-container,
-view-confirm,
-view-fees,
-view-success {
-    padding: 24px 0 16px;
-    box-sizing: border-box;
-}
-
 view-transaction input {
     pointer-events: none;
 }
 
-
 @media (min-width: 420px) {
+
+    x-numpad {
+        display: none;
+    }
 
     view-transaction x-amount-input {
         padding-top: 0;
@@ -137,7 +124,6 @@ view-transaction input {
     view-transaction input {
         pointer-events: auto;
     }
-
 
     @keyframes slideup {
         0% {

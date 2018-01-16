@@ -1,4 +1,14 @@
-class ViewSend extends XElement {
+class ViewSend extends XView {
+    html() {
+        return `
+            <x-header>
+                <a icon-paste></a>
+                <input type="text" placeholder="Enter Recipient Address" spellcheck="false" autocomplete="off">
+                <label icon-upload><input type="file"></label>
+            </x-header>
+            <x-qr-scanner></x-qr-scanner>`
+    }
+    
     children() { return [XQrScanner] }
 
     onCreate() {
@@ -55,16 +65,6 @@ class ViewSend extends XElement {
         // no success
         this.$fileSelectorIcon.classList.add('warning');
         setTimeout(() => this.$fileSelectorIcon.classList.remove('warning'), 4000);
-    }
-
-    html() {
-        return `
-            <x-header>
-                <a icon-paste></a>
-                <input type="text" placeholder="Enter Recipient Address" spellcheck="false" autocomplete="off">
-                <label icon-upload><input type="file"></label>
-            </x-header>
-            <x-qr-scanner></x-qr-scanner>`
     }
 }
 // Todo: Refactor address input into x-address input?

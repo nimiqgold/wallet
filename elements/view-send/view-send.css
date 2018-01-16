@@ -1,7 +1,3 @@
-view-send {
-    transition: opacity 300ms;
-}
-
 view-send>x-qr-scanner {
     width: 100%;
     min-height: 100%;

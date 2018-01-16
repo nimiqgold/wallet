@@ -1,5 +1,13 @@
-class ViewFees extends XElement {
-
+class ViewFees extends XView {
+    html() {
+        return `
+        <h1>Adjust Transaction Fees</h1>
+        <h2>Transactions can be either slow and cheaper or fast and more expensive</h2>
+        <x-amount></x-amount>
+        <input type="range">
+        <x-time-estimate></x-time-estimate>
+        <a href="#confirm" button>Done</a>`
+    }
     children() { return [XAmount] }
 
     onCreate() {
@@ -29,13 +37,5 @@ class ViewFees extends XElement {
 
     _confirm() {
         this.fire('x-fees', this.value);
-    }
-
-    html(){
-        return `
-        <x-amount></x-amount>
-        <input type="range">
-        <x-time-estimate></x-time-estimate>
-        <a href="#confirm" button>Done</a>`
     }
 }

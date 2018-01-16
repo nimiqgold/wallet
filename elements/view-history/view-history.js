@@ -1,6 +1,4 @@
-class ViewHistory extends XElement {
-    children() { return [Transaction] }
-
+class ViewHistory extends XView {
     html(){
     	return `
         <template id="x-transaction">
@@ -9,4 +7,6 @@ class ViewHistory extends XElement {
             <x-value></x-value>
         </template>`
     }
+    
+    children() { return [Transaction] }
 }
