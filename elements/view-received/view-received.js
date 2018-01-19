@@ -1,12 +1,13 @@
 class ViewReceived extends XView {
-    html(){
+    styles() { return ['fit'] }
+    html() {
         return `
-        <nimiq-logo></nimiq-logo>
+        <nimiq-logo large></nimiq-logo>
         <x-amount></x-amount>
         <new-balance></new-balance>
         `
     }
-    
+
     children() { return [XAmount] }
     onCreate() {
         this.$el.addEventListener('click', e => location = '#home')

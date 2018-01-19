@@ -1,27 +1,5 @@
 view-received {
-    /*padding: 64px 16px 0 16px;*/
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
     transition: transform 500ms, opacity 500ms;
-}
-
-view-received nimiq-logo{
-   background-size: cover;
-   width: 128px;
-   height: 112px;
-}
-
-view-received nimiq-logo:before{
-    content: ''
 }
 
 view-received:before {
