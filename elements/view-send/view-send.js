@@ -71,4 +71,3 @@ class ViewSend extends XView {
 // Todo: x-address-input should not be invalid while typing a correct address  
 // Todo: Fallback if camera not available (device without camera; permission denied) / view-finder should not be visible
 // Todo: Show permissions-screen while asking (not as seperate view but as internal overlay)
-// Todo: Bug on repeated click onto the 'send' tab (camera activated multiple times)
