@@ -1,4 +1,7 @@
-class ViewLocked extends XView {  
+import XView from '/library/x-element/x-view.js';
+import XPinpad from '/elements/x-pinpad/x-pinpad.js';
+
+export default class ViewLocked extends XView {  
     html() {
         return `<x-pinpad></x-pinpad>`
     }

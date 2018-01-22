@@ -1,6 +1,8 @@
-class ViewWelcome extends XView{
-	html(){
-		return `
+import XView from '/library/x-element/x-view.js';
+
+export default class ViewWelcome extends XView {
+    html() {
+        return `
 			<x-container>
 			    <nimiq-logo large>Nimiq Wallet</nimiq-logo>
 			    <h1>Welcome to Nimiq</h1>
@@ -9,5 +11,5 @@ class ViewWelcome extends XView{
 			<a secondary href="#import">Import existing Account</a>
 			<a button href="#identicons">Create Account</a>
 		`
-	}
+    }
 }

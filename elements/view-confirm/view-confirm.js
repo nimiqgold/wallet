@@ -1,4 +1,6 @@
-class ViewConfirm extends XView {
+import XView from '/library/x-element/x-view.js';
+
+export default class ViewConfirm extends XView {
     html(){
     	return `
     	<x-header>

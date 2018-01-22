@@ -1,3 +1,5 @@
+@import '/elements/x-amount/x-amount.css';
+
 view-fees {
     padding-top: 160px !important;
     background: var(--primary-background);

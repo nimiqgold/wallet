@@ -1,4 +1,7 @@
-class ViewReceive extends XView {
+import XView from '/library/x-element/x-view.js';
+import XQrEncoder from '/elements/x-qr-encoder/x-qr-encoder.js';
+
+export default class ViewReceive extends XView {
     html(){
         return `
         <x-header>  

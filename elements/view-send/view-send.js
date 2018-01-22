@@ -1,4 +1,7 @@
-class ViewSend extends XView {
+import XView from '/library/x-element/x-view.js';
+import XQrScanner from '/elements/x-qr-scanner/x-qr-scanner.js';
+
+export default class ViewSend extends XView {
     html() {
         return `
             <x-header>

@@ -1,5 +1,7 @@
-class ViewReceived extends XView {
-    styles() { return ['fit'] }
+import XView from '/library/x-element/x-view.js';
+import XAmount from '/elements/x-amount/x-amount.js';
+
+export default class ViewReceived extends XView {
     html() {
         return `
         <nimiq-logo large></nimiq-logo>
@@ -7,8 +9,10 @@ class ViewReceived extends XView {
         <new-balance></new-balance>
         `
     }
+    styles() { return ['fit'] }
 
     children() { return [XAmount] }
+
     onCreate() {
         this.$el.addEventListener('click', e => location = '#home')
     }

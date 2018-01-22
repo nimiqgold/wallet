@@ -1,4 +1,7 @@
-class ViewFees extends XView {
+import XView from '/library/x-element/x-view.js';
+import XAmount from '/elements/x-amount/x-amount.js';
+
+export default class ViewFees extends XView {
     html() {
         return `
         <h1>Adjust Transaction Fees</h1>

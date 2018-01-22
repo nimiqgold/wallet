@@ -1,4 +1,6 @@
-class ViewHistory extends XView {
+import XView from '/library/x-element/x-view.js';
+
+export default class ViewHistory extends XView {
     html(){
     	return `
         <template id="x-transaction">

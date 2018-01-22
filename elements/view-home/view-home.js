@@ -1,4 +1,8 @@
-class ViewHome extends XView {
+import XView from '/library/x-element/x-view.js';
+import XAmount from '/elements/x-amount/x-amount.js';
+import XIdenticon from '/elements/x-identicon/x-identicon.js';
+
+export default class ViewHome extends XView {
     html(){
     	return `
     	<x-header>

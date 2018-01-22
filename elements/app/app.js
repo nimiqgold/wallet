@@ -1,4 +1,21 @@
-class Wallet extends XApp {
+import XApp from '/library/x-element/x-app.js';
+import ViewHome from '../view-home/view-home.js';
+import ViewSend from '../view-send/view-send.js';
+import ViewReceive from '../view-receive/view-receive.js';
+import ViewReceived from '../view-received/view-received.js';
+import ViewTransaction from '../view-transaction/view-transaction.js';
+import ViewConfirm from '../view-confirm/view-confirm.js';
+import ViewLocked from '../view-locked/view-locked.js';
+import ViewWelcome from '../view-welcome/view-welcome.js';
+import ViewSuccess from '../view-success/view-success.js';
+import ViewFees from '../view-fees/view-fees.js';
+import ViewPermission from '/elements/view-permission/view-permission.js';
+import ViewIdenticons from '/elements/view-identicons/view-identicons.js';
+import XNimiqApi from '/elements/x-nimiq-api/x-nimiq-api.js';
+import XInactivitySensor from '/elements/x-inactivity-sensor/x-inactivity-sensor.js';
+// import ViewPinCreate from '/view-pin-create/view-pin-create.js';
+
+export default class Wallet extends XApp {
     html() {
         return `
         <x-blur-container>
@@ -37,7 +54,7 @@ class Wallet extends XApp {
         <view-pin-create></view-pin-create>
         <view-pin-change></view-pin-change>
         <x-inactivity-sensor></x-inactivity-sensor>
-        <x-nimiq-api connect></x-nimiq-api>
+        <x-nimiq-api connect="true"></x-nimiq-api>
         <noscript><link href="/nimiq-elements/noscript/noscript.css" rel="stylesheet"></noscript>
         `
     }
@@ -53,7 +70,7 @@ class Wallet extends XApp {
             ViewReceived,
             ViewLocked,
             ViewIdenticons,
-            ViewPinCreate,
+            // ViewPinCreate,
             ViewWelcome,
             ViewPermission,
             ViewSuccess,

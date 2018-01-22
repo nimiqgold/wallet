@@ -1,5 +1,18 @@
-/* App Layout */
+@import '/library/nimiq-style/nimiq-style.css';
+@import '../navigation/navigation.css';
+@import '../view-confirm/view-confirm.css';
+@import '../view-fees/view-fees.css';
+@import '../view-history/view-history.css';
+@import '../view-home/view-home.css';
+@import '../view-locked/view-locked.css';
+@import '../view-receive/view-receive.css';
+@import '../view-received/view-received.css';
+@import '../view-send/view-send.css';
+@import '../view-success/view-success.css';
+@import '../view-transaction/view-transaction.css';
+@import '../view-welcome/view-welcome.css';
 
+/* App Layout */
 x-blur-container {
     min-height: 100%;
     display: flex;
