@@ -10,7 +10,7 @@ view-home x-identicon {
     transition: transform 500ms, opacity 300ms;
     will-change: transform;
     animation-fill-mode: forwards;
-    margin-top: 48px;
+    margin-top: 36px;
 }
 
 view-home x-identicon:empty {
