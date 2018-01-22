@@ -11,6 +11,10 @@
 @import '../view-success/view-success.css';
 @import '../view-transaction/view-transaction.css';
 @import '../view-welcome/view-welcome.css';
+@import '/elements/view-identicons/view-identicons.css';
+@import '/elements/view-permission/view-permission.css';
+
+
 
 /* App Layout */
 x-blur-container {
