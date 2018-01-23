@@ -1,3 +1,4 @@
+@import '/elements/x-numpad/x-numpad.css';
 
 x-receiver {
     display: block;
@@ -28,6 +29,7 @@ view-transaction x-address {
     display: block;
     margin-top: -4px;
 }
+
 
 /* Animations */
 
@@ -97,6 +99,7 @@ view-transaction x-address {
 :not(.state-transaction) view-transaction {
     transform: translateY(0);
 }
+
 
 
 
