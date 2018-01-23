@@ -13,8 +13,8 @@
 @import '../view-welcome/view-welcome.css';
 @import '/elements/view-identicons/view-identicons.css';
 @import '/elements/view-permission/view-permission.css';
-
-
+@import '/elements/view-backup-file/view-backup-file.css';
+@import '/elements/view-backup-file-import/view-backup-file-import.css';
 
 
 /* App Layout */

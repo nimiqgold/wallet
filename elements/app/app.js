@@ -11,9 +11,10 @@ import ViewSuccess from '../view-success/view-success.js';
 import ViewFees from '../view-fees/view-fees.js';
 import ViewPermission from '/elements/view-permission/view-permission.js';
 import ViewIdenticons from '/elements/view-identicons/view-identicons.js';
+import ViewBackupFile from '/elements/view-backup-file/view-backup-file.js';
+import ViewBackupFileImport from '/elements/view-backup-file-import/view-backup-file-import.js';
 import XNimiqApi from '/elements/x-nimiq-api/x-nimiq-api.js';
 import XInactivitySensor from '/elements/x-inactivity-sensor/x-inactivity-sensor.js';
-// import ViewPinCreate from '/view-pin-create/view-pin-create.js';
 
 export default class Wallet extends XApp {
     html() {
@@ -36,6 +37,9 @@ export default class Wallet extends XApp {
                     <!-- Onboarding -->
                     <view-welcome></view-welcome>
                     <view-identicons></view-identicons>
+                    <!-- Backup -->
+                    <view-backup-file></view-backup-file>
+                    <view-backup-file-import></view-backup-file-import>
                     <!-- Notifications -->
                     <view-loading></view-loading>
                     <view-error></view-error>
@@ -58,7 +62,7 @@ export default class Wallet extends XApp {
         <noscript><link href="/nimiq-elements/noscript/noscript.css" rel="stylesheet"></noscript>
         `
     }
-    
+
     children() {
         return [
             ViewHome,
@@ -70,7 +74,8 @@ export default class Wallet extends XApp {
             ViewReceived,
             ViewLocked,
             ViewIdenticons,
-            // ViewPinCreate,
+            ViewBackupFile,
+            ViewBackupFileImport,
             ViewWelcome,
             ViewPermission,
             ViewSuccess,
@@ -87,10 +92,13 @@ export default class Wallet extends XApp {
             'x-value': '_onTxValueSelected',
             'x-fees': '_onTxFeesSelected',
             'x-confirm': '_sendTx',
-            'x-keypair': '_onKeysSelected',
+            'x-keypair': '_onKeyPair',
             'x-account': '_onAccountChanged',
             'x-balance': '_onBalanceChanged',
             'x-transaction': '_onTransactionReceived',
+            'x-encrypt-backup': '_onEncryptBackup',
+            'x-decrypt-backup': '_onDecryptBackup',
+            'x-file-backup-complete': '_onFileBackupComplete',
             'x-api-ready': '_onApiReady'
         }
     }
@@ -133,10 +141,9 @@ export default class Wallet extends XApp {
         location = '#received';
     }
 
-    _onStateChanged(state, path) {
-        if (this._isLocked) return;
-        this.$inactivitySensor.reset();
-        super._onStateChanged(state, path);
+    onStateChange(state, path) {
+        if (this._isLocked) location = '#locked';
+        else return true;
     }
 
     _onInactive() {
@@ -168,9 +175,25 @@ export default class Wallet extends XApp {
         location = '#confirm';
     }
 
-    _onKeysSelected(keys) {
-        this._api.importKey(keys.privateKey)
+    _onKeyPair(keyPair) {
+        this._keyPair = keyPair;
+        location = '#backup-file';
+    }
+
+    _onEncryptBackup(password) {
+        this.$viewBackupFile.backup(this._keyPair.address, this._keyPair.privateKey);
+    }
+
+    _onFileBackupComplete() {
+        this._api.importKey(this._keyPair.privateKey)
             .then(e => location = '#home');
     }
+
+    _onDecryptBackup(backup) {
+        const password = backup.password
+        const encrytedKey = backup.encrytedKey;
+        console.log(`x-decrypt-backup`, backup);
+    }
 }
-window.addEventListener('load', () => new Wallet());
+
+Wallet.launch();
