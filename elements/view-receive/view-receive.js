@@ -1,8 +1,9 @@
 import XView from '/library/x-element/x-view.js';
 import XQrEncoder from '/elements/x-qr-encoder/x-qr-encoder.js';
+import XAddress from '/elements/x-address/x-address.js';
 
 export default class ViewReceive extends XView {
-    html(){
+    html() {
         return `
         <x-header>  
             <x-share-button></x-share-button>
@@ -10,8 +11,8 @@ export default class ViewReceive extends XView {
         <x-qr-encoder></x-qr-encoder>
         <x-address></x-address>`
     }
-    
-    children() { return [XQrEncoder] }
+
+    children() { return [XQrEncoder, XAddress] }
 
     onCreate() {
         this.$('x-share-button').addEventListener('click', e => this._share());

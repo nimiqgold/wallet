@@ -1,5 +1,6 @@
 @import '/elements/x-address/x-address.css';
 @import '/elements/x-qr-encoder/x-qr-encoder.css';
+@import '/elements/x-address/x-address.css';
 
 .state-receive view-home {
     opacity: 1 !important;
