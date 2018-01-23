@@ -1,5 +1,6 @@
 import XView from '/library/x-element/x-view.js';
 import XQrScanner from '/elements/x-qr-scanner/x-qr-scanner.js';
+import NanoApi from '/library/nano-api/nano-api.js';
 
 export default class ViewSend extends XView {
     html() {

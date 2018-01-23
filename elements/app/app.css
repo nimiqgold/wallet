@@ -16,7 +16,9 @@
 
 
 
+
 /* App Layout */
+
 x-blur-container {
     min-height: 100%;
     display: flex;
@@ -59,6 +61,7 @@ view-home,
 view-send,
 view-receive {
     padding: 0 0 129px !important;
+    animation-name: none !important;
 }
 
 x-header {
@@ -87,24 +90,10 @@ x-header [right]:before {
 }
 
 
-/* Target-based Routing */
-
-/*
-main>*,
-main>*:target~* {
-    opacity: 0;
-}
-
-
-main>*:target {
-    z-index: 1;
-    opacity: 1;
-}
-*/
-
 /* Responsiveness */
 
-@media (max-height: 680px), (max-width: 680px){
+@media (max-height: 680px),
+(max-width: 680px) {
 
     x-app-container {
         max-width: 100%;
