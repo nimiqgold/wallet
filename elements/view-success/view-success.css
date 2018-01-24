@@ -14,10 +14,6 @@ view-success h1:before {
     content: 'Sent successfully!'
 }
 
-body:not(.state-success) view-success {
-    transform: translateX(40px);
-}
-
 @media (min-width: 420px) {
 
     view-success {
