@@ -1,84 +1,17 @@
-@import '/elements/x-qr-scanner/x-qr-scanner.css';
-
-view-send>x-qr-scanner {
-    width: 100%;
-    min-height: 100%;
-    position: relative;
-}
-
-view-send > x-qr-scanner > [qr-overlay] {
-    margin-top: -16px;
-}
-
-body:not(.state-send) view-send x-camera {
-    transform: scale(0.9);
-}
+@import '/elements/x-address-scanner/x-address-scanner.css';
 
 .state-send view-send {
     opacity: 1;
 }
 
-view-send input[type="text"] {
-    font-size: 13px;
-    width: 100%;
-    line-height: 32px;
-    text-align: left;
-    padding-left: 40px;
-    transition: opacity 300ms;
-    font-weight: 500;
+view-send > x-address-scanner [qr-overlay] {
+    margin-top: -16px;
 }
 
-view-send input[type="text"]:focus {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+x-address-scanner [page="intro"] {
+    padding-bottom: 48px;
 }
 
-view-send input[type="text"][invalid]:focus {
-    border-bottom: 1px solid var(--error-color);
-}
-
-view-send input:not(:focus) {
-    opacity: 0;
-}
-
-view-send x-header a {
-    position: absolute;
-    z-index: 1;
-    cursor: pointer;
-}
-
-view-send input[type="text"]::placeholder,
-view-send input[type="text"]::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.7);
-    text-align: left;
-}
-
-view-send x-header [icon-upload] {
-    cursor: pointer;
-}
-
-view-send x-header [icon-upload] input[type="file"] {
-    display: none;
-}
-
-view-send x-header [icon-upload].warning {
-    animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
-}
-
-view-send x-header [icon-upload].warning:before {
-    content: 'No address found.';
-    position: absolute;
-    right: 120%;
-    top: 8px;
-    width: 150px;
-    text-align: right;
-    animation: qr-warning-fade 1s 0s forwards, qr-warning-fade 1s 3s reverse forwards;
-}
-
-@keyframes qr-warning-fade {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+x-address-scanner [page="fallback"] {
+    padding-bottom: 64px;
 }
