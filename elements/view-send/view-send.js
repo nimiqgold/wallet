@@ -1,6 +1,5 @@
 import XView from '/library/x-element/x-view.js';
 import XAddressScanner from '/elements/x-address-scanner/x-address-scanner.js';
-import NanoApi from '/library/nano-api/nano-api.js';
 
 export default class ViewSend extends XView {
     html() {
@@ -10,9 +9,8 @@ export default class ViewSend extends XView {
     children() { return [XAddressScanner] }
 
     onCreate() {
-        this.$addressScanner.validator = address => NanoApi.validateAddress(address);
         this.$addressScanner.setGrayscaleWeights(145, 91, 20);
-        this.addEventListener('x-decoded', e => this.fire('x-recipient', e.detail));
+        this.addEventListener('x-address-scanned', e => this.fire('x-recipient', e.detail));
     }
 
     onShow() {
