@@ -197,3 +197,6 @@ export default class Wallet extends XApp {
 }
 
 Wallet.launch();
+
+
+// Todo: add view-history
