@@ -1,4 +1,4 @@
-@import '/elements/x-numpad/x-numpad.css';
+@import '/elements/x-address/x-address.css';
 @import '/elements/x-amount-input/x-amount-input.css';
 
 x-receiver {
@@ -111,10 +111,6 @@ view-transaction input {
 }
 
 @media (min-width: 420px) {
-
-    x-numpad {
-        display: none;
-    }
 
     view-transaction x-amount-input {
         padding-top: 0;

@@ -1,5 +1,4 @@
 import XView from '/library/x-element/x-view.js';
-import XNumpad from '/elements/x-numpad/x-numpad.js';
 import XAmountInput from '/elements/x-amount-input/x-amount-input.js';
 import XIdenticon from '/elements/x-identicon/x-identicon.js';
 
@@ -15,24 +14,22 @@ export default class ViewTransaction extends XView {
                 <x-address></x-address>
             </x-receiver>
             <x-amount-input></x-amount-input>
-            <x-numpad></x-numpad>
             <a button disabled>Next</a>
         </x-container>`
     }
     
-    children() { return [XNumpad, XAmountInput, XIdenticon] }
+    children() { return [XAmountInput, XIdenticon] }
 
     onCreate() {
         this.$button = this.$('[button]');
         this.$address = this.$('x-address');
-        this.$numpad.addEventListener('x-change', e => this._setXAmountInput(e.detail));
-        this.$amountInput.addEventListener('x-change', e => this._valueChanged(e.detail))
-        this.$amountInput.addEventListener('x-enter', e => this._submit());
+        this.$amountInput.addEventListener('x-amount-input', e => this._submit());
+        this.$amountInput.addEventListener('x-amount-input-valid', e => this._validityChanged(e.detail));
         this.$button.addEventListener('click', e => this._submit());
     }
 
-    _valueChanged(value) {
-        if (value) {
+    _validityChanged(valid) {
+        if (valid) {
             this.$button.removeAttribute('disabled');
         } else {
             this.$button.setAttribute('disabled', true);
@@ -43,12 +40,8 @@ export default class ViewTransaction extends XView {
         this.fire('x-value', this.value);
     }
 
-    _setXAmountInput(value) {
-        this.$amountInput.value = value;
-    }
-
     set value(value) {
-        this.$numpad.value = value;
+        this.$amountInput.value = value;
     }
 
     get value() {
