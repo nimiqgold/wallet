@@ -1,4 +1,5 @@
 @import '/elements/x-numpad/x-numpad.css';
+@import '/elements/x-amount-input/x-amount-input.css';
 
 x-receiver {
     display: block;

@@ -1,6 +1,6 @@
 import XView from '/library/x-element/x-view.js';
 import XNumpad from '/elements/x-numpad/x-numpad.js';
-import XAmountInput from '/elements/x-amount/x-amount-input.js';
+import XAmountInput from '/elements/x-amount-input/x-amount-input.js';
 import XIdenticon from '/elements/x-identicon/x-identicon.js';
 
 export default class ViewTransaction extends XView {
