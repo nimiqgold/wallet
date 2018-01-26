@@ -15,6 +15,7 @@ import ViewBackupFile from '/elements/view-backup-file/view-backup-file.js';
 import ViewBackupFileImport from '/elements/view-backup-file-import/view-backup-file-import.js';
 import XNimiqApi from '/elements/x-nimiq-api/x-nimiq-api.js';
 import XInactivitySensor from '/elements/x-inactivity-sensor/x-inactivity-sensor.js';
+import XToast from '/elements/x-toast/x-toast.js';
 
 export default class Wallet extends XApp {
     html() {
@@ -99,7 +100,8 @@ export default class Wallet extends XApp {
             'x-encrypt-backup': '_onEncryptBackup',
             'x-decrypt-backup': '_onDecryptBackup',
             'x-file-backup-complete': '_onFileBackupComplete',
-            'x-api-ready': '_onApiReady'
+            'x-api-ready': '_onApiReady',
+            'x-different-tab-error':'_onDifferentTabError'
         }
     }
 
@@ -194,9 +196,14 @@ export default class Wallet extends XApp {
         const encrytedKey = backup.encrytedKey;
         console.log(`x-decrypt-backup`, backup);
     }
-}
 
+    _onDifferentTabError(){
+        location = '#error';
+        XToast.show('Nimiq is already running in a different tab');
+    }
+}
 Wallet.launch();
 
 
+// Todo: add view-error
 // Todo: add view-history
