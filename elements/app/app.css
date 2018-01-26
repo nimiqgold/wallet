@@ -57,10 +57,16 @@ x-app-container {
     text-align: center;
 }
 
+
+
 view-home,
 view-send,
 view-receive {
     padding: 0 0 129px !important;
+}
+
+view-home,
+view-receive {
     animation-name: none !important;
 }
 
