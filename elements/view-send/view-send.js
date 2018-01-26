@@ -1,17 +1,12 @@
 import XView from '/library/x-element/x-view.js';
-import XAddressScanner from '/elements/x-address-scanner/x-address-scanner.js';
+import XAddressScanner from '/elements/x-address-pages/x-address-pages.js';
 
 export default class ViewSend extends XView {
     html() {
-        return `<x-address-scanner></x-address-scanner>`
+        return `<x-address-pages></x-address-pages>`
     }
     
     children() { return [XAddressScanner] }
-
-    onCreate() {
-        this.$addressScanner.setGrayscaleWeights(145, 91, 20);
-        this.addEventListener('x-address-scanned', e => this.fire('x-recipient', e.detail));
-    }
 
     onShow() {
         this.$addressScanner.active = true;
@@ -21,4 +16,5 @@ export default class ViewSend extends XView {
         this.$addressScanner.active = false;
     }
 }
-// Todo: onHide not triggered
+// Todo: Bug: onHide is not triggered because no animation ends
+// Todo: onShow parse url for address

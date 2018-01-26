@@ -19,4 +19,4 @@ export default class ViewConfirm extends XView {
     }
 }
 
-// Todo: confirm should not be triggert accidentially
+// Todo: confirm should not be triggert accidentially. build x-swipe-confirm

@@ -1,17 +1,17 @@
-@import '/elements/x-address-scanner/x-address-scanner.css';
+@import '/elements/x-address-pages/x-address-pages.css';
 
 .state-send view-send {
     opacity: 1;
 }
 
-view-send > x-address-scanner [qr-overlay] {
+view-send > x-address-pages x-qr-scanner-overlay {
     margin-top: -16px;
 }
 
-x-address-scanner [page="intro"] {
+x-address-pages [page="intro"] {
     padding-bottom: 48px;
 }
 
-x-address-scanner [page="fallback"] {
+x-address-pages [page="fallback"] {
     padding-bottom: 64px;
 }
