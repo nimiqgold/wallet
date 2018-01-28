@@ -1,7 +1,3 @@
-view-confirm {
-    box-sizing: border-box;
-}
-
 view-confirm x-text {
     flex-grow: 1;
     display: flex;

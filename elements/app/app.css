@@ -34,7 +34,6 @@ header {
     position: fixed;
     z-index: 0;
     padding: 16px 40px;
-    box-sizing: border-box;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     left: -16px;
 }
@@ -76,7 +75,6 @@ x-header {
     display: flex;
     align-items: center;
     padding: 0 8px;
-    box-sizing: border-box;
     position: absolute;
     top: 0;
     z-index: 1;
