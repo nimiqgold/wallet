@@ -14,7 +14,6 @@ x-nav-box {
     justify-content: space-around;
     margin: 0 auto;
     padding: 24px 0 24px;
-    box-sizing: border-box;
 }
 
 nav a {
@@ -30,6 +29,7 @@ nav a {
     /* font-weight: bold; */
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     content: 'Receive';
+    box-sizing: content-box;
 }
 
 
@@ -94,7 +94,7 @@ nav a:before {
     transition: transform 500ms;
     transform-origin: center bottom;
     will-change: transform;
-    border-bottom: 1px solid white;
+    /*border-bottom: 1px solid white;*/
 }
 
 .state-home nav a[href="#home"]:before,
