@@ -9,14 +9,36 @@ export default class ViewSend extends XView {
 
     children() { return [XAddressPages] }
 
+    onCreate() {
+        this.addEventListener('x-address-page-select', e => this._onPageSelect(e.detail));
+    }
+
     onShow(state, path) {
-        console.log(state, path);
         this._parseLocationPath(path);
         this.$addressPages.active = true;
+        this._onPageSelect(this._selected);
     }
 
     onHide() {
         this.$addressPages.active = false;
+        this._showNavi();
+    }
+
+    _onPageSelect(page) {
+        this._selected = page;
+        if (page === 'intro')
+            this._hideNavi();
+        else
+            this._showNavi();
+    }
+
+    _showNavi() {
+        document.querySelector('nav').removeAttribute('hide');
+    }
+
+    _hideNavi() {
+        if (!this.visible) return;
+        document.querySelector('nav').setAttribute('hide', 1);
     }
 
     _parseLocationPath(path) {

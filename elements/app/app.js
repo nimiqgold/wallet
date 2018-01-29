@@ -24,35 +24,32 @@ export default class Wallet extends XApp {
                 <header>
                     <nimiq-logo></nimiq-logo>
                 </header>
-                <x-app-container>
-                    <main>
-                        <view-home></view-home>
-                        <view-receive></view-receive>
-                        <view-send></view-send>
-                        <view-permission></view-permission>
-                        <view-transaction></view-transaction>
-                        <view-confirm></view-confirm>
-                        <view-fees></view-fees>
-                        <view-success></view-success>
-                        <view-history></view-history>
-                        <!-- Onboarding -->
-                        <view-welcome></view-welcome>
-                        <view-identicons></view-identicons>
-                        <!-- Backup -->
-                        <view-backup-file></view-backup-file>
-                        <view-backup-file-import></view-backup-file-import>
-                        <!-- Notifications -->
-                        <view-loading></view-loading>
-                        <view-error></view-error>
-                    </main>
-                    <nav>
-                        <x-nav-box>
-                            <a href="#receive" tabindex="1">Receive</a>
-                            <a href="#home">Home</a>
-                            <a href="#send">Send</a>
-                        </x-nav-box>
-                    </nav>
-                </x-app-container>
+                <main>
+                    <view-home></view-home>
+                    <view-receive></view-receive>
+                    <view-send></view-send>
+                    <view-transaction></view-transaction>
+                    <view-confirm></view-confirm>
+                    <view-fees></view-fees>
+                    <view-success></view-success>
+                    <view-history></view-history>
+                    <!-- Onboarding -->
+                    <view-welcome></view-welcome>
+                    <view-identicons></view-identicons>
+                    <!-- Backup -->
+                    <view-backup-file></view-backup-file>
+                    <view-backup-file-import></view-backup-file-import>
+                    <!-- Notifications -->
+                    <view-loading></view-loading>
+                    <view-error></view-error>
+                </main>
+                <nav>
+                    <x-nav-box>
+                        <a href="#receive" tabindex="1">Receive</a>
+                        <a href="#home">Home</a>
+                        <a href="#send">Send</a>
+                    </x-nav-box>
+                </nav>
             </x-blur-container>
             <view-received></view-received>
             <view-locked></view-locked>
@@ -78,7 +75,6 @@ export default class Wallet extends XApp {
             ViewBackupFile,
             ViewBackupFileImport,
             ViewWelcome,
-            ViewPermission,
             ViewSuccess,
             XNimiqApi,
             XInactivitySensor
@@ -101,7 +97,7 @@ export default class Wallet extends XApp {
             'x-decrypt-backup': '_onDecryptBackup',
             'x-file-backup-complete': '_onFileBackupComplete',
             'x-api-ready': '_onApiReady',
-            'x-different-tab-error':'_onDifferentTabError'
+            'x-different-tab-error': '_onDifferentTabError'
         }
     }
 
@@ -197,7 +193,7 @@ export default class Wallet extends XApp {
         console.log(`x-decrypt-backup`, backup);
     }
 
-    _onDifferentTabError(){
+    _onDifferentTabError() {
         location = '#error';
         XToast.show('Nimiq is already running in a different tab');
     }

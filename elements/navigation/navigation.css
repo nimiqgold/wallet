@@ -94,7 +94,8 @@ nav a:before {
     transition: transform 500ms;
     transform-origin: center bottom;
     will-change: transform;
-    /*border-bottom: 1px solid white;*/
+    border-bottom: 1px solid white;
+    /* top: -93px; */
 }
 
 .state-home nav a[href="#home"]:before,
@@ -115,10 +116,9 @@ nav {
     transform-origin: center bottom;
 }
 
-body:not(.state-home):not(.state-send):not(.state-receive):not(.state-received):not(.state-locked) nav {
-    transform: translate(0, 270px);
+body:not(.state-home):not(.state-receive):not(.state-received):not(.state-locked):not(.state-send) nav, nav[hide]{
+    transform: translate(0, 150%);
 }
-
 
 /* Focused */
 

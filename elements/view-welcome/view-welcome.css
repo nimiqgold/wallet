@@ -19,7 +19,7 @@ body:not(.state-welcome) view-welcome {
 }
 
 view-welcome [button] {
-    transition: transform 500ms;
+     transition: transform 500ms; 
     transition-delay: 1000ms;
 }
 

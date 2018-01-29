@@ -1,17 +1,53 @@
 @import '/elements/x-address-pages/x-address-pages.css';
 
+view-send.x-view {}
+
 .state-send view-send {
     opacity: 1;
 }
 
-view-send > x-address-pages x-qr-scanner-overlay {
-    margin-top: -16px;
-}
-
 x-address-pages [page="intro"] {
-    padding-bottom: 48px;
+    /* bottom: 128px; */
+    padding-top: 24px;
 }
 
-x-address-pages [page="fallback"] {
-    padding-bottom: 64px;
+view-send>x-address-pages x-qr-scanner-overlay {
+    margin-top: -24px;
+}
+
+x-address-pages [page="scanner"] {
+    background: #333;
+}
+
+@media (max-width: 640px),
+(max-height: 840px) {
+    view-send.x-view {
+        max-width: 100% !important;
+        max-height: 100% !important;
+        margin-top: 0;
+        top: 0;
+        margin-bottom: 130px;
+    }
+}
+
+@media (min-width: 640px) and (min-height: 840px) {
+    view-send.x-view {
+        top: 30px;
+        max-height: 540px !important;
+        border-radius: 6px;
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+    }
+}
+
+@media (min-height: 1200px) {
+    view-send.x-view {
+        top: 256px;
+    }
+}
+
+view-send.x-view.x-exit-animation {
+    animation-name: from-right;
+    animation-direction: reverse;
+    animation-duration: 300ms;
 }
