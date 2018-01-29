@@ -21,7 +21,10 @@ export default class ViewLocked extends XView {
     }
 
     onCreate() {
-        this.addEventListener('x-pin', e => this._submit(e.detail));
+        this.addEventListener('x-pin', e => {
+          this._submit(e.detail);
+          e.stopPropagation();
+        });
     }
 
     _submit(pin) {
@@ -33,9 +36,6 @@ export default class ViewLocked extends XView {
 
     _unlock() {
         this.fire('x-unlock');
-        this.$pinpad.reset();
+        this.$pinpad.close();
     }
 }
-
-// Todo: increase waiting time exponentially after three failed attempts
-// Todo: prevent bubble of x-pin for security?
