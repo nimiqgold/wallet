@@ -1,12 +1,10 @@
-import XView from '/library/x-element/x-view.js';
+import XScreen from '/elements/x-screen/x-screen.js';
 import XPinpad from '/elements/x-pinpad/x-pinpad.js';
 
-export default class ViewLocked extends XView {  
+export default class ScreenLocked extends XScreen {  
     html() {
         return `<x-pinpad></x-pinpad>`
     }
-
-    styles() { return ['fit'] }
 
     children() { return [XPinpad] }
 

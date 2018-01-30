@@ -1,6 +1,6 @@
-import XView from '/library/x-element/x-view.js';
+import XScreen from '/elements/x-screen/x-screen.js';
 
-export default class ViewConfirm extends XView {
+export default class ScreenConfirm extends XScreen {
     html(){
     	return `
     	<x-header>

@@ -1,4 +1,4 @@
-view-success {
+screen-complete {
     background: var(--primary-background);
     background-image: url('data:image/svg+xml,<svg width="127" height="116" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M68.342 17.968l34 18.89c3.492 1.94 5.658 5.62 5.658 9.614v37.056c0 3.994-2.166 7.675-5.658 9.615l-34 18.89c-3.322 1.845-7.362 1.845-10.684 0l-34-18.89C20.166 91.203 18 87.523 18 83.528V46.472c0-3.994 2.166-7.675 5.658-9.615l34-18.89c3.322-1.845 7.362-1.845 10.684 0z" id="b"/><filter x="-27.8%" y="-17.6%" width="155.6%" height="151.6%" filterUnits="objectBoundingBox" id="a"><feOffset dy="8" in="SourceAlpha" result="shadowOffsetOuter1"/><feGaussianBlur stdDeviation="7" in="shadowOffsetOuter1" result="shadowBlurOuter1"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.158486187 0" in="shadowBlurOuter1"/></filter></defs><g fill="none" fill-rule="evenodd"><g transform="rotate(28.5 92.563 65.875)"><use fill="#000" filter="url(#a)" xlink:href="#b"/><use fill="#FFF" xlink:href="#b"/></g><path d="M79.566 42.645c-.403-.38-1.035-.36-1.414.04l-14.67 15.562-8.655-7.024c-.428-.348-1.058-.282-1.407.146-.348.427-.282 1.057.146 1.405l9.375 7.608c.188.15.41.224.633.224.266 0 .53-.106.727-.314l15.307-16.236c.38-.402.36-1.034-.04-1.413zM67 31c-11.028 0-20 8.972-20 20s8.972 20 20 20 20-8.972 20-20-8.972-20-20-20zm0 38c-9.925 0-18-8.075-18-18s8.075-18 18-18 18 8.075 18 18-8.075 18-18 18z" fill-rule="nonzero" fill="#2A60DD"/></g></svg>');
     background-repeat: no-repeat;
@@ -6,17 +6,17 @@ view-success {
     padding: 64px 16px 0 16px;
 }
 
-view-success h1 {
+screen-complete h1 {
     padding-bottom: 24px;
 }
 
-view-success h1:before {
+screen-complete h1:before {
     content: 'Sent successfully!'
 }
 
 @media (min-width: 420px) {
 
-    view-success {
+    screen-complete {
         padding: 96px 128px 0 128px;
         background-position: center calc(50% - 56px);
     }

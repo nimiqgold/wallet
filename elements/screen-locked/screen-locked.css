@@ -14,16 +14,3 @@ view-locked:before {
     background: rgba(15, 1, 47, 0.70);
     z-index: -1;
 }
-
-body:not(.state-locked) view-locked {
-    transform: translateY(-150vh);
-    pointer-events: none;
-}
-
-.state-locked x-blur-container {
-    filter: blur(10px);
-}
-
-.state-locked view-home {
-    opacity: 1;
-}

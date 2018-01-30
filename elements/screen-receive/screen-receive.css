@@ -1,0 +1,7 @@
+@import '/elements/x-address/x-address.css';
+@import '/elements/x-qr-encoder/x-qr-encoder.css';
+@import '/elements/x-address/x-address.css';
+
+screen-receive x-address{
+	margin-top: 32px;
+}

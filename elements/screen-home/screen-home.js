@@ -1,8 +1,8 @@
-import XView from '/library/x-element/x-view.js';
+import XScreen from '/elements/x-screen/x-screen.js';
 import XAmount from '/elements/x-amount/x-amount.js';
 import XIdenticon from '/elements/x-identicon/x-identicon.js';
 
-export default class ViewHome extends XView {
+export default class ScreenHome extends XScreen {
     html(){
     	return `
     	<x-header>

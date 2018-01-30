@@ -1,27 +1,13 @@
-@import '/elements/x-address-pages/x-address-pages.css';
+@import '/elements/screen-recipient/screen-recipient.css';
 
-view-send.x-view {}
 
-.state-send view-send {
-    opacity: 1;
-}
-
-x-address-pages [page="intro"] {
-    /* bottom: 128px; */
-    padding-top: 24px;
-}
-
-view-send>x-address-pages x-qr-scanner-overlay {
+screen-send>x-address-pages x-qr-scanner-overlay {
     margin-top: -24px;
-}
-
-x-address-pages [page="scanner"] {
-    background: #333;
 }
 
 @media (max-width: 640px),
 (max-height: 840px) {
-    view-send.x-view {
+    screen-send.x-view {
         max-width: 100% !important;
         max-height: 100% !important;
         margin-top: 0;
@@ -31,7 +17,7 @@ x-address-pages [page="scanner"] {
 }
 
 @media (min-width: 640px) and (min-height: 840px) {
-    view-send.x-view {
+    screen-send.x-view {
         top: 30px;
         max-height: 540px !important;
         border-radius: 6px;
@@ -41,12 +27,12 @@ x-address-pages [page="scanner"] {
 }
 
 @media (min-height: 1200px) {
-    view-send.x-view {
+    screen-send.x-view {
         top: 256px;
     }
 }
 
-view-send.x-view.x-exit-animation {
+screen-send.x-view.x-exit-animation {
     animation-name: from-right;
     animation-direction: reverse;
     animation-duration: 300ms;

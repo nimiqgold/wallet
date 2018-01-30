@@ -1,39 +1,33 @@
 @import '/elements/x-amount/x-amount.css';
 
-view-fees {
+screen-fees {
     padding-top: 160px !important;
     background: var(--primary-background);
 }
 
-view-fees input {
+screen-fees input {
     position: relative;
     padding-bottom: 48px;
     margin-bottom: 8px;
 }
 
-view-fees input:before,
-view-fees input:after {
+screen-fees input:before,
+screen-fees input:after {
     position: absolute;
     color: white;
     bottom: 0px;
 }
 
-view-fees input:before {
+screen-fees input:before {
     content: 'Cheaper';
 }
 
-view-fees input:after {
+screen-fees input:after {
     content: 'Faster';
     right: 0;
 }
 
-view-fees x-time-estimate {
+screen-fees x-time-estimate {
     flex-grow: 1;
     margin-top: 24px;
-}
-
-/* Animations */
-
-body:not(.state-fees) view-fees {
-    transform: translateX(-32px);
 }

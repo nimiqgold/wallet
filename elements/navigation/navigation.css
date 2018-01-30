@@ -1,6 +1,6 @@
 nav {
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     z-index: 1;
     background: white;
@@ -31,6 +31,7 @@ nav a {
     content: 'Receive';
     box-sizing: content-box;
 }
+
 
 
 /* Icons */
@@ -64,6 +65,7 @@ nav a[href="#send"]:after {
 
 
 
+
 /* Animate Selected */
 
 nav a:after {
@@ -71,13 +73,11 @@ nav a:after {
     transition: transform 500ms;
 }
 
-.state-home nav a[href="#home"]:after,
-.state-send nav a[href="#send"]:after,
-.state-receive nav a[href="#receive"]:after {
+nav[route="home"] a[href="#home"]:after,
+nav[route="send"] a[href="#send"]:after,
+nav[route="receive"] a[href="#receive"]:after {
     transform: scale(1.3);
 }
-
-
 
 /* Bump */
 
@@ -98,17 +98,16 @@ nav a:before {
     /* top: -93px; */
 }
 
-.state-home nav a[href="#home"]:before,
-.state-received nav a[href="#home"]:before,
-.state-locked nav a[href="#home"]:before,
-.state-send nav a[href="#send"]:before,
-.state-receive nav a[href="#receive"]:before {
+nav[route="home"] a[href="#home"]:before,
+nav[route="received"] a[href="#home"]:before,
+nav[route="locked"] a[href="#home"]:before,
+nav[route="send"] a[href="#send"]:before,
+nav[route="receive"] a[href="#receive"]:before {
     transform: scaleY(1);
 }
 
 
-
-/* Hide Navigation if not state = (home|send|receive) */
+/* Hide Navigation if not route = (home|send|receive) */
 
 nav {
     transition: transform 300ms;
@@ -116,9 +115,10 @@ nav {
     transform-origin: center bottom;
 }
 
-body:not(.state-home):not(.state-receive):not(.state-received):not(.state-locked):not(.state-send) nav, nav[hide]{
+nav:not([route]) {
     transform: translate(0, 150%);
 }
+
 
 /* Focused */
 

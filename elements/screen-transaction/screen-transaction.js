@@ -1,8 +1,8 @@
-import XView from '/library/x-element/x-view.js';
+import XScreen from '/elements/x-screen/x-screen.js';
 import XAmountInput from '/elements/x-amount-input/x-amount-input.js';
 import XIdenticon from '/elements/x-identicon/x-identicon.js';
 
-export default class ViewTransaction extends XView {
+export default class ScreenTransaction extends XScreen {
     html(){
         return `
         <x-header>

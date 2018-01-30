@@ -19,14 +19,14 @@ x-receiver x-identicon {
 }
 
 
-view-transaction x-amount-input {
+screen-transaction x-amount-input {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-view-transaction x-address {
+screen-transaction x-address {
     display: block;
     margin-top: -4px;
 }
@@ -75,9 +75,9 @@ view-transaction x-address {
     }
 }
 
-.state-transaction view-transaction x-amount-input,
-.state-transaction view-transaction x-numpad,
-.state-transaction view-transaction a {
+.state-transaction screen-transaction x-amount-input,
+.state-transaction screen-transaction x-numpad,
+.state-transaction screen-transaction a {
     animation: transactionFadeIn 2s;
     will-change: opacity;
 }
@@ -97,7 +97,7 @@ view-transaction x-address {
 }
 
 
-:not(.state-transaction) view-transaction {
+:not(.state-transaction) screen-transaction {
     transform: translateY(0);
 }
 
@@ -106,17 +106,17 @@ view-transaction x-address {
 
 /* Responsiveness */
 
-view-transaction input {
+screen-transaction input {
     pointer-events: none;
 }
 
 @media (min-width: 420px) {
 
-    view-transaction x-amount-input {
+    screen-transaction x-amount-input {
         padding-top: 0;
     }
 
-    view-transaction input {
+    screen-transaction input {
         pointer-events: auto;
     }
 

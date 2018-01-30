@@ -1,48 +1,41 @@
-import XApp from '/library/x-element/x-app.js';
-import ViewHome from '../view-home/view-home.js';
-import ViewSend from '../view-send/view-send.js';
-import ViewReceive from '../view-receive/view-receive.js';
-import ViewReceived from '../view-received/view-received.js';
-import ViewTransaction from '../view-transaction/view-transaction.js';
-import ViewConfirm from '../view-confirm/view-confirm.js';
-import ViewLocked from '../view-locked/view-locked.js';
-import ViewWelcome from '../view-welcome/view-welcome.js';
-import ViewSuccess from '../view-success/view-success.js';
-import ViewFees from '../view-fees/view-fees.js';
-import ViewPermission from '/elements/view-permission/view-permission.js';
-import ViewIdenticons from '/elements/view-identicons/view-identicons.js';
-import ViewBackupFile from '/elements/view-backup-file/view-backup-file.js';
-import ViewBackupFileImport from '/elements/view-backup-file-import/view-backup-file-import.js';
+import XAppScreen from '/elements/x-screen/x-app-screen.js';
+import ScreenHome from '../screen-home/screen-home.js';
+import ScreenSend from '../screen-send/screen-send.js';
+import ScreenReceive from '../screen-receive/screen-receive.js';
+import ScreenReceived from '../screen-received/screen-received.js';
+import ScreenTransaction from '../screen-transaction/screen-transaction.js';
+import ScreenConfirm from '../screen-confirm/screen-confirm.js';
+import ScreenLocked from '../screen-locked/screen-locked.js';
+import ScreenWelcome from '../screen-welcome/screen-welcome.js';
+import ScreenComplete from '../screen-complete/screen-complete.js';
+import ScreenFees from '../screen-fees/screen-fees.js';
+import ScreenIdenticons from '/elements/screen-identicons/screen-identicons.js';
+import ScreenBackupFile from '/elements/screen-backup-file/screen-backup-file.js';
+import ScreenBackupFileImport from '/elements/screen-backup-file-import/screen-backup-file-import.js';
 import XNimiqApi from '/elements/x-nimiq-api/x-nimiq-api.js';
 import XInactivitySensor from '/elements/x-inactivity-sensor/x-inactivity-sensor.js';
 import XToast from '/elements/x-toast/x-toast.js';
 
-export default class Wallet extends XApp {
+export default class Wallet extends XAppScreen {
     html() {
         return `
             <x-blur-container>
-                <header>
-                    <nimiq-logo></nimiq-logo>
-                </header>
-                <main>
-                    <view-home></view-home>
-                    <view-receive></view-receive>
-                    <view-send></view-send>
-                    <view-transaction></view-transaction>
-                    <view-confirm></view-confirm>
-                    <view-fees></view-fees>
-                    <view-success></view-success>
-                    <view-history></view-history>
-                    <!-- Onboarding -->
-                    <view-welcome></view-welcome>
-                    <view-identicons></view-identicons>
-                    <!-- Backup -->
-                    <view-backup-file></view-backup-file>
-                    <view-backup-file-import></view-backup-file-import>
-                    <!-- Notifications -->
-                    <view-loading></view-loading>
-                    <view-error></view-error>
-                </main>
+                <screen-home></screen-home>
+                <screen-send></screen-send>
+                <screen-receive></screen-receive>
+                <screen-transaction></screen-transaction>
+                <screen-confirm></screen-confirm>
+                <screen-fees></screen-fees>
+                <screen-complete></screen-complete>
+                <!-- Onboarding -->
+                <screen-welcome></screen-welcome>
+                <screen-identicons></screen-identicons>
+                <!-- Backup -->
+                <screen-backup-file></screen-backup-file>
+                <screen-backup-file-import></screen-backup-file-import>
+                <!-- Notifications -->
+                <screen-loading></screen-loading>
+                <screen-error></screen-error>
                 <nav>
                     <x-nav-box>
                         <a href="#receive" tabindex="1">Receive</a>
@@ -51,10 +44,8 @@ export default class Wallet extends XApp {
                     </x-nav-box>
                 </nav>
             </x-blur-container>
-            <view-received></view-received>
-            <view-locked></view-locked>
-            <view-pin-create></view-pin-create>
-            <view-pin-change></view-pin-change>
+            <screen-received></screen-received>
+            <screen-locked></screen-locked>
             <x-inactivity-sensor></x-inactivity-sensor>
             <x-nimiq-api connect="true"></x-nimiq-api>
             <noscript><link href="/elements/noscript/noscript.css" rel="stylesheet"></noscript>
@@ -63,19 +54,19 @@ export default class Wallet extends XApp {
 
     children() {
         return [
-            ViewHome,
-            ViewSend,
-            ViewReceive,
-            ViewTransaction,
-            ViewFees,
-            ViewConfirm,
-            ViewReceived,
-            ViewLocked,
-            ViewIdenticons,
-            ViewBackupFile,
-            ViewBackupFileImport,
-            ViewWelcome,
-            ViewSuccess,
+            ScreenHome,
+            ScreenReceive,
+            ScreenSend,
+            ScreenTransaction,
+            ScreenFees,
+            ScreenConfirm,
+            ScreenReceived,
+            ScreenLocked,
+            ScreenIdenticons,
+            ScreenBackupFile,
+            ScreenBackupFileImport,
+            ScreenWelcome,
+            ScreenComplete,
             XNimiqApi,
             XInactivitySensor
         ]
@@ -102,23 +93,22 @@ export default class Wallet extends XApp {
     }
 
     onCreate() {
-        super.onCreate();
         this._txData = {}
     }
 
     _onAccountChanged(address) {
-        this.$viewHome.address = address;
-        this.$viewReceive.address = address;
+        this.$screenHome.address = address;
+        this.$screenReceive.address = address;
     }
 
     _onBalanceChanged(balance) {
-        this.$viewHome.balance = balance;
+        this.$screenHome.balance = balance;
     }
 
     _onApiReady(api) {
         this._api = api;
-        this.$viewLocked.onApiReady(api);
-        this.$viewIdenticons.onApiReady(api);
+        this.$screenLocked.onApiReady(api);
+        this.$screenIdenticons.onApiReady(api);
     }
 
     _sendTx() {
@@ -134,8 +124,8 @@ export default class Wallet extends XApp {
     }
 
     _onTransactionReceived(tx) {
-        this.$viewReceived.value = tx.value;
-        this.$viewReceived.balance = tx.value + this._api.balance;
+        this.$screenReceived.value = tx.value;
+        this.$screenReceived.balance = tx.value + this._api.balance;
         location = '#received';
     }
 
@@ -157,9 +147,8 @@ export default class Wallet extends XApp {
 
     _onTxRecipientSelected(address) {
         this._txData.recipient = address;
-        this.$viewTransaction.recipient = address;
+        this.$screenTransaction.recipient = address;
         location = '#transaction';
-        navigator.vibrate && navigator.vibrate([100, 100, 100]);
     }
 
     _onTxValueSelected(value) {
@@ -168,7 +157,7 @@ export default class Wallet extends XApp {
     }
 
     _onTxFeesSelected(fees) {
-        this.$viewConfirm.fees = fees;
+        this.$screenConfirm.fees = fees;
         this._txData.fees = fees;
         location = '#confirm';
     }
@@ -179,7 +168,7 @@ export default class Wallet extends XApp {
     }
 
     _onEncryptBackup(password) {
-        this.$viewBackupFile.backup(this._keyPair.address, this._keyPair.privateKey);
+        this.$screenBackupFile.backup(this._keyPair.address, this._keyPair.privateKey);
     }
 
     _onFileBackupComplete() {
@@ -197,9 +186,26 @@ export default class Wallet extends XApp {
         location = '#error';
         XToast.show('Nimiq is already running in a different tab');
     }
+
+    _onStateChange(nextState, prevState, isNavigateBack) {
+        super._onStateChange(nextState, prevState, isNavigateBack);
+        const route = nextState.id;
+        if(route === 'home' || route === 'receive' || route === 'send') 
+            this._showNavi(route);
+        else
+            this._hideNavi();
+    }
+
+    _showNavi(route) {
+        this.$('nav').setAttribute('route', route);
+    }
+
+    _hideNavi() {
+        this.$('nav').removeAttribute('route');
+    }
 }
 Wallet.launch();
 
 
-// Todo: add view-error
-// Todo: add view-history
+// Todo: add screen-error
+// Todo: add screen-history

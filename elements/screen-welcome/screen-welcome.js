@@ -1,6 +1,6 @@
-import XView from '/library/x-element/x-view.js';
+import XScreen from '/elements/x-screen/x-screen.js';
 
-export default class ViewWelcome extends XView {
+export default class ScreenWelcome extends XScreen {
     html() {
         return `
 			<x-container>

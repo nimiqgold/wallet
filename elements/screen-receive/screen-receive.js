@@ -1,8 +1,8 @@
-import XView from '/library/x-element/x-view.js';
+import XScreen from '/elements/x-screen/x-screen.js';
 import XQrEncoder from '/elements/x-qr-encoder/x-qr-encoder.js';
 import XAddress from '/elements/x-address/x-address.js';
 
-export default class ViewReceive extends XView {
+export default class ScreenReceive extends XScreen {
     html() {
         return `
         <x-header>  
@@ -25,7 +25,7 @@ export default class ViewReceive extends XView {
     }
 
     _share() {
-        const url = location.origin + '/#contact' + this._address;
+        const url = location.origin + '/#send' + this._address;
         navigator
             .share({ title: 'My Nimiq Address', text: '', url: url })
             .then(_ => console.log('Successful share'))

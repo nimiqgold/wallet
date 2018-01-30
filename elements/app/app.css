@@ -1,29 +1,27 @@
-@import '/library/nimiq-style/nimiq-style.css';
+@import '/elements/x-screen/x-screen.js';
 @import '../navigation/navigation.css';
-@import '../view-confirm/view-confirm.css';
-@import '../view-fees/view-fees.css';
-@import '../view-history/view-history.css';
-@import '../view-home/view-home.css';
-@import '../view-locked/view-locked.css';
-@import '../view-receive/view-receive.css';
-@import '../view-received/view-received.css';
-@import '../view-send/view-send.css';
-@import '../view-success/view-success.css';
-@import '../view-transaction/view-transaction.css';
-@import '../view-welcome/view-welcome.css';
-@import '/elements/view-identicons/view-identicons.css';
-@import '/elements/view-permission/view-permission.css';
-@import '/elements/view-backup-file/view-backup-file.css';
-@import '/elements/view-backup-file-import/view-backup-file-import.css';
+@import '../screen-confirm/screen-confirm.css';
+@import '../screen-fees/screen-fees.css';
+@import '../screen-home/screen-home.css';
+@import '../screen-locked/screen-locked.css';
+@import '../screen-receive/screen-receive.css';
+@import '../screen-received/screen-received.css';
+@import '../screen-send/screen-send.css';
+@import '../screen-complete/screen-complete.css';
+@import '../screen-transaction/screen-transaction.css';
+@import '../screen-welcome/screen-welcome.css';
+@import '/elements/screen-identicons/screen-identicons.css';
+@import '/elements/screen-backup-file/screen-backup-file.css';
+@import '/elements/screen-backup-file-import/screen-backup-file-import.css';
 
 
 /* App Layout */
 
 x-blur-container {
-    min-height: 100%;
+    height: 100%;
     display: flex;
     flex-grow: 1;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 }
 
@@ -59,18 +57,13 @@ x-app-container {
 
 
 
-view-home,
-view-receive {
+screen-home,
+screen-receive {
     padding: 0 0 129px !important;
 }
 
-view-send{
+screen-send{
     padding: 0 !important;
-}
-
-view-home,
-view-receive {
-    animation-name: none !important;
 }
 
 x-header {

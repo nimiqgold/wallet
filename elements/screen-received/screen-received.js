@@ -1,7 +1,7 @@
-import XView from '/library/x-element/x-view.js';
+import XScreenFit from '/elements/x-screen/x-screen-fit.js';
 import XAmount from '/elements/x-amount/x-amount.js';
 
-export default class ViewReceived extends XView {
+export default class ScreenReceived extends XScreenFit {
     html() {
         return `
         <nimiq-logo large></nimiq-logo>
@@ -9,7 +9,6 @@ export default class ViewReceived extends XView {
         <new-balance></new-balance>
         `
     }
-    styles() { return ['fit'] }
 
     children() { return [XAmount] }
 
