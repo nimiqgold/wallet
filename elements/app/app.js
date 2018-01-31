@@ -187,8 +187,8 @@ export default class Wallet extends XAppScreen {
         XToast.show('Nimiq is already running in a different tab');
     }
 
-    _onStateChange(nextState, prevState, isNavigateBack) {
-        super._onStateChange(nextState, prevState, isNavigateBack);
+    _entryScreens(nextStateDiff, nextState, prevState, isNavigateBack) {
+        super._entryScreens(nextStateDiff, nextState, prevState, isNavigateBack);
         const route = nextState.id;
         if(route === 'home' || route === 'receive' || route === 'send') 
             this._showNavi(route);

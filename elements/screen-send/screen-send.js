@@ -9,10 +9,6 @@ export default class ScreenSend extends XScreen {
 
     children() { return [ScreenRecipient] }
 
-    onCreate() {
-        this.addEventListener('x-address-page-select', e => this._onPageSelect(e.detail));
-    }
-
     onShow(state, path) {
         this._parseLocationPath(path);
         this.$screenRecipient.active = true;
