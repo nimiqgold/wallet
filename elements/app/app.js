@@ -86,7 +86,7 @@ export default class Wallet extends XAppScreen {
             'x-transaction': '_onTransactionReceived',
             'x-encrypt-backup': '_onEncryptBackup',
             'x-decrypt-backup': '_onDecryptBackup',
-            'x-file-backup-complete': '_onFileBackupComplete',
+            'x-backup-file-complete': '_onBackupFileComplete',
             'x-api-ready': '_onApiReady',
             'x-different-tab-error': '_onDifferentTabError'
         }
@@ -171,7 +171,7 @@ export default class Wallet extends XAppScreen {
         this.$screenBackupFile.backup(this._keyPair.address, this._keyPair.privateKey);
     }
 
-    _onFileBackupComplete() {
+    _onBackupFileComplete() {
         this._api.importKey(this._keyPair.privateKey)
             .then(e => location = '#home');
     }
