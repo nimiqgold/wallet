@@ -29,4 +29,3 @@ export default class ScreenSend extends XScreen {
 }
 // Todo: onShow parse url for address
 // Todo: Bug: button half hidden
-// Todo: Bug: address input accepts only numbers (unlike in demo)
