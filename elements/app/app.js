@@ -7,6 +7,7 @@ import ScreenTransaction from '../screen-transaction/screen-transaction.js';
 import ScreenConfirm from '../screen-confirm/screen-confirm.js';
 import ScreenLocked from '../screen-locked/screen-locked.js';
 import ScreenWelcome from '../screen-welcome/screen-welcome.js';
+import ScreenError from '/elements/screen-error/screen-error.js';
 import ScreenComplete from '../screen-complete/screen-complete.js';
 import ScreenFees from '../screen-fees/screen-fees.js';
 import ScreenIdenticons from '/elements/screen-identicons/screen-identicons.js';
@@ -67,6 +68,7 @@ export default class Wallet extends XAppScreen {
             ScreenBackupFileImport,
             ScreenWelcome,
             ScreenComplete,
+            ScreenError,
             XNimiqApi,
             XInactivitySensor
         ]
@@ -183,8 +185,8 @@ export default class Wallet extends XAppScreen {
     }
 
     _onDifferentTabError() {
-        location = '#error';
-        XToast.show('Nimiq is already running in a different tab');
+        this.$screenError.show('Nimiq is already running in a different tab');
+        document.location = '#error';
     }
 
     _entryScreens(nextStateDiff, nextState, prevState, isNavigateBack) {
