@@ -165,23 +165,32 @@ export default class Wallet extends XAppScreen {
     }
 
     _onKeyPair(keyPair) {
-        this._keyPair = keyPair;
+        this._api.importKey(keyPair.privateKey)
         location = '#backup-file';
     }
 
-    _onEncryptBackup(password) {
-        this.$screenBackupFile.backup(this._keyPair.address, this._keyPair.privateKey);
+    async _onEncryptBackup(password) {
+        const encryptedKey = await this._api.exportEncrypted(password);
+        this.$screenBackupFile.backup(this._api.address, encryptedKey);
     }
 
     _onBackupFileComplete() {
-        this._api.importKey(this._keyPair.privateKey)
-            .then(e => location = '#home');
+        location = '#home';
     }
 
-    _onDecryptBackup(backup) {
+    async _onDecryptBackup(backup) {
+        console.log(backup);
         const password = backup.password
-        const encrytedKey = backup.encrytedKey;
-        console.log(`x-decrypt-backup`, backup);
+        const encryptedKey = backup.encryptedKey;
+        try {
+            await this._api.importEncrypted(encryptedKey, password);
+            await this.$screenBackupFileImport.onPasswordCorrect();
+            this._onAccountChanged(this._api.address);
+            location = '#home';
+        } catch (e) {
+            console.error(e);
+            await this.$screenBackupFileImport.onPasswordIncorrect();
+        }
     }
 
     _onDifferentTabError() {
@@ -192,7 +201,7 @@ export default class Wallet extends XAppScreen {
     _entryScreens(nextStateDiff, nextState, prevState, isNavigateBack) {
         super._entryScreens(nextStateDiff, nextState, prevState, isNavigateBack);
         const route = nextState.id;
-        if(route === 'home' || route === 'receive' || route === 'send') 
+        if (route === 'home' || route === 'receive' || (route === 'send' && nextState.toString() !== 'send/recipient/intro'))
             this._showNavi(route);
         else
             this._hideNavi();
