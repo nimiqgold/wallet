@@ -208,6 +208,4 @@ export default class Wallet extends XAppScreen {
 }
 Wallet.launch();
 
-
-// Todo: add screen-error
 // Todo: add screen-history
