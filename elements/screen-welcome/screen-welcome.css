@@ -7,3 +7,7 @@ screen-welcome x-container {
     justify-content: center;
     align-items: center;
 }
+
+screen-welcome [button]{
+	margin-top: 128px;
+}
