@@ -1,13 +1,5 @@
 @import '/elements/nimiq-logo/nimiq-logo.css';
 
-screen-welcome x-container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 screen-welcome [button]{
 	margin-top: 128px;
 }
