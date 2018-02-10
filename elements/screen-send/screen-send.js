@@ -1,5 +1,5 @@
 import XScreen from '/elements/x-screen/x-screen.js';
-import NanoApi from '/library/nano-api/nano-api.js';
+import NanoApi from '/libraries/nano-api/nano-api.js';
 import ScreenRecipient from '/elements/screen-recipient/screen-recipient.js';
 
 export default class ScreenSend extends XScreen {
