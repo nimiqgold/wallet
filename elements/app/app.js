@@ -15,7 +15,6 @@ import ScreenBackupFile from '/elements/screen-backup-file/screen-backup-file.js
 import ScreenBackupFileImport from '/elements/screen-backup-file-import/screen-backup-file-import.js';
 import XNimiqApi from '/elements/x-nimiq-api/x-nimiq-api.js';
 import XInactivitySensor from '/elements/x-inactivity-sensor/x-inactivity-sensor.js';
-import XToast from '/elements/x-toast/x-toast.js';
 
 export default class Wallet extends XAppScreen {
     html() {
@@ -217,4 +216,5 @@ export default class Wallet extends XAppScreen {
 }
 Wallet.launch();
 
-// Todo: add screen-history
+// Todo: Fix API events
+
