@@ -14,6 +14,7 @@ import ScreenIdenticons from '/elements/screen-identicons/screen-identicons.js';
 import ScreenBackupFile from '/elements/screen-backup-file/screen-backup-file.js';
 import ScreenBackupFileImport from '/elements/screen-backup-file-import/screen-backup-file-import.js';
 import XNimiqApi from '/elements/x-nimiq-api/x-nimiq-api.js';
+import NanoApi from '/libraries/nano-api/nano-api.js';
 import XInactivitySensor from '/elements/x-inactivity-sensor/x-inactivity-sensor.js';
 
 export default class Wallet extends XAppScreen {
@@ -82,14 +83,15 @@ export default class Wallet extends XAppScreen {
             'x-fees': '_onTxFeesSelected',
             'x-confirm': '_sendTx',
             'x-keypair': '_onKeyPair',
-            'x-account': '_onAccountChanged',
-            'x-balance': '_onBalanceChanged',
-            'x-transaction': '_onTransactionReceived',
+            'nimiq-account': '_onAccountChanged',
+            'nimiq-balance': '_onBalanceChanged',
+            'nimiq-transaction': '_onTransactionReceived',
             'x-encrypt-backup': '_onEncryptBackup',
             'x-decrypt-backup': '_onDecryptBackup',
             'x-backup-file-complete': '_onBackupFileComplete',
-            'x-api-ready': '_onApiReady',
-            'x-different-tab-error': '_onDifferentTabError'
+            'nimiq-api-ready': '_onApiReady',
+            'nimiq-api-fail': '_onApiFail',
+            'nimiq-different-tab-error': '_onDifferentTabError'
         }
     }
 
@@ -106,10 +108,11 @@ export default class Wallet extends XAppScreen {
         this.$screenHome.balance = balance;
     }
 
-    _onApiReady(api) {
-        this._api = api;
-        this.$screenLocked.onApiReady(api);
-        this.$screenIdenticons.onApiReady(api);
+    async _onApiReady() {
+        this._api = NanoApi.getApi();
+        await this._api.loadWallet();
+        this.$screenLocked.onApiReady(this._api);
+        this.$screenIdenticons._generateIdenticons();
     }
 
     _sendTx() {
@@ -190,6 +193,11 @@ export default class Wallet extends XAppScreen {
             console.error(e);
             await this.$screenBackupFileImport.onPasswordIncorrect();
         }
+    }
+
+    _onApiFail() {
+        this.$screenError.show('Nimiq API failed to load');
+        document.location = '#error';
     }
 
     _onDifferentTabError() {
