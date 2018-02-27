@@ -1,4 +1,4 @@
-@import '/elements/x-screen/x-screen.js';
+@import '/elements/x-screen/x-screen.css';
 @import '../navigation/navigation.css';
 @import '../screen-confirm/screen-confirm.css';
 @import '../screen-fees/screen-fees.css';
