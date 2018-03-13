@@ -1,4 +1,4 @@
-@import '/elements/screen-recipient/screen-recipient.css';
+@import '/elements/legacy/screen-recipient/screen-recipient.css';
 
 
 screen-send>x-address-pages x-qr-scanner-overlay {
