@@ -1,6 +1,6 @@
 import XScreen from '/elements/x-screen/x-screen.js';
 import XAmountInput from '/elements/x-amount-input/x-amount-input.js';
-import XIdenticon from '/elements/x-identicon/x-identicon.js';
+import XIdenticon from '/secure-elements/x-identicon/x-identicon.js';
 
 export default class ScreenTransaction extends XScreen {
     html(){

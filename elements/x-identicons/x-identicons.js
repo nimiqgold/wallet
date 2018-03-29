@@ -1,9 +1,9 @@
 import XElement from '/libraries/x-element/x-element.js';
-import XIdenticon from '/elements/x-identicon/x-identicon.js';
+import XIdenticon from '/secure-elements/x-identicon/x-identicon.js';
 import keyguardPromise from '../../../../../apps/safe/keyguard.js';
 import reduxify from '/libraries/redux/src/redux-x-element.js';
 import store from '../../../../../apps/safe/store/store.js';
-import XRouter from '/elements/x-router/x-router.js';
+import XRouter from '/secure-elements/x-router/x-router.js';
 
 export default class XIdenticons extends XElement {
 

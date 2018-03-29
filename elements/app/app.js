@@ -13,7 +13,7 @@ import ScreenFees from '../screen-fees/screen-fees.js';
 import ScreenIdenticons from '/elements/legacy/screen-identicons/screen-identicons.js';
 import ScreenBackupFile from '/elements/legacy/screen-backup-file/screen-backup-file.js';
 import ScreenBackupFileImport from '/elements/legacy/screen-backup-file-import/screen-backup-file-import.js';
-import XNimiqApi from '/elements/x-nimiq-api/x-nimiq-api.js';
+import XNimiqApi from '/elements/legacy/x-nimiq-api/x-nimiq-api.js';
 import NanoApi from '/libraries/nano-api/nano-api.js';
 import XInactivitySensor from '/elements/x-inactivity-sensor/x-inactivity-sensor.js';
 

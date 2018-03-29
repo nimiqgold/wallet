@@ -1,4 +1,4 @@
-@import '/elements/nimiq-logo/nimiq-logo.css';
+@import '/secure-elements/nimiq-logo/nimiq-logo.css';
 
 screen-welcome [button]{
 	margin-top: 128px;

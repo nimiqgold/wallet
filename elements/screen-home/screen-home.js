@@ -1,6 +1,6 @@
 import XScreen from '/elements/x-screen/x-screen.js';
 import XAmount from '/elements/x-amount/x-amount.js';
-import XIdenticon from '/elements/x-identicon/x-identicon.js';
+import XIdenticon from '/secure-elements/x-identicon/x-identicon.js';
 
 export default class ScreenHome extends XScreen {
     html() {
