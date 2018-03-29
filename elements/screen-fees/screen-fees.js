@@ -1,5 +1,5 @@
 import XScreen from '/elements/x-screen/x-screen.js';
-import XAmount from '/secure-elements/x-amount/x-amount.js';
+import XAmount from '/elements/x-amount/x-amount.js';
 
 export default class ScreenFees extends XScreen {
     html() {
