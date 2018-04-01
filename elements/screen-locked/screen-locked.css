@@ -1,4 +1,4 @@
-@import '/elements/x-pinpad/x-pinpad.css';
+@import '/secure-elements/x-pinpad/x-pinpad.css';
 view-locked {
     transition: transform 800ms, opacity 500ms;
     z-index: 2;
